@@ -1,0 +1,25 @@
+{
+  "footer": {
+    "description": "مطلوب هو الحل الذكي والمثالي لتلبية احتياجات المؤسسات والشركات في خدمات التنظيف والصيانة والضيافة.",
+    "company": "الشركة",
+    "about_us": "من نحن",
+    "contact_us": "اتصل بنا",
+    "common_questions": "الأسئلة الشائعة",
+    "support": "الدعم",
+    "terms_conditions": "الشروط والأحكام",
+    "privacy_policy": "سياسة الخصوصية",
+    "copyright": "جميع الحقوق محفوظة لشركة مطلوب"
+  },
+  "navbar": {
+    "toggleLanguage": "التبديل إلى {{ language }}",
+    "signIn": "تسجيل الدخول"
+  },
+  "menuItems": {
+    "home": "الصفحة الرئيسية",
+    "aboutUs": "من نحن",
+    "contactUs": "اتصل بنا"
+  },
+  "mobileApp": {
+    "downloadText": "قم بتنزيل التطبيق لمعالجة أسرع وأسهل"
+  }
+}

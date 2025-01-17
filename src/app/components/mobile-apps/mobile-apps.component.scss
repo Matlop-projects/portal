@@ -1,0 +1,102 @@
+.mobile-app-container {
+  position: relative;
+  margin-top: 8rem;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(45deg, #00b8fe, #23d2b2, #41de93);
+    padding: 50px 30px;
+    border-radius: 30px;
+    margin-bottom: 70px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/images/mobile-app/BG lines(1).webp') 50% / cover no-repeat;
+      top: 0;
+      left: 0;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 99;
+
+      .title {
+        p {
+          font-size: 48px;
+          color: white;
+          width: 51%;
+
+          &:lang(ar) {
+            width: 60%;
+          }
+        }
+      }
+
+      .apps-images {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .pointer {
+          display: inline-block;
+          transition: transform 0.3s ease; /* Smooth transition for hover effect */
+
+          img {
+            width: 100%;  /* Make sure the image takes full width or set a fixed width */
+            height: auto; /* Maintain aspect ratio */
+          }
+
+          &:hover {
+            transform: translateY(-5px); /* Move the image 5px upwards on hover */
+          }
+        }
+      }
+    }
+
+    .mobile-image {
+      position: absolute;
+      bottom: 65px;
+      right: 0;
+
+      &:lang(ar) {
+        right: unset;
+        left: 0 !important;
+      }
+    }
+  }
+}
+
+/* Media Queries */
+
+/* Adjust the margin and position for screens below 900px */
+@media (max-width: 900px) {
+  .mobile-app-container {
+    margin-top: 4rem !important;  /* Adjust margin-top for smaller screens */
+  }
+
+  .mobile-image {
+    position: unset !important;  /* Reset the position for smaller screens */
+  }
+
+  .title {
+    p {
+      width: 100% !important;  /* Make title text take full width on smaller screens */
+    }
+  }
+}
+
+/* Hide the mobile image for screens below 480px */
+@media (max-width: 480px) {
+  .mobile-image {
+    display: none !important;  /* Hide the mobile image on very small screens */
+  }
+}

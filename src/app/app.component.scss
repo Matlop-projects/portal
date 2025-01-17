@@ -1,0 +1,25 @@
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;  /* Distance from the bottom */
+  right: 20px;   /* Distance from the right */
+  z-index: 1000; /* Ensures the icon stays on top of other elements */
+  background-color: #95b5a1;  /* WhatsApp green */
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  img {
+    width: 50px; /* Adjust the size of the icon */
+    height: 50px;
+  }
+
+  &:hover {
+    background-color: #128C7E; /* WhatsApp darker green on hover */
+    box-shadow: 0 0 10px 4px rgba(0, 255, 0, 0.7); /* Green glowing border */
+  }
+
+  &:lang(ar) {
+    right: unset !important;
+    left: 20px !important;
+  }
+}

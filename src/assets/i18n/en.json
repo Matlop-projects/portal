@@ -1,0 +1,25 @@
+{
+  "footer": {
+    "description": "Matlop is the smart and ideal solution to meet the needs of institutions and companies in cleaning, maintenance, and hospitality services.",
+    "company": "Company",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "common_questions": "Common Questions",
+    "support": "Support",
+    "terms_conditions": "Terms and Conditions",
+    "privacy_policy": "Privacy Policy",
+    "copyright": "All Copyrights are reserved by Matlop"
+  },
+    "navbar": {
+      "toggleLanguage": "Switch to {{ language }}",
+      "signIn": "Sign In"
+    },
+    "menuItems": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us"
+    },
+    "mobileApp": {
+      "downloadText": "Download the application for faster and easier processing"
+    }
+}

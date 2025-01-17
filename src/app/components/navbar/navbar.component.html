@@ -1,0 +1,40 @@
+<nav class="navbar">
+  <!-- Logo Section -->
+  <div class="navbar-brand">
+    <a href="/" class="logo">
+      <img src="assets/images/smallLogo.svg" alt="matlop-logo">
+    </a>
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="nav-links" [class.active]="isMenuOpen">
+    <ul>
+      <li *ngFor="let item of menuItems" routerLinkActive="active" class="nav-item">
+        <a [routerLink]="item.path"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}"
+           (click)="isMenuOpen = false">
+          {{ item.label | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- User Section -->
+  <div class="user-section" [class.active]="isMenuOpen">
+    <button class="lang-btn" (click)="toggleLanguage()">
+      {{ selectedLang.toUpperCase() == 'AR' ? 'EN' : 'AR' }}
+    </button>
+    <button class="signin-btn">{{ 'navbar.signIn' | translate }}</button>
+    <div class="user-avatar">
+      <img src="https://www.primefaces.org/cdn/primevue/images/landing/apps/main-avatar.png" alt="User Avatar">
+    </div>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
