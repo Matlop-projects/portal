@@ -1,0 +1,45 @@
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 500px;  /* Increased height for the carousel item */
+  width: 100%;    /* Set the width of the items */
+  border-radius: 8px;
+}
+
+.owl-carousel .owl-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.carousel-image {
+  max-width: 100%;         /* Make the image responsive by limiting the width */
+  max-height: 100%;        /* Ensure the image does not exceed the container's height */
+  // object-fit: contain;     /* Ensure the image scales while maintaining aspect ratio */
+  border-radius: 8px;
+}
+
+/* Adjust height for medium screens (tablets) */
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 400px;  /* Adjust height for tablets */
+  }
+
+  .carousel-image {
+    max-height: 90%; /* Ensure image fits within the smaller carousel item */
+  }
+}
+
+/* Adjust height for small screens (mobile) */
+@media (max-width: 480px) {
+  .carousel-item {
+    height: 300px;  /* Further reduce height for very small screens */
+  }
+
+  .carousel-image {
+    max-height: 80%; /* Adjust image size for very small screens */
+  }
+}

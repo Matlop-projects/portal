@@ -1,0 +1,10 @@
+<div class="container">
+  <owl-carousel-o [options]="owlOptions">
+    <ng-template carouselSlide *ngFor="let img of images">
+      <div class="carousel-item">
+        <img *ngIf="img.image" [src]="img.image" alt="Image" class="carousel-image">
+        <h1 *ngIf="!img.image">{{ img.titleEn }}</h1>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+</div>

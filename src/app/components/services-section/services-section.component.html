@@ -1,0 +1,35 @@
+<div class="services-section-container">
+  <div class="container">
+    <div class="content">
+      <div class="details-section">
+        <div class="title mb-4 mt-4">
+          <p>
+            Main Sections
+          </p>
+        </div>
+        <div class="desc">
+          <p>
+            At Matlop, we provide comprehensive solutions that cater to your daily needs and large-scale project
+            requirements. Whether you're looking for integrated cleaning services, professional maintenance for
+            buildings and homes, or the deployment of qualified personnel for government and private sector projects, we
+            guarantee quality and reliability in every service we offer.</p>
+        </div>
+      </div>
+      <div class="services-items">
+        <div class="row">
+          <ng-container *ngFor="let service of services">
+            <div class="service-card col-lg-3 col-md-6 col-sm-12 mt-3">
+              <div class="card-content">
+               <div class="image-container">
+                <img src={{service.image}} alt="service image">
+               </div>
+               <p>{{selectedLang == 'ar' ? service.nameAr : service.nameEn }}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

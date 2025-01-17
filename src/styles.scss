@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "primeicons/primeicons.css";
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "./assets/scss/fonts";
+@import 'ngx-toastr/toastr';
+
+:root {
+  --main-text-color: redF2F3E;
+}
+
+.toast-success {
+  width:400px!important;
+  background-color: #F1FDF5 !important;
+  color:#43B66D!important;
+  .toast-message , .toast-close-button {
+    color:#414D60!important;
+  }
+  .toast-icon{
+    display: none !important;
+    color: #4caf50 !important;
+    font-size: 30px !important;
+  }
+
+}
+
+h1,h2,h3,h4,h5,p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.pi {
+  font-family: primeicons;
+}
+
+body {
+  font-family: 'Bahij', sans-serif;
+  &:lang(ar) {
+    font-family: 'Bahij', sans-serif;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
