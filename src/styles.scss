@@ -41,6 +41,16 @@ body {
   }
 }
 
+.bolder{
+  font-weight: bolder;
+}
 .pointer {
   cursor: pointer;
+}
+
+.p-accordioncontent-content{
+  background-color: unset!important;
+}
+.p-accordionpanel{
+border: unset!important
 }
