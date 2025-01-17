@@ -1,0 +1,39 @@
+.page{
+    padding:100px;
+    .header {
+        p {
+          font-size: 38px;
+        }
+      }
+      .content{
+        
+         .info{
+             margin-bottom: 40px;
+            div.title{
+                font-size: 20px;
+                font-weight: bolder;
+                span.id{
+                    color:#3BD9B3;
+                    margin: 0px 5px;
+                    font-size: 40px;
+                }
+            }
+            div.desc{
+                font-size: 20px;
+                margin: 0 7px;
+            }
+         }
+      }
+}
+
+@media (max-width: 768px) {
+  .page{
+    padding: 10px;
+    .content {
+        flex-direction: column-reverse;
+        img,.article{
+          width: 100%!important;
+        }
+      }
+  }
+}

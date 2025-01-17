@@ -1,0 +1,37 @@
+
+
+
+
+<div class="page">
+    <div class="content d-flex justify-content-between flex-wrap">
+        <img  width="50%" height="500px" src="assets/images/Imagefaq.webp"  alt="img">
+
+      <div class="article w-50">
+          <div class="header mb-4 mt-4">
+              <p class="bolder">
+                  Common questions
+              </p>
+            </div>
+            <ng-container *ngFor="let item of items; let i =index">
+
+             <div class="border-rd" [class.active]="i==getActiveIndex()">
+                <p-accordion [value]="activeIndex" (valueChange)="onOpen($event)" >
+                    <p-accordion-panel [class.active]="i==getActiveIndex()" [value]="i">
+                        <p-accordion-header [class.active]="i==getActiveIndex()">
+                            <span [class.active-question]="i==getActiveIndex()" class="question">{{item.question}}</span>
+                        </p-accordion-header>
+                        <p-accordion-content [class.active]="i==getActiveIndex()">
+                            <p class="answer m-0">
+                               {{item.answer}}
+                            </p>
+                        </p-accordion-content>
+                    </p-accordion-panel>
+                </p-accordion>
+             </div>
+               
+            
+            </ng-container>
+      </div>
+      
+    </div>
+</div>
