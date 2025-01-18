@@ -9,7 +9,7 @@
       <div class="article w-50">
           <div class="header mb-4 mt-4">
               <p class="bolder">
-                  Common questions
+                 {{'common_questions.title'|translate}}
               </p>
             </div>
             <ng-container *ngFor="let item of items; let i =index">
@@ -21,9 +21,7 @@
                             <span [class.active-question]="i==getActiveIndex()" class="question">{{item.question}}</span>
                         </p-accordion-header>
                         <p-accordion-content [class.active]="i==getActiveIndex()">
-                            <p class="answer m-0">
-                               {{item.answer}}
-                            </p>
+                            <div class="answer m-0" [innerHtml]="item.answer"></div>
                         </p-accordion-content>
                     </p-accordion-panel>
                 </p-accordion>

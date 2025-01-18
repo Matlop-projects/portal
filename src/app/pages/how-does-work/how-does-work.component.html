@@ -3,17 +3,17 @@
         <div class="article w-50">
             <div class="header mb-4 mt-4">
                 <p class="bolder">
-                    How does it work Matlop ?
+                     {{'how_does.title'|translate}}
                 </p>
               </div>
             <ng-container *ngFor="let item of data;let i =index">
                 <div class="info">
                 <div class="title">
                     <span class="id">{{i+1}} </span>
-                    <span> {{item.title}}  </span>
+                    <span> {{item.title|translate}}  </span>
                   </div>
                   <div class="desc">
-                    {{item.desc}}
+                    {{item.desc|translate}}
                   </div>
                 </div>
     

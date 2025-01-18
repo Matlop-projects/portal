@@ -12,32 +12,32 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class HowDoesWorkComponent {
    data:any[]=[
     {
-       title:' Sign Up and Create an Account: ',
-       desc:'  Start your journey with Matlop by downloading the app and easily creating your personal account.'
+       title:'how_does.q1',
+       desc:'how_does.answ1'
     },
     {
-      title:' Choose the Desired Service: ',
-      desc:' Select from a wide range of services, including cleaning, hospitality, maintenance, and more, tailored to meet the needs of your company or home.'
+      title:'how_does.q2',
+      desc:'how_does.answ2'
    },
    {
-    title:' Specify the Details: ',
-    desc:'  Set the execution date, location, and duration (hours or contract period) to ensure a fully customized service.'
+    title:'how_does.q3',
+    desc:'how_does.answ3'
  },
  {
-  title:'Pick the Right Package: ',
-  desc:' Browse through our various packages and choose the one that fits your budget and requirements, whether you need hourly services or long-term contracts.'
+  title:'how_does.q4',
+  desc:'how_does.answ4'
 },
 {
-  title:' Secure Payment: ',
-  desc:'  Enjoy safe and easy electronic payment options, with the flexibility to pay upfront or upon service completion.'
+  title:'how_does.q5',
+  desc:'how_does.answ5'
 },
 {
-title:' Professional Execution:',
-desc:'  Our professional team arrives on time to deliver the service with the quality and professionalism that matches your expectations.'
+title:'how_does.q6',
+desc:'how_does.answ6'
 },
 {
-title:' Feedback and Support:',
-desc:' After the service is completed, you can rate your experience and provide any feedback to help us improve. Our support team is always here to assist you!'
+title:'how_does.q7',
+desc:'how_does.answ7'
 }
    ]
 }
