@@ -1,0 +1,56 @@
+.page{
+    padding:100px;
+      .header {
+          p {
+            font-size: 38px;
+          }
+        }
+        .content{
+          .article{
+              padding: 0px 10px;
+              p-accordion{
+                  .question{
+                      font-weight: bolder;
+                      font-size: 20px;
+                    }
+                    .answer{
+                        font-size: 20px;
+                        color:rgb(189 189 189)
+                    }
+              }
+            
+          }
+         
+        
+        }
+        .active{
+          background-color: #F3F5F9!important;
+        }
+        .border-rd{
+          border-radius: 20px;
+          padding: 5px;
+          min-width: 250px;
+      
+        }
+        .active-question{
+          font-size: 23px!important;
+          font-weight: bolder;
+        }
+      
+  }
+  
+  .sp-page{
+    padding:0!important;
+  
+  }
+  @media (max-width: 768px) {
+    .page{
+      padding: 10px;
+      .content {
+          img,.article{
+            width: 100%!important;
+          }
+        }
+    }
+  }
+  

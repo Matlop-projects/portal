@@ -6,13 +6,13 @@ import { LanguageService } from '../../services/language.service';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-common-questions',
+  selector: 'app-about-us',
   standalone: true,
   imports: [NgFor,AccordionModule,TranslatePipe,NgIf],
-  templateUrl: './common-questions.component.html',
-  styleUrl: './common-questions.component.scss'
+  templateUrl: './about-us.component.html',
+  styleUrl: './about-us.component.scss'
 })
-export class CommonQuestionsComponent implements OnInit {
+export class AboutUsComponent {
 
   private apiService=inject(ApiService)
   private router=inject(Router)
@@ -22,11 +22,11 @@ export class CommonQuestionsComponent implements OnInit {
   selectedLang: any;
   languageService = inject(LanguageService); 
   ngOnInit() {
-    this.getAllFAQS()
+    this.API_getAll()
     this.currentRouter =this.router.url
     this.languageService.translationService.onLangChange.subscribe(() => {
         this.selectedLang = this.languageService.translationService.currentLang;
-        this.getAllFAQS()
+        this.API_getAll()
       }); 
   }
   onOpen(i:any){
@@ -37,13 +37,13 @@ export class CommonQuestionsComponent implements OnInit {
     return this.activeIndex
   }
 
-  getAllFAQS(){
-       this.apiService.get('FAQs/GetAll').subscribe((res:any)=>{
+  API_getAll(){
+       this.apiService.get('AboutUs/GetAll').subscribe((res:any)=>{
          if(res.data){ 
           this.items=[]
           res.data.map((item:any)=>{
              this.items.push({
-              question:this.selectedLang=='en'?item.enTitle:item.arTitle,
+              question:this.selectedLang=='en'?item.enName:item.arName,
               answer:this.selectedLang=='en'?item.enDescription:item.arDescription
              })
           })

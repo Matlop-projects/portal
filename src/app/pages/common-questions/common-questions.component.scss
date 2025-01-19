@@ -1,5 +1,5 @@
 .page{
-    padding:100px;
+  padding:100px;
     .header {
         p {
           font-size: 38px;
@@ -38,6 +38,10 @@
     
 }
 
+.sp-page{
+  padding:0!important;
+
+}
 @media (max-width: 768px) {
   .page{
     padding: 10px;

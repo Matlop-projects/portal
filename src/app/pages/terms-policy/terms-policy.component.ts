@@ -6,15 +6,14 @@ import { LanguageService } from '../../services/language.service';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-common-questions',
+  selector: 'app-terms-policy',
   standalone: true,
   imports: [NgFor,AccordionModule,TranslatePipe,NgIf],
-  templateUrl: './common-questions.component.html',
-  styleUrl: './common-questions.component.scss'
+  templateUrl: './terms-policy.component.html',
+  styleUrl: './terms-policy.component.scss'
 })
-export class CommonQuestionsComponent implements OnInit {
-
-  private apiService=inject(ApiService)
+export class TermsPolicyComponent {
+private apiService=inject(ApiService)
   private router=inject(Router)
   currentRouter =this.router.url
   activeIndex=-1
@@ -22,11 +21,11 @@ export class CommonQuestionsComponent implements OnInit {
   selectedLang: any;
   languageService = inject(LanguageService); 
   ngOnInit() {
-    this.getAllFAQS()
+    this.API_getAll()
     this.currentRouter =this.router.url
     this.languageService.translationService.onLangChange.subscribe(() => {
         this.selectedLang = this.languageService.translationService.currentLang;
-        this.getAllFAQS()
+        this.API_getAll()
       }); 
   }
   onOpen(i:any){
@@ -37,13 +36,13 @@ export class CommonQuestionsComponent implements OnInit {
     return this.activeIndex
   }
 
-  getAllFAQS(){
-       this.apiService.get('FAQs/GetAll').subscribe((res:any)=>{
+  API_getAll(){
+       this.apiService.get('TermsAndConditions/GetAllByUserType?userTypeEnum=1').subscribe((res:any)=>{
          if(res.data){ 
           this.items=[]
           res.data.map((item:any)=>{
              this.items.push({
-              question:this.selectedLang=='en'?item.enTitle:item.arTitle,
+              question:this.selectedLang=='en'?item.enName:item.arName,
               answer:this.selectedLang=='en'?item.enDescription:item.arDescription
              })
           })

@@ -1,0 +1,22 @@
+<div class="page-container">
+   <div class="header">
+    <h1>{{title|translate}}</h1>
+   </div>
+   <div class="content d-flex justify-content-start p-3">
+    <div class="menu">
+        <ng-container  *ngFor="let item of menu">
+          <div class="pointer" [routerLink]="item.route" [state]="{asd:'dd'}" (click)="onRouteChange(item)"
+           routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+          >
+            {{item.name|translate}}
+        </div>
+          <hr>
+        </ng-container>
+          
+    </div>
+    <div class="components">
+        <router-outlet></router-outlet>
+    </div>
+   </div>
+</div>
