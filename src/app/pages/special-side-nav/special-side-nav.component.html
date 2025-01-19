@@ -4,14 +4,24 @@
    </div>
    <div class="content d-flex justify-content-start p-3">
     <div class="menu">
-        <ng-container  *ngFor="let item of menu">
-          <div class="pointer" [routerLink]="item.route" [state]="{asd:'dd'}" (click)="onRouteChange(item)"
+        <ng-container  *ngFor="let item of menu;let i=index">
+          <div class="pointer" [routerLink]="item.route"  (click)="onRouteChange(item)"
            routerLinkActive="active"
           [routerLinkActiveOptions]="{exact: true}"
           >
+         <span [class.active-svg]="title==item.name">
+          <svg  width="32" height="32" fill="none">
+            <path [attr.fill]="title==item.name?'#fff':'#292D32'"
+             [attr.d]="item.path1">
+            </path>
+             <path [attr.fill]="title==item.name?'#fff':'#292D32'" 
+             [attr.d]="item.path2">
+            </path>
+          </svg>
+         </span>
             {{item.name|translate}}
         </div>
-          <hr>
+          <hr [class.active-hr]="title==item.name">
         </ng-container>
           
     </div>

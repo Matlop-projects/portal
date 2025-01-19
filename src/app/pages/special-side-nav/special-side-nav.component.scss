@@ -27,3 +27,13 @@
     color: #007bff!important;
     font-weight: bolder;
 }
+.active-hr{
+    background: #007bff;
+    height: 3px;
+    opacity: unset!important;
+}
+.active-svg {
+    background-image: linear-gradient(270deg, #00b8fe, #23d2b2, #41de93);
+  border-radius: 30px;
+  padding: 5px 8px 10px 8px;
+  }
