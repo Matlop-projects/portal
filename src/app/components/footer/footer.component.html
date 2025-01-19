@@ -24,14 +24,14 @@
       <div class="two">
         <div class="links">
           <div class="title">{{ 'footer.company' | translate }}</div>
-          <a href="#">{{ 'footer.about_us' | translate }}</a>
+          <a class="pointer" (click)="goTo('about')">{{ 'footer.about_us' | translate }}</a>
           <a href="#">{{ 'footer.contact_us' | translate }}</a>
-          <a href="#">{{ 'footer.common_questions' | translate }}</a>
+          <a class="pointer" (click)="goTo('common')">{{ 'footer.common_questions' | translate }}</a>
         </div>
         <div class="links">
           <div class="title">{{ 'footer.support' | translate }}</div>
-          <a href="#">{{ 'footer.terms_conditions' | translate }}</a>
-          <a href="#">{{ 'footer.privacy_policy' | translate }}</a>
+          <a class="pointer" (click)="goTo('terms')">{{ 'footer.terms_conditions' | translate }}</a>
+          <a class="pointer" (click)="goTo('privacy')">{{ 'footer.privacy_policy' | translate }}</a>
         </div>
       </div>
     </div>

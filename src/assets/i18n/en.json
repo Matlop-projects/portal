@@ -1,23 +1,32 @@
 {
-  "how_does":{
-      "title":"How does it work Matlop ?",
-      "q1":"Sign Up and Create an Account:",
-      "answ1":"  Start your journey with Matlop by downloading the app and easily creating your personal account.",
-      "q2":"Choose the Desired Service:",
-      "answ2":" Select from a wide range of services, including cleaning, hospitality, maintenance, and more, tailored to meet the needs of your company or home.",
-      "q3":"Specify the Details:",
-      "answ3":" Set the execution date, location, and duration (hours or contract period) to ensure a fully customized service.",
-      "q4":"Pick the Right Package: ",
-      "answ4":" Browse through our various packages and choose the one that fits your budget and requirements, whether you need hourly services or long-term contracts.",
-      "q5":" Secure Payment: ",
-      "answ5":"  Enjoy safe and easy electronic payment options, with the flexibility to pay upfront or upon service completion.",
-      "q6":" Professional Execution:",
-      "answ6":" Our professional team arrives on time to deliver the service with the quality and professionalism that matches your expectations.",
-      "q7":"Feedback and Support:",
-      "answ7":" After the service is completed, you can rate your experience and provide any feedback to help us improve. Our support team is always here to assist you!"
+  "how_does": {
+    "title": "How does it work Matlop ?",
+    "q1": "Sign Up and Create an Account:",
+    "answ1": "  Start your journey with Matlop by downloading the app and easily creating your personal account.",
+    "q2": "Choose the Desired Service:",
+    "answ2": " Select from a wide range of services, including cleaning, hospitality, maintenance, and more, tailored to meet the needs of your company or home.",
+    "q3": "Specify the Details:",
+    "answ3": " Set the execution date, location, and duration (hours or contract period) to ensure a fully customized service.",
+    "q4": "Pick the Right Package: ",
+    "answ4": " Browse through our various packages and choose the one that fits your budget and requirements, whether you need hourly services or long-term contracts.",
+    "q5": " Secure Payment: ",
+    "answ5": "  Enjoy safe and easy electronic payment options, with the flexibility to pay upfront or upon service completion.",
+    "q6": " Professional Execution:",
+    "answ6": " Our professional team arrives on time to deliver the service with the quality and professionalism that matches your expectations.",
+    "q7": "Feedback and Support:",
+    "answ7": " After the service is completed, you can rate your experience and provide any feedback to help us improve. Our support team is always here to assist you!"
   },
-  "common_questions":{
-"title":" Common questions"
+  "common_questions": {
+    "title": " Common questions"
+  },
+  "about_us": {
+    "title": " About us"
+  },
+  "privacy_policy": {
+    "title": " Privacy Policy"
+  },
+  "terms_policy": {
+    "title": "Terms Policy"
   },
   "footer": {
     "description": "Matlop is the smart and ideal solution to meet the needs of institutions and companies in cleaning, maintenance, and hospitality services.",
@@ -30,16 +39,16 @@
     "privacy_policy": "Privacy Policy",
     "copyright": "All Copyrights are reserved by Matlop"
   },
-    "navbar": {
-      "toggleLanguage": "Switch to {{ language }}",
-      "signIn": "Sign In"
-    },
-    "menuItems": {
-      "home": "Home",
-      "aboutUs": "About Us",
-      "contactUs": "Contact Us"
-    },
-    "mobileApp": {
-      "downloadText": "Download the application for faster and easier processing"
-    }
+  "navbar": {
+    "toggleLanguage": "Switch to {{ language }}",
+    "signIn": "Sign In"
+  },
+  "menuItems": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us"
+  },
+  "mobileApp": {
+    "downloadText": "Download the application for faster and easier processing"
+  }
 }

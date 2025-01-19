@@ -6,6 +6,12 @@ import { ForgetPasswordComponent } from './pages/forget-password/forget-password
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { authGuard } from './core/auth.guard';
+import { SpecialSideNavComponent } from './pages/special-side-nav/special-side-nav.component';
+import { Component } from '@angular/core';
+import { CommonQuestionsComponent } from './pages/common-questions/common-questions.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 export const routes: Routes = [
   {
@@ -29,6 +35,26 @@ export const routes: Routes = [
     // canActivate: [authGuard], // Applying authGuard to the home layout
     children: [
       { path: 'home', component: HomeComponent },
+      { path: 'sp', component: SpecialSideNavComponent,
+        children:[
+          {
+            path:'',redirectTo:'privacy',pathMatch:'full'
+
+          },
+          {
+            path:'privacy',component:PrivacyPolicyComponent
+          },
+          {
+            path:'terms',component:TermsPolicyComponent
+          },
+          {
+            path:'about',component:AboutUsComponent
+          },
+          {
+            path:'common',component:CommonQuestionsComponent
+          }
+        ]
+       },
     ]
   }
 ];

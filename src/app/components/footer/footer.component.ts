@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -9,9 +10,15 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-
+  private router=inject(Router)
   getCurrentYear(): number {
     return new Date().getFullYear();
+  }
+  goTo(value:string){
+    this.router.navigate(['home']).then(()=>{
+      this.router.navigateByUrl(`/sp/${value}`)
+    })
+     
   }
 
 }
