@@ -41,6 +41,9 @@ body {
   }
 }
 
+.bolder{
+  font-weight: bolder;
+}
 .pointer {
   cursor: pointer;
 }
@@ -49,4 +52,10 @@ body {
 small {
   color: red;
   font-size: 12px;
+}
+.p-accordioncontent-content{
+  background-color: unset!important;
+}
+.p-accordionpanel{
+border: unset!important
 }
