@@ -39,16 +39,38 @@
     "privacy_policy": "Privacy Policy",
     "copyright": "All Copyrights are reserved by Matlop"
   },
-  "navbar": {
-    "toggleLanguage": "Switch to {{ language }}",
-    "signIn": "Sign In"
+    "navbar": {
+      "toggleLanguage": "Switch to {{ language }}",
+      "signIn": "Sign In"
+    },
+    "menuItems": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us"
+    },
+    "mobileApp": {
+      "downloadText": "Download the application for faster and easier processing"
+    },
+    "services": {
+    "mainSections": "Main Sections",
+    "description": "At Matlop, we provide comprehensive solutions that cater to your daily needs and large-scale project requirements. Whether you're looking for integrated cleaning services, professional maintenance for buildings and homes, or the deployment of qualified personnel for government and private sector projects, we guarantee quality and reliability in every service we offer.",
+    "moreService": "More service?",
+    "callHelp": "You can tell us what you need and we can help you!",
+    "callUsNow": "Call us now"
   },
-  "menuItems": {
-    "home": "Home",
-    "aboutUs": "About Us",
-    "contactUs": "Contact Us"
-  },
-  "mobileApp": {
-    "downloadText": "Download the application for faster and easier processing"
-  }
+  "login":{
+    "welcome":"Welcome Back!",
+    "sign_to_dashboard":"Sign In To Access Dashboard",
+    "userName":"User Name",
+    "userName_required":"Username is required",
+     "password":"Password",
+    "password_required":"Password is required",
+    "btn_login":"login",
+    "forget_password":"Forget Password"
+ },
+ "otp":{
+   "verify_mobile_no":"Verify Your Mobile Number",
+   "enter_degits":"Please enter the 4-digit code we sent to",
+   "resend":"Resend"
+ }
 }

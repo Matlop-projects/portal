@@ -3,16 +3,10 @@
     <div class="content">
       <div class="details-section">
         <div class="title mb-4 mt-4">
-          <p>
-            Main Sections
-          </p>
+          <p>{{ 'services.mainSections' | translate }}</p>
         </div>
         <div class="desc">
-          <p>
-            At Matlop, we provide comprehensive solutions that cater to your daily needs and large-scale project
-            requirements. Whether you're looking for integrated cleaning services, professional maintenance for
-            buildings and homes, or the deployment of qualified personnel for government and private sector projects, we
-            guarantee quality and reliability in every service we offer.</p>
+          <p>{{ 'services.description' | translate }}</p>
         </div>
       </div>
       <div class="services-items">
@@ -20,13 +14,25 @@
           <ng-container *ngFor="let service of services">
             <div class="service-card col-lg-3 col-md-6 col-sm-12 mt-3">
               <div class="card-content">
-               <div class="image-container">
-                <img src={{service.image}} alt="service image">
-               </div>
-               <p>{{selectedLang == 'ar' ? service.nameAr : service.nameEn }}</p>
+                <div class="image-container">
+                  <img src={{service.image}} alt="service image">
+                </div>
+                <p>{{selectedLang == 'ar' ? service.nameAr : service.nameEn }}</p>
               </div>
             </div>
           </ng-container>
+        </div>
+      </div>
+
+      <div class="call-center-section mt-4 mb-4">
+        <div class="call-content">
+          <h3>{{ 'services.moreService' | translate }}</h3>
+          <p>{{ 'services.callHelp' | translate }}</p>
+          <a href="https://api.whatsapp.com/send/?phone=966510021622&text=Hello%2C+I+would+like+to+contact+you.&type=phone_number&app_absent=0" target="_blank">
+            <div class="mt-6 px-24 mx-2 !w-max text-center HeroSection_hero-section-footer-button__WJvxP css-1pvcaf" style="">
+              {{ 'services.callUsNow' | translate }}
+            </div>
+          </a>
         </div>
       </div>
 
