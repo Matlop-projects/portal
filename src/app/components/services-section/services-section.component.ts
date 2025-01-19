@@ -3,11 +3,12 @@ import { environment } from '../../../environments/environment';
 import { ApiService } from '../../services/api.service';
 import { LanguageService } from '../../services/language.service';
 import { NgFor } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-services-section',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor , TranslatePipe],
   templateUrl: './services-section.component.html',
   styleUrl: './services-section.component.scss'
 })
