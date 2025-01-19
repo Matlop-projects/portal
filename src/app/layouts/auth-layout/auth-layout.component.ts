@@ -7,7 +7,7 @@ import { Toast } from 'primeng/toast';
 @Component({
   selector: 'app-auth-layout',
   standalone: true,
-  imports: [RouterOutlet , Toast],
+  imports: [RouterOutlet , Toast ],
   templateUrl: './auth-layout.component.html',
   styleUrl: './auth-layout.component.scss'
 })
