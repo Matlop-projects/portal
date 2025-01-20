@@ -10,14 +10,17 @@
 }
 
 .content{
+   .menu-container{
+    width: 35%;
     .menu{
-        width: 20%;
+        width: 50%;
         div{
             color:#000;
             padding:15px 10px;
             font-size: 20px;
         }
     }
+   }
     .components{
         margin: 0px 50px;
         width: 80%;
@@ -36,4 +39,45 @@
     background-image: linear-gradient(270deg, #00b8fe, #23d2b2, #41de93);
   border-radius: 30px;
   padding: 5px 8px 10px 8px;
+  }
+
+  //mobile
+  .openbtn {
+   display: none;
+  }
+  
+ 
+  #openbtn-container {
+    transition: margin-left .5s;
+    padding: 30px 0px;
+  }
+
+  @media  only screen and (max-width: 768px) {
+    .menu{
+        display: none;
+        height: 100%;
+        width: 300px!important;
+        position: fixed; 
+        z-index: 1;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),0 1px 3px rgba(0, 0, 0, 0.06);
+        top: 0;
+        left: 0;
+        background-color: #fff; 
+        overflow-x: hidden; 
+        padding-top: 60px; 
+        transition: 0.5s; 
+    }
+    .showMobileMenu{
+        display: block!important;
+    }
+ .openbtn{
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    background-color: #fff;
+    color: #111;
+    padding: 10px 15px;
+    border: none;
+    }
   }

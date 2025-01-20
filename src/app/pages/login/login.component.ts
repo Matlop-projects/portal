@@ -78,7 +78,7 @@ export class LoginComponent {
 
   onLogin(loginfrom: any) {
     this.api.login(loginfrom).subscribe((res: any) => {
-      this.mobileNumber = res.mobilePhone;
+      this.mobileNumber = res.mobilePhone??this.loginForm.value.userName;
       this.openOtpModal = res.status;
       if (!res.status) {
         localStorage.removeItem('token');

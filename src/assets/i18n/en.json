@@ -1,4 +1,10 @@
 {
+  "actions":{
+   "send":"Send",
+   "login":"Login",
+   "change":"Change",
+   "back":"Back"
+  },
   "how_does": {
     "title": "How does it work Matlop ?",
     "q1": "Sign Up and Create an Account:",
@@ -68,6 +74,17 @@
     "btn_login":"login",
     "forget_password":"Forget Password"
  },
+ "forget_pass":{
+    "title":"Forget Password",
+    "mobile":" Mobile Number",
+    "mobile_required":"Mobile number is required",
+    "add_new_pass":"Add New Password",
+    "enter_new_pass":"Enter new password",
+    "new_pass_required":" New password is required",
+     "confirm_pass":"Confirm password",
+     "confirm_required":"Confirm password is required",
+     "not_matched":"Passwords do not match"
+  },
  "otp":{
    "verify_mobile_no":"Verify Your Mobile Number",
    "enter_degits":"Please enter the 4-digit code we sent to",

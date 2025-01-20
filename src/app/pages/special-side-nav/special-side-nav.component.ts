@@ -12,7 +12,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class SpecialSideNavComponent implements OnInit {
   private router =inject(Router)
-
+  showMenu:boolean=false;
 
   title=''
 
@@ -49,10 +49,18 @@ export class SpecialSideNavComponent implements OnInit {
   this.defaultTitle()
   }
 
+  openNav(){
+     this.showMenu=true
 
+  }
+  closeNav(){
+    this.showMenu=false
+
+  }
 
   onRouteChange(item:any){
     this.title=item.name
+    this.showMenu=false
   }
 
   defaultTitle(){

@@ -6,7 +6,7 @@
     <div class="content d-flex justify-content-between flex-wrap">
         <img *ngIf="!currentRouter.includes('sp')" width="50%" height="500px" src="assets/images/Imagefaq.webp"  alt="img">
 
-      <div class="article w-50">
+      <div class="article w-50" [class.w-100]="currentRouter.includes('sp')">
           <div class="header mb-4 mt-4">
               <p class="bolder">
                  {{'about_us.title'|translate}}

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators , AbstractControl , ValidationErrors } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
@@ -8,15 +8,17 @@ import { ToasterService } from '../../services/toaster.service'; // Import here
 import { ApiService } from '../../services/api.service';
 import { Router, RouterModule } from '@angular/router';
 import { OtpModalComponent } from '../../components/otp-modal/otp-modal.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-forget-password',
   standalone: true,
-  imports: [NgIf,OtpModalComponent, ReactiveFormsModule, InputTextModule, PasswordModule, ButtonModule  , RouterModule],
+  imports: [NgIf,OtpModalComponent,TranslatePipe, ReactiveFormsModule, InputTextModule, PasswordModule, ButtonModule  , RouterModule],
   templateUrl: './forget-password.component.html',
   styleUrl: './forget-password.component.scss'
 })
-export class ForgetPasswordComponent {
+export class ForgetPasswordComponent implements OnInit{
   checkMobile: FormGroup;
   changePassword: FormGroup;
 
@@ -24,7 +26,9 @@ export class ForgetPasswordComponent {
   hideCheckForm: boolean = false;
   openOtpModal: boolean = false;
 
-
+languageService = inject(LanguageService);
+  currentLang = 'en';
+  selectedLang: string = localStorage.getItem('lang') || 'en';
 
   constructor(private fb: FormBuilder, private api: ApiService, private router: Router) {
     this.checkMobile = this.fb.group({
@@ -38,6 +42,14 @@ export class ForgetPasswordComponent {
 
   }
 
+  ngOnInit() {
+      this.initAppTranslation()
+  }
+  public initAppTranslation() {
+    this.languageService.changeAppDirection(this.selectedLang);
+    this.languageService.changeHtmlLang(this.selectedLang);
+    this.languageService.use(this.selectedLang);
+  }
   passwordMatchValidator(group: AbstractControl): ValidationErrors | null {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
