@@ -37,12 +37,12 @@ private apiService=inject(ApiService)
   }
 
   API_getAll(){
-       this.apiService.get('PrivacyPolicy/GetAllByUserType?userTypeEnum=1').subscribe((res:any)=>{
+       this.apiService.get('PrivacyPolicy/GetAll').subscribe((res:any)=>{
          if(res.data){ 
           this.items=[]
           res.data.map((item:any)=>{
              this.items.push({
-              question:this.selectedLang=='en'?item.enName:item.arName,
+              question:this.selectedLang=='en'?item.enTitle:item.arTitle,
               answer:this.selectedLang=='en'?item.enDescription:item.arDescription
              })
           })

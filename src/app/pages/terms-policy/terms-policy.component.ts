@@ -37,7 +37,7 @@ private apiService=inject(ApiService)
   }
 
   API_getAll(){
-       this.apiService.get('TermsAndConditions/GetAllByUserType?userTypeEnum=1').subscribe((res:any)=>{
+       this.apiService.get('TermsAndConditions/GetAll').subscribe((res:any)=>{
          if(res.data){ 
           this.items=[]
           res.data.map((item:any)=>{
