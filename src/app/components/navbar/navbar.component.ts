@@ -1,4 +1,4 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject, inject, Input } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -14,7 +14,7 @@ import { PrimeNG } from 'primeng/config';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
+@Input()hasToken:boolean=false
   isMenuOpen = false;
   currentLang = 'en';
   selectedLang: string = localStorage.getItem('lang') || 'en';

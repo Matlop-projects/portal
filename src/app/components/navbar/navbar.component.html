@@ -25,8 +25,8 @@
     <button class="lang-btn" (click)="toggleLanguage()">
       {{ selectedLang.toUpperCase() == 'AR' ? 'EN' : 'AR' }}
     </button>
-    <button class="signin-btn">{{ 'navbar.signIn' | translate }}</button>
-    <div class="user-avatar">
+    <button *ngIf=!hasToken class="signin-btn">{{ 'navbar.signIn' | translate }}</button>
+    <div class="user-avatar"*ngIf=hasToken>
       <img src="https://www.primefaces.org/cdn/primevue/images/landing/apps/main-avatar.png" alt="User Avatar">
     </div>
   </div>
