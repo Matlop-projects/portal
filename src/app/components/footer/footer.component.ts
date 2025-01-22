@@ -15,6 +15,9 @@ export class FooterComponent {
     return new Date().getFullYear();
   }
   goTo(value:string){
+    if(value=='contact')
+      this.router.navigateByUrl(`${value}`)
+    else
     this.router.navigate(['home']).then(()=>{
       this.router.navigateByUrl(`/sp/${value}`)
     })

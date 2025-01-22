@@ -1,9 +1,13 @@
 {
   "actions": {
    "send": "إرسال",
+   "send_sms":"إرسال رسالة",
    "login": "تسجيل الدخول",
    "change": "تغيير",
    "back": "رجوع"
+},
+"shared":{
+  "enter_your":"ادخل"
 },
   "how_does": {
     "title": "كيف يعمل تطبيق مطلوب؟",
@@ -28,6 +32,17 @@
   "about_us": {
     "title": "من نحن"
   },
+  "contact_us": {
+  "title": "اتصل بنا",
+  "whats_app_sms": "يمكنك التواصل معنا عبر الواتساب",
+  "hello_message": "",
+  "form": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "mobile": "رقم الهاتف",
+    "message": "الرسالة"
+  }
+},
   "privacy_policy": {
     "title": "سياسة الخصوصية"
   },
@@ -89,5 +104,21 @@
     "verify_mobile_no": "تحقق من رقم هاتفك المحمول",
     "enter_degits": "الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى",
     "resend": "إعادة إرسال"
+  },
+  "notifications": {
+    "pageName":"الإشعارات",
+    "pageName_Add_crumb":"إضافة إشعار",
+    "title": "الإشعارات",
+    "no_notifications": "لا توجد إشعارات",
+    "new": "جديد",
+    "seen": "مقروء",
+    "id": "المعرف",
+    "message": "الرسالة",
+    "created": "تاريخ الإنشاء",
+    "form":{
+      "title":"العنوان",
+      "userType":"نوع المستخدم",
+      "note":"ملاحظة"
+    }
   }
 }

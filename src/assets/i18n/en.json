@@ -1,9 +1,13 @@
 {
   "actions":{
    "send":"Send",
+   "send_sms":"Send a  message",
    "login":"Login",
    "change":"Change",
    "back":"Back"
+  },
+  "shared":{
+     "enter_your":"Enter your"
   },
   "how_does": {
     "title": "How does it work Matlop ?",
@@ -27,6 +31,18 @@
   },
   "about_us": {
     "title": " About us"
+  },
+  "contact_us": {
+    "title": " Contact us",
+    "whats_app_sms":"You can contact us via WhatsApp",
+    "hello_message":"",
+    "form":{
+       "name":"Name",
+       "email":"Email",
+       "mobile":" Mobile Number",
+       "message":"Message"
+    }
+      
   },
   "privacy_policy": {
     "title": " Privacy Policy"
@@ -89,5 +105,21 @@
    "verify_mobile_no":"Verify Your Mobile Number",
    "enter_degits":"Please enter the 4-digit code we sent to",
    "resend":"Resend"
- }
+ },
+ "notifications":{
+  "pageName":"Notifications",
+  "pageName_Add_crumb":"Add Notification",
+  "title":"Notifications",
+  "no_notifications":"No notifications found",
+  "new":"New",
+  "seen":"Seen",
+  "id":"ID",
+  "message":"Message",
+  "created":"Created",
+  "form":{
+    "title":"title",
+    "userType":"User Type",
+    "note":"Note"
+  }
+}
 }

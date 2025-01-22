@@ -12,6 +12,7 @@ import { CommonQuestionsComponent } from './pages/common-questions/common-questi
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,8 @@ export const routes: Routes = [
     // canActivate: [authGuard], // Applying authGuard to the home layout
     children: [
       { path: 'home', component: HomeComponent },
+      { path: 'about', component: AboutUsComponent },
+      { path: 'contact', component: ContactUsComponent },
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {

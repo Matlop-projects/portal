@@ -1,0 +1,60 @@
+<div class="page-container">
+    <div class="header">
+     <h1>{{title|translate}}</h1>
+    </div>
+    <div class="content p-3">
+            <div class="whats-app d-flex justify-content-start" (click)="openWhatsApp()">
+                <img src="assets/images/whatsapp.svg" alt="whats-app">
+                <span>{{'contact_us.whats_app_sms'|translate}}</span>
+            </div>
+            <div class="form mt-4">
+                <div class="form-group mb-3">
+                    <label class="mb-1" for="enTitle">{{'contact_us.form.name'|translate}}</label>
+                    <input
+                      type="text"
+                      id="enTitle"
+                      name="enTitle"
+                      class="form-control"
+                      [(ngModel)]="obj.name"
+                      placeholder="{{'shared.enter_your'|translate}} {{'contact_us.form.name'|translate}}"
+                    />
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-1" for="enTitle">{{'contact_us.form.email'|translate}}</label>
+                    <input
+                      type="text"
+                      id="enTitle"
+                      name="enTitle"
+                      class="form-control"
+                      [(ngModel)]="obj.email"
+                      placeholder="{{'shared.enter_your'|translate}} {{'contact_us.form.email'|translate}}"
+                    />
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-1" for="enTitle">{{'contact_us.form.mobile'|translate}}</label>
+                    <input
+                      type="text"
+                      id="enTitle"
+                      name="enTitle"
+                      class="form-control"
+                      [(ngModel)]="obj.mobile"
+                      placeholder="{{'shared.enter_your'|translate}} {{'contact_us.form.mobile'|translate}}"
+                    />
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-1" for="enTitle">{{'contact_us.form.message'|translate}}</label>
+                    <textarea 
+                     class="form-control" 
+                     rows="5"
+                     placeholder="{{'shared.enter_your'|translate}} {{'contact_us.form.message'|translate}}"
+                     [(ngModel)]="obj.message">
+
+                    </textarea>
+                   
+                </div>
+            </div>
+            <div class="buttons mt-5">
+                <button class="btn" type="button"(click)="onSubmit()">{{'actions.send_sms'|translate}}</button>
+            </div>
+    </div>
+ </div>
