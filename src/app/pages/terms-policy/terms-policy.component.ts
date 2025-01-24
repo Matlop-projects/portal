@@ -16,7 +16,7 @@ export class TermsPolicyComponent {
 private apiService=inject(ApiService)
   private router=inject(Router)
   currentRouter =this.router.url
-  activeIndex=-1
+  // activeIndex=-1
   items:any[]=[]
   selectedLang: any;
   languageService = inject(LanguageService); 
@@ -28,13 +28,13 @@ private apiService=inject(ApiService)
         this.API_getAll()
       }); 
   }
-  onOpen(i:any){
- this.activeIndex=i
-  }
+//   onOpen(i:any){
+//  this.activeIndex=i
+//   }
 
-  getActiveIndex(){
-    return this.activeIndex
-  }
+  // getActiveIndex(){
+  //   return this.activeIndex
+  // }
 
   API_getAll(){
        this.apiService.get('TermsAndConditions/GetAll').subscribe((res:any)=>{

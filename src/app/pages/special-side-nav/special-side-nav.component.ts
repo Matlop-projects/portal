@@ -61,6 +61,7 @@ export class SpecialSideNavComponent implements OnInit {
   onRouteChange(item:any){
     this.title=item.name
     this.showMenu=false
+    console.log("SpecialSideNavComponent  onRouteChange  this.showMenu:", this.showMenu)
   }
 
   defaultTitle(){

@@ -2,7 +2,7 @@
 
 
 
-<div class="page"[class.sp-page]="currentRouter.includes('sp')?true:false">
+<div class="page container"[class.sp-page]="currentRouter.includes('sp')?true:false">
     <div class="content d-flex justify-content-between flex-wrap">
         <img *ngIf="!currentRouter.includes('sp')" width="50%" height="500px" src="assets/images/Imagefaq.webp"  alt="img">
 
@@ -14,19 +14,10 @@
             </div>
             <ng-container *ngFor="let item of items; let i =index">
 
-             <div class="border-rd" [class.active]="i==getActiveIndex()">
-                <p-accordion [value]="activeIndex" (valueChange)="onOpen($event)" >
-                    <p-accordion-panel [class.active]="i==getActiveIndex()" [value]="i">
-                        <p-accordion-header [class.active]="i==getActiveIndex()">
-                            <span [class.active-question]="i==getActiveIndex()" class="question">{{item.question}}</span>
-                        </p-accordion-header>
-                        <p-accordion-content [class.active]="i==getActiveIndex()">
-                            <div class="answer m-0" [innerHtml]="item.answer"></div>
-                        </p-accordion-content>
-                    </p-accordion-panel>
-                </p-accordion>
-             </div>
-               
+                <div class="mt-5">
+                    <div class="sp-question">{{item.question}}</div>
+                    <div class="sp-answer" [innerHtml]="item.answer"> </div>
+                </div>
             
             </ng-container>
       </div>

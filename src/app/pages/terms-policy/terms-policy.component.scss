@@ -1,6 +1,6 @@
 .page{
-    padding:100px;
-      .header {
+  padding:100px 0px;
+  .header {
           p {
             font-size: 38px;
           }
@@ -8,34 +8,34 @@
         .content{
           .article{
               padding: 0px 10px;
-              p-accordion{
-                  .question{
-                      font-weight: bolder;
-                      font-size: 20px;
-                    }
-                    .answer{
-                        font-size: 20px;
-                        color:rgb(189 189 189)
-                    }
-              }
+              // p-accordion{
+              //     .question{
+              //         font-weight: bolder;
+              //         font-size: 20px;
+              //       }
+              //       .answer{
+              //           font-size: 20px;
+              //           color:rgb(189 189 189)
+              //       }
+              // }
             
           }
          
         
         }
-        .active{
-          background-color: #F3F5F9!important;
-        }
-        .border-rd{
-          border-radius: 20px;
-          padding: 5px;
-          min-width: 250px;
+        // .active{
+        //   background-color: #F3F5F9!important;
+        // }
+        // .border-rd{
+        //   border-radius: 20px;
+        //   padding: 5px;
+        //   min-width: 250px;
       
-        }
-        .active-question{
-          font-size: 23px!important;
-          font-weight: bolder;
-        }
+        // }
+        // .active-question{
+        //   font-size: 23px!important;
+        //   font-weight: bolder;
+        // }
       
   }
   
@@ -45,7 +45,7 @@
   }
   @media (max-width: 768px) {
     .page{
-      padding: 10px;
+      padding: 10px 0px;
       .content {
           img,.article{
             width: 100%!important;

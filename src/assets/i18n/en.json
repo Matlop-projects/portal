@@ -6,6 +6,9 @@
    "change":"Change",
    "back":"Back"
   },
+  "validations":{
+    "suadi_number":"Number should be start with 05 XXXXXXXX"
+  },
   "shared":{
      "enter_your":"Enter your"
   },
