@@ -1,0 +1,93 @@
+<div class="package-details-container" *ngIf="packageDetails">
+  <div class="row mt-1 mb-2">
+    <h3>{{ 'PACKAGE_DETAILS.TITLE' | translate }}</h3>
+  </div>
+  <div class="content">
+    <div class="row mt-1">
+      <div class="details col-lg-6 col-md-12 mt-1">
+        <div class="details-content">
+          <i class="pi pi-id-card"></i>
+          <div class="data">
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.PACKAGE_NAME' | translate }}</p>
+            </div>
+            <div class="desc">
+              <p>{{ selectedLang == 'ar' ? packageDetails.nameAr : packageDetails.nameEn }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="details col-lg-6 col-md-12 mt-1">
+        <div class="details-content">
+          <i class="pi pi-money-bill"></i>
+          <div class="data">
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.PRICE' | translate }}</p>
+            </div>
+            <div class="desc">
+              <p>{{ packageDetails.price }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="details col-lg-6 col-md-12 mt-1">
+        <div class="details-content">
+          <i class="pi pi-clock"></i>
+          <div class="data">
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.VISIT_HOURS' | translate }}</p>
+            </div>
+            <div class="desc">
+              <p>{{ packageDetails.visitHours }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="details col-lg-6 col-md-12 mt-1">
+        <div class="details-content">
+          <i class="pi pi-book"></i>
+          <div class="data">
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.VISIT_NUMBER' | translate }}</p>
+            </div>
+            <div class="desc">
+              <p>{{ packageDetails.visitNumber }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="details col-lg-12 mt-1">
+        <div class="details-content c">
+          <i class="pi pi-align-justify"></i>
+          <div class="data">
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.DESCRIPTION' | translate }}</p>
+            </div>
+            <div class="desc">
+              <p [innerHTML]="selectedLang == 'ar' ? packageDetails.descriptionAr : packageDetails.descriptionEn"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="details col-lg-12 mt-1">
+        <div class="details-content c">
+          <i class="pi pi-align-justify"></i>
+          <div class="data">
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.INSTRUCTION' | translate }}</p>
+            </div>
+            <div class="desc">
+              <p [innerHTML]="selectedLang == 'ar' ? packageDetails.arInstraction : packageDetails.enInstraction"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
