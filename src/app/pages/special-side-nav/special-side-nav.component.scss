@@ -13,7 +13,7 @@
    .menu-container{
     width: 35%;
     .menu{
-        width: 50%;
+        width: 90%;
         div{
             color:#000;
             padding:15px 10px;
@@ -51,20 +51,27 @@
     transition: margin-left .5s;
     padding: 30px 0px;
   }
+  .bk-gray{
+    background-color:#FCFBFD;
+    border-radius: 8px;
+  }
 
   @media  only screen and (max-width: 768px) {
+    .menu-container{
+         width: unset!important;
+    }
     .menu{
         display: none;
         height: 100%;
         width: 300px!important;
         position: fixed; 
-        z-index: 1;
+        z-index: 99999;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),0 1px 3px rgba(0, 0, 0, 0.06);
         top: 0;
         left: 0;
         background-color: #fff; 
         overflow-x: hidden; 
-        padding-top: 60px; 
+        // padding-top: 60px; 
         transition: 0.5s; 
     }
     .showMobileMenu{

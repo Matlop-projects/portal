@@ -7,6 +7,9 @@
    "change": "تغيير",
    "back": "رجوع"
 },
+"validations":{
+  "suadi_number":"يجب ان يبدأ الرقم ب  XXXXXXXX 05"
+},
 "shared":{
   "enter_your":"ادخل"
 },

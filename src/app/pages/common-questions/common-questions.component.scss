@@ -1,6 +1,6 @@
 .page{
-  padding:100px;
-    .header {
+  padding:100px 0px;
+  .header {
         p {
           font-size: 38px;
         }
@@ -44,7 +44,7 @@
 }
 @media (max-width: 768px) {
   .page{
-    padding: 10px;
+    padding: 10px 0px;
     .content {
         img,.article{
           width: 100%!important;
