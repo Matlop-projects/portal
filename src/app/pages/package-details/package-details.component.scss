@@ -1,0 +1,49 @@
+::ng-deep {
+  .package-details-container {
+    .content {
+      margin-block: 30px;
+      padding-inline: 20px;
+      .details {
+        padding: 0 10px;
+
+        .details-content {
+          border: 1px solid #e4e4e4;
+          border-radius: 12px;
+          padding: 15px;
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          i {
+            font-size: 30px;
+            color: gray;
+          }
+
+          .data {
+            display: flex;
+            flex-direction: column;
+
+            .title {
+              p {
+                font-size: 25px;
+                color: gray;
+              }
+            }
+
+            .desc {
+              p {
+                font-size: 20px;
+                color: #28c8aa;
+              }
+            }
+
+          }
+
+
+        }
+        .c {
+          align-items: flex-start !important;
+        }
+      }
+    }
+  }
+}

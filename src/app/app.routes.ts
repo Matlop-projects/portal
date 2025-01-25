@@ -13,6 +13,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
 
 export const routes: Routes = [
   {
@@ -38,11 +39,11 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
+      { path: 'reservation/:id', component: ReservationComponent },
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {
             path:'',redirectTo:'privacy',pathMatch:'full'
-
           },
           {
             path:'privacy',component:PrivacyPolicyComponent

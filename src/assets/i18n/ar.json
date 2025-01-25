@@ -1,4 +1,5 @@
 {
+  "SAR": "ريال",
   "actions": {
    "send": "إرسال",
    "send_sms":"إرسال رسالة",
@@ -120,5 +121,29 @@
       "userType":"نوع المستخدم",
       "note":"ملاحظة"
     }
+  },
+  "Contract" : {
+    "CONTRACT_LIST": "قائمة العقود",
+    "VISIT": "زيارة",
+    "NO_CONTRACTS": "لا توجد عقود متاحة."
+  },
+  "PACKAGE": {
+    "PACKAGE_LIST": "قائمة الباقات",
+    "VISIT_NUMBER": "عدد الزيارات",
+    "VAT": "شامل الضريبة",
+    "NO_PACKAGES": "لا توجد باقات متاحة."
+  },
+  "PACKAGE_DETAILS": {
+    "TITLE": "تفاصيل الباقة",
+    "PACKAGE_NAME": "اسم الباقة",
+    "PRICE": "السعر",
+    "VISIT_HOURS": "ساعات الزيارة",
+    "VISIT_NUMBER": "عدد الزيارات",
+    "DESCRIPTION": "الوصف",
+    "INSTRUCTION": "التعليمات"
+  },
+  "RESERVATION": {
+    "BACK": "رجوع",
+    "NEXT": "التالي"
   }
 }

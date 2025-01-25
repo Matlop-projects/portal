@@ -1,0 +1,42 @@
+<div class="packages-container">
+  <div class="row mt-2 mb-2">
+    <h3>{{ 'PACKAGE.PACKAGE_LIST' | translate }}</h3>
+  </div>
+  <div class="content row">
+    <!-- Display packages if packageList is not empty -->
+    <ng-container *ngIf="packageList && packageList.length > 0; else emptyState">
+      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of packageList">
+        <div class="card mt-2 mb-2" (click)="goNext(item.packageId)">
+          <div class="card-content">
+            <div class="details">
+              <div class="title">
+                <p>{{ selectedLang == 'ar' ? item.nameAr : item.nameEn }}</p>
+              </div>
+              <div class="visit-number">
+                <p>{{ 'PACKAGE.VISIT_NUMBER' | translate }} {{ item.visitNumber }}</p>
+              </div>
+            </div>
+            <div class="img">
+              <img width="50" src="assets/images/packages.png" alt="package">
+            </div>
+          </div>
+          <div class="package-price">
+            <div class="price">
+              <p>{{ item.visitNumber }} {{ 'SAR' | translate }}</p>
+            </div>
+            <div class="vat">
+              <p>{{ 'PACKAGE.VAT' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Empty state message -->
+    <ng-template #emptyState>
+      <div class="col-12 text-center">
+        <p class="empty-state-text">{{ 'PACKAGE.NO_PACKAGES' | translate }}</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

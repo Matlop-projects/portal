@@ -13,7 +13,7 @@
         <div class="row">
           <ng-container *ngFor="let service of services">
             <div class="service-card col-lg-3 col-md-6 col-sm-12 mt-3">
-              <div class="card-content">
+              <div class="card-content" (click)="goReservation(service.serviceId)">
                 <div class="image-container">
                   <img src={{service.image}} alt="service image">
                 </div>

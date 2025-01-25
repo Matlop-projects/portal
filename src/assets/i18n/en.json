@@ -1,13 +1,14 @@
 {
-  "actions":{
-   "send":"Send",
-   "send_sms":"Send a  message",
-   "login":"Login",
-   "change":"Change",
-   "back":"Back"
+  "SAR": "SAR",
+  "actions": {
+    "send": "Send",
+    "send_sms": "Send a  message",
+    "login": "Login",
+    "change": "Change",
+    "back": "Back"
   },
-  "shared":{
-     "enter_your":"Enter your"
+  "shared": {
+    "enter_your": "Enter your"
   },
   "how_does": {
     "title": "How does it work Matlop ?",
@@ -34,15 +35,14 @@
   },
   "contact_us": {
     "title": " Contact us",
-    "whats_app_sms":"You can contact us via WhatsApp",
-    "hello_message":"",
-    "form":{
-       "name":"Name",
-       "email":"Email",
-       "mobile":" Mobile Number",
-       "message":"Message"
+    "whats_app_sms": "You can contact us via WhatsApp",
+    "hello_message": "",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "mobile": " Mobile Number",
+      "message": "Message"
     }
-      
   },
   "privacy_policy": {
     "title": " Privacy Policy"
@@ -61,65 +61,89 @@
     "privacy_policy": "Privacy Policy",
     "copyright": "All Copyrights are reserved by Matlop"
   },
-    "navbar": {
-      "toggleLanguage": "Switch to {{ language }}",
-      "signIn": "Sign In"
-    },
-    "menuItems": {
-      "home": "Home",
-      "aboutUs": "About Us",
-      "contactUs": "Contact Us"
-    },
-    "mobileApp": {
-      "downloadText": "Download the application for faster and easier processing"
-    },
-    "services": {
+  "navbar": {
+    "toggleLanguage": "Switch to {{ language }}",
+    "signIn": "Sign In"
+  },
+  "menuItems": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us"
+  },
+  "mobileApp": {
+    "downloadText": "Download the application for faster and easier processing"
+  },
+  "services": {
     "mainSections": "Main Sections",
     "description": "At Matlop, we provide comprehensive solutions that cater to your daily needs and large-scale project requirements. Whether you're looking for integrated cleaning services, professional maintenance for buildings and homes, or the deployment of qualified personnel for government and private sector projects, we guarantee quality and reliability in every service we offer.",
     "moreService": "More service?",
     "callHelp": "You can tell us what you need and we can help you!",
     "callUsNow": "Call us now"
   },
-  "login":{
-    "welcome":"Welcome Back!",
-    "sign_to_dashboard":"Sign In To Access Dashboard",
-    "userName":"User Name",
-    "userName_required":"Username is required",
-     "password":"Password",
-    "password_required":"Password is required",
-    "btn_login":"login",
-    "forget_password":"Forget Password"
- },
- "forget_pass":{
-    "title":"Forget Password",
-    "mobile":" Mobile Number",
-    "mobile_required":"Mobile number is required",
-    "add_new_pass":"Add New Password",
-    "enter_new_pass":"Enter new password",
-    "new_pass_required":" New password is required",
-     "confirm_pass":"Confirm password",
-     "confirm_required":"Confirm password is required",
-     "not_matched":"Passwords do not match"
+  "login": {
+    "welcome": "Welcome Back!",
+    "sign_to_dashboard": "Sign In To Access Dashboard",
+    "userName": "User Name",
+    "userName_required": "Username is required",
+    "password": "Password",
+    "password_required": "Password is required",
+    "btn_login": "login",
+    "forget_password": "Forget Password"
   },
- "otp":{
-   "verify_mobile_no":"Verify Your Mobile Number",
-   "enter_degits":"Please enter the 4-digit code we sent to",
-   "resend":"Resend"
- },
- "notifications":{
-  "pageName":"Notifications",
-  "pageName_Add_crumb":"Add Notification",
-  "title":"Notifications",
-  "no_notifications":"No notifications found",
-  "new":"New",
-  "seen":"Seen",
-  "id":"ID",
-  "message":"Message",
-  "created":"Created",
-  "form":{
-    "title":"title",
-    "userType":"User Type",
-    "note":"Note"
+  "forget_pass": {
+    "title": "Forget Password",
+    "mobile": " Mobile Number",
+    "mobile_required": "Mobile number is required",
+    "add_new_pass": "Add New Password",
+    "enter_new_pass": "Enter new password",
+    "new_pass_required": " New password is required",
+    "confirm_pass": "Confirm password",
+    "confirm_required": "Confirm password is required",
+    "not_matched": "Passwords do not match"
+  },
+  "otp": {
+    "verify_mobile_no": "Verify Your Mobile Number",
+    "enter_degits": "Please enter the 4-digit code we sent to",
+    "resend": "Resend"
+  },
+  "notifications": {
+    "pageName": "Notifications",
+    "pageName_Add_crumb": "Add Notification",
+    "title": "Notifications",
+    "no_notifications": "No notifications found",
+    "new": "New",
+    "seen": "Seen",
+    "id": "ID",
+    "message": "Message",
+    "created": "Created",
+    "form": {
+      "title": "title",
+      "userType": "User Type",
+      "note": "Note"
+    }
+  },
+  "Contract": {
+    "CONTRACT_LIST": "Contract List",
+    "VISIT": "Visit",
+    "NO_CONTRACTS": "No contracts available."
+  },
+  "PACKAGE": {
+    "PACKAGE_LIST": "Package List",
+    "VISIT_NUMBER": "Visit Number",
+    "VAT": "VAT Included",
+    "NO_PACKAGES": "No packages available."
+  },
+  "PACKAGE_DETAILS": {
+    "TITLE": "Package Details",
+    "PACKAGE_NAME": "Package Name",
+    "PRICE": "Price",
+    "VISIT_HOURS": "Visit Hours",
+    "VISIT_NUMBER": "Visit Number",
+    "DESCRIPTION": "Description",
+    "INSTRUCTION": "Instruction"
+  },
+  "RESERVATION": {
+    "BACK": "Back",
+    "NEXT": "Next"
   }
-}
 }
