@@ -13,6 +13,16 @@
   "shared":{
      "enter_your":"Enter your"
   },
+  "profile":{
+      "form":{
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "userName":"User Name",
+        "email":"E-mail address",
+        "mobileNumber":"Phone Number",
+        "dateOfBirth":"date Of birth"
+      }
+  },
   "how_does": {
     "title": "How does it work Matlop ?",
     "q1": "Sign Up and Create an Account:",

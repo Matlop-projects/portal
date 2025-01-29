@@ -1,0 +1,56 @@
+<div class="container mt-3 mb-3">
+    <div class="header">
+
+    </div>
+    <div class="bkg-container">
+        <div class="bkg">
+        </div>
+        <img [src]="defaultImg" width="" alt="">
+    </div>
+   
+    <form [formGroup]="form" class="mt-5" (ngSubmit)="onSubmit()">
+        <div class="d-flex justify-content-between flex-wrap w-100">
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="firstName" autocomplete="off" />
+                    <label for="on_label">{{'profile.form.firstName'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="lastName" autocomplete="off" />
+                    <label for="on_label">{{'profile.form.lastName'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="username" autocomplete="off" />
+                    <label for="on_label">{{'profile.form.userName'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="email" autocomplete="off" />
+                    <label for="on_label">{{'profile.form.email'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="mobileNumber" autocomplete="off" />
+                    <label for="on_label">{{'profile.form.mobileNumber'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                        <p-datepicker  class="w-full-profile" id="on_label" [dateFormat]="'dd-mm-yy'" formControlName="dateOfBirth"[readonlyInput]="true" />
+                        <label for="on_label">{{'profile.form.dateOfBirth'|translate}}</label>    
+                </p-floatlabel>
+            </div>
+         
+        </div>
+        <div class="buttons mt-4 mb-4">
+            <button class="btn submit" type="submit"[class.not-allowed]="!form.valid" [disabled]="!form.valid">{{'actions.send'|translate}}</button>
+        </div>
+    </form>
+
+</div>

@@ -14,6 +14,7 @@ import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.componen
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,7 @@ export const routes: Routes = [
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
       { path: 'reservation/:id', component: ReservationComponent },
+      { path: 'profile', component: ProfileComponent },
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {

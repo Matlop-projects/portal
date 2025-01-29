@@ -83,3 +83,11 @@ border: unset!important
 
 
   }
+  p-datepicker.w-full-profile span{
+   width: 100%!important;
+}
+
+p-datepicker.w-full-profile .p-datepicker .p-datepicker-panel{
+  min-width: 50%!important;
+
+}

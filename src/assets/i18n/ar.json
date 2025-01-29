@@ -13,6 +13,16 @@
 "shared":{
   "enter_your":"ادخل"
 },
+"profile": {
+    "form": {
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "userName": "اسم المستخدم",
+        "email": "البريد الإلكتروني",
+        "mobileNumber": "رقم الهاتف",
+        "dateOfBirth": "تاريخ الميلاد"
+    }
+},
   "how_does": {
     "title": "كيف يعمل تطبيق مطلوب؟",
     "q1": "التسجيل وإنشاء حساب:",
