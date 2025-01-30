@@ -38,6 +38,10 @@ body {
   font-family: 'Bahij', sans-serif;
   &:lang(ar) {
     font-family: 'Bahij', sans-serif;
+    .camera-icon{
+      left:unset!important;
+      right: 65px;
+    }
   }
 }
 

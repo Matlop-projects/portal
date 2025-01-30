@@ -15,6 +15,7 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { LocationComponent } from './pages/location/location.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,7 @@ export const routes: Routes = [
       { path: 'contact', component: ContactUsComponent },
       { path: 'reservation/:id', component: ReservationComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'location', component: LocationComponent },
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {

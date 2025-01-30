@@ -13,6 +13,15 @@
   "shared":{
      "enter_your":"Enter your"
   },
+  "location":{
+   "title":"Location",
+   "form":{
+    "countryName":"Country Name",
+    "cityName":"City Name",
+    "districtName":"District Name",
+    "blockNo":"Block No"
+   }
+  },
   "profile":{
       "form":{
         "firstName":"First Name",
@@ -81,7 +90,8 @@
   "menuItems": {
     "home": "Home",
     "aboutUs": "About Us",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "locations":"Location"
   },
   "mobileApp": {
     "downloadText": "Download the application for faster and easier processing"

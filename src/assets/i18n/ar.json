@@ -13,6 +13,15 @@
 "shared":{
   "enter_your":"ادخل"
 },
+"location": {
+  "title":"الموقع",
+  "form":{
+    "countryName": "اسم الدولة",
+  "cityName": "اسم المدينة",
+  "districtName": "اسم الحي",
+  "blockNo": "رقم البلوك"
+  }
+},
 "profile": {
     "form": {
         "firstName": "الاسم الأول",
@@ -81,7 +90,8 @@
   "menuItems": {
     "home": "الصفحة الرئيسية",
     "aboutUs": "من نحن",
-    "contactUs": "اتصل بنا"
+    "contactUs": "اتصل بنا",
+    "locations":"الموقع"
   },
   "mobileApp": {
     "downloadText": "قم بتنزيل التطبيق لمعالجة أسرع وأسهل"
