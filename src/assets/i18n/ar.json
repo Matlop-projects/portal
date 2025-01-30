@@ -11,7 +11,8 @@
   "suadi_number":"يجب ان يبدأ الرقم ب  XXXXXXXX 05"
 },
 "shared":{
-  "enter_your":"ادخل"
+  "enter_your":"ادخل",
+  "no_data_found":"لا توجد بيانات حاليا"
 },
 "location": {
   "title":"الموقع",

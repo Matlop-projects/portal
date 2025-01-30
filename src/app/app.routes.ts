@@ -16,6 +16,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LocationComponent } from './pages/location/location.component';
+import { LocationDetailsComponent } from './pages/location/location/location-details/location-details.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +45,7 @@ export const routes: Routes = [
       { path: 'reservation/:id', component: ReservationComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'location', component: LocationComponent },
+      { path: 'location/:id', component: LocationDetailsComponent },
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {
