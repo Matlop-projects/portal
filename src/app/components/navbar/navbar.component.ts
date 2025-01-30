@@ -6,6 +6,7 @@ import { LanguageService } from '../../services/language.service';
 import { ToasterService } from '../../services/toaster.service';
 import { PrimeNG } from 'primeng/config';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,9 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 })
 export class NavbarComponent {
 @Input()hasToken:boolean=false
-  isMenuOpen = false;
+defaultImg="https://www.primefaces.org/cdn/primevue/images/landing/apps/main-avatar.png"
+profileImg=environment.baseImageUrl+localStorage.getItem('userImg')
+isMenuOpen = false;
   currentLang = 'en';
   selectedLang: string = localStorage.getItem('lang') || 'en';
   languageService = inject(LanguageService);

@@ -39,7 +39,7 @@
     </button>
     <button *ngIf="!hasToken" class="signin-btn" routerLink="/auth/login">{{ 'navbar.signIn' | translate }}</button>
     <div [routerLink]="'/profile'" class="user-avatar pointer" *ngIf="hasToken">
-      <img src="https://www.primefaces.org/cdn/primevue/images/landing/apps/main-avatar.png" alt="User Avatar">
+      <img [src]="profileImg" onerror="this.src='assets/images/user.png'" alt="User Avatar">
     </div>
   </div>
 
