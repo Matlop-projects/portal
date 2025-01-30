@@ -103,6 +103,7 @@ export class LoginComponent {
           gender: data.data.gender
         }
         localStorage.setItem('userData', JSON.stringify(dataUser))
+        localStorage.setItem('userId', data.data.userId)
         localStorage.setItem('token', data.data.accessToken);
         this.router.navigate(['/']);
       }

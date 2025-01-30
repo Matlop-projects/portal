@@ -5,7 +5,11 @@
     <div class="bkg-container">
         <div class="bkg">
         </div>
-        <img [src]="defaultImg" width="" alt="">
+       <div class="img-profile">
+        <span class="camera-icon pi pi-camera pointer" (click)="triggerFileUpload()" ></span>
+        <img class="pointer" (click)="triggerFileUpload()" [src]="defaultImg" width="" alt="">
+       </div>
+        <input type="file" #fileInput  (change)="onFileSelected($event)" hidden>
     </div>
    
     <form [formGroup]="form" class="mt-5" (ngSubmit)="onSubmit()">

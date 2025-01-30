@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -6,7 +6,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { DatePicker } from 'primeng/datepicker';
 import { environment } from '../../../environments/environment';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-profile',
@@ -16,10 +15,11 @@ import * as moment from 'moment';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit {
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
   private apiService =inject(ApiService)
   data:any={}
   baseImageUrl=environment.baseImageUrl
-  defaultImg='https://matloop.phpv8.aait-d.com/dashboardAssets/images/backgrounds/avatar.jpg'
+  defaultImg:any='https://matloop.phpv8.aait-d.com/dashboardAssets/images/backgrounds/avatar.jpg'
   form = new FormGroup({
     userId: new FormControl(0),
   firstName: new FormControl('', {
@@ -57,13 +57,24 @@ export class ProfileComponent implements OnInit {
 
 ngOnInit() {
     this.getProfileInfo()
+    this.getLocation()
     this.form.valueChanges.subscribe(res => {
       console.log("ProfileComponent  ngOnInit  res:", res)
 
     })
 }
+getLocation(){
+  const userId =localStorage.getItem('userId')
+  this.apiService.get('Location/GetByUserId/'+userId).subscribe((res:any)=>{
+    if(res){
+      console.log("ProfileComponent  this.apiService.get  res:", res)
+      
+    }
+  })
+}
   getProfileInfo(){
-    this.apiService.get('Client/GetById/1').subscribe((res:any)=>{
+    const userId =localStorage.getItem('userId')
+    this.apiService.get('Client/GetById/'+userId).subscribe((res:any)=>{
       if(res){
         this.data.imgSrc =this.baseImageUrl+res.data.imgSrc
         console.log("ProfileComponent  this.apiService.get   this.data:",  this.data)
@@ -75,6 +86,26 @@ ngOnInit() {
 
       } 
     })
+  }
+
+  triggerFileUpload(): void {
+    this.fileInput.nativeElement.click(); // Triggers file selection
+  }
+  onFileSelected(event:any){
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+
+      // Read file as Data URL
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.defaultImg = e.target?.result;
+        this.form.patchValue({
+          imgSrc:this.defaultImg
+        })
+      };
+      reader.readAsDataURL(file);
+    }
   }
   onSubmit(){
     console.log('ggkkkk',this.form.value)

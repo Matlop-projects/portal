@@ -1,0 +1,45 @@
+<div class="header">
+    <h1>{{'location.title'|translate}}</h1>
+    </div>
+<div class="container mt-3 mb-3">
+    <!-- <div class="bkg-container">
+        <div class="bkg">
+        </div>
+        <img [src]="defaultImg" width="" alt="">
+    </div> -->
+   
+    <form [formGroup]="form" class="mt-5" (ngSubmit)="onSubmit()">
+        <div class="d-flex justify-content-between flex-wrap w-100">
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="countryName" autocomplete="off" readonly="true"/>
+                    <label for="on_label">{{'location.form.countryName'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="cityName" autocomplete="off"readonly="true" />
+                    <label for="on_label">{{'location.form.cityName'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="districtName" autocomplete="off"readonly="true" />
+                    <label for="on_label">{{'location.form.districtName'|translate}}</label>
+                </p-floatlabel>
+            </div>
+            <div class="w-49">
+                <p-floatlabel variant="on">
+                    <input  class="w-100" pInputText id="on_label" formControlName="blockNo" autocomplete="off"readonly="true" />
+                    <label for="on_label">{{'location.form.blockNo'|translate}}</label>
+                </p-floatlabel>
+            </div>
+           
+         
+        </div>
+        <div class="buttons mt-4 mb-4" *ngIf="false">
+            <button class="btn submit" type="submit"[class.not-allowed]="!form.valid" [disabled]="!form.valid">{{'actions.send'|translate}}</button>
+        </div>
+    </form>
+
+</div>
