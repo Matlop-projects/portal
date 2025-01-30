@@ -7,7 +7,11 @@
         </div>
        <div class="img-profile">
         <span class="camera-icon pi pi-camera pointer" (click)="triggerFileUpload()" ></span>
-        <img class="pointer" (click)="triggerFileUpload()" [src]="defaultImg" width="" alt="">
+        <img 
+        class="pointer" (click)="triggerFileUpload()" 
+        [src]="defaultImg"
+        onerror="this.src='assets/images/user.png'"
+        >
        </div>
         <input type="file" #fileInput  (change)="onFileSelected($event)" hidden>
     </div>

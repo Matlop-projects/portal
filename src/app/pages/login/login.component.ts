@@ -104,6 +104,7 @@ export class LoginComponent {
         }
         localStorage.setItem('userData', JSON.stringify(dataUser))
         localStorage.setItem('userId', data.data.userId)
+        localStorage.setItem('userImg', data.data.imgSrc)
         localStorage.setItem('token', data.data.accessToken);
         this.router.navigate(['/']);
       }

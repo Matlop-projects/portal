@@ -18,8 +18,7 @@ export class ProfileComponent implements OnInit {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
   private apiService =inject(ApiService)
   data:any={}
-  baseImageUrl=environment.baseImageUrl
-  defaultImg:any='https://matloop.phpv8.aait-d.com/dashboardAssets/images/backgrounds/avatar.jpg'
+  defaultImg:any=environment.baseImageUrl+localStorage.getItem('userImg')
   form = new FormGroup({
     userId: new FormControl(0),
   firstName: new FormControl('', {
@@ -76,7 +75,7 @@ getLocation(){
     const userId =localStorage.getItem('userId')
     this.apiService.get('Client/GetById/'+userId).subscribe((res:any)=>{
       if(res){
-        this.data.imgSrc =this.baseImageUrl+res.data.imgSrc
+        this.data.imgSrc =environment.baseImageUrl+res.data.imgSrc
         console.log("ProfileComponent  this.apiService.get   this.data:",  this.data)
         this.form.patchValue({
           ...res.data,
