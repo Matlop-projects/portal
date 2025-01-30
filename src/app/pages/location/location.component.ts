@@ -4,21 +4,21 @@ import { ApiService } from '../../services/api.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { DatePicker } from 'primeng/datepicker';
-import { environment } from '../../../environments/environment';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-location',
   standalone: true,
-  imports: [ReactiveFormsModule,NgIf,TranslatePipe,InputTextModule,FloatLabelModule,DatePicker],
+  imports: [ReactiveFormsModule,NgIf,TranslatePipe,InputTextModule,FloatLabelModule,NgFor],
   templateUrl: './location.component.html',
   styleUrl: './location.component.scss'
 })
 export class LocationComponent {
   private apiService =inject(ApiService)
-  data:any={}
+  private router =inject(Router)
+  locations:any[]=[]
   // baseImageUrl=environment.baseImageUrl
   form = new FormGroup({
     userId: new FormControl(0),
@@ -51,15 +51,35 @@ ngOnInit() {
 
     })
 }
+
+onAction(value:string,location:any){
+   console.log("LocationComponent  onAction  location:", location)
+   if(value=='edit')
+     this.router.navigateByUrl('location/'+location.id)
+    else
+    this.deleteLocation(location.id)
+}
+
+deleteLocation(id:string){
+  const userId =localStorage.getItem('userId')
+    this.apiService.delete('Loction/Delete?requestId=',id).subscribe()
+}
 getLocation(){
   const userId =localStorage.getItem('userId')
   this.apiService.get('Location/GetByUserId/'+userId).subscribe((res:any)=>{
     if(res){
       console.log("ProfileComponent  this.apiService.get  res:", res)
-      // this.data=res.data[0]
-      this.form.patchValue({
-        ...res.data[0]
+      res.data.map((item:any) => {
+        console.log("LocationComponent  res.data.map  item:", item)
+        this.locations.push({
+          countryName:item.countryName,
+          cityName:item.cityName,
+          districtName:item.districtName,
+          blockNo:item.blockNo,
+          id:item.locationId
+        })
       })
+     
       
     }
   })
