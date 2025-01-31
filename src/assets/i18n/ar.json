@@ -5,7 +5,10 @@
    "send_sms":"إرسال رسالة",
    "login": "تسجيل الدخول",
    "change": "تغيير",
-   "back": "رجوع"
+   "back": "رجوع",
+   "addNew":"اضافة جديد",
+   "update":"تحديث",
+   "add":"اضافة"
 },
 "validations":{
   "suadi_number":"يجب ان يبدأ الرقم ب  XXXXXXXX 05"

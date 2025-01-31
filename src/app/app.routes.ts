@@ -46,6 +46,8 @@ export const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'location', component: LocationComponent },
       { path: 'location/:id', component: LocationDetailsComponent },
+      { path: 'location/add', component: LocationDetailsComponent },
+
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {
