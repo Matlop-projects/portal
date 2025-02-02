@@ -1,4 +1,4 @@
-import { Component, Inject, inject, Input } from '@angular/core';
+import { Component, Inject, inject, Input, OnInit } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -15,10 +15,10 @@ import { environment } from '../../../environments/environment.prod';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 @Input()hasToken:boolean=false
 defaultImg="https://www.primefaces.org/cdn/primevue/images/landing/apps/main-avatar.png"
-profileImg=environment.baseImageUrl+localStorage.getItem('userImg')
+profileImg=localStorage.getItem('userImg')
 isMenuOpen = false;
   currentLang = 'en';
   selectedLang: string = localStorage.getItem('lang') || 'en';
@@ -36,6 +36,7 @@ isMenuOpen = false;
   ngOnInit(): void {
     this.primeng.ripple.set(true);
     this.initAppTranslation();
+    console.log('----this.profileImg---',this.profileImg)
   }
 
   public initAppTranslation() {

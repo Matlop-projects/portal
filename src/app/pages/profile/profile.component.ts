@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { DatePicker } from 'primeng/datepicker';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -17,8 +18,9 @@ import { environment } from '../../../environments/environment';
 export class ProfileComponent implements OnInit {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
   private apiService =inject(ApiService)
+  private router =inject(Router)
   data:any={}
-  defaultImg:any=environment.baseImageUrl+localStorage.getItem('userImg')
+  defaultImg:any=localStorage.getItem('userImg')
   form = new FormGroup({
     userId: new FormControl(0),
   firstName: new FormControl('', {
@@ -56,32 +58,30 @@ export class ProfileComponent implements OnInit {
 
 ngOnInit() {
     this.getProfileInfo()
-    this.getLocation()
-    this.form.valueChanges.subscribe(res => {
-      console.log("ProfileComponent  ngOnInit  res:", res)
-
-    })
+    // this.getLocation()
+   
 }
-getLocation(){
-  const userId =localStorage.getItem('userId')
-  this.apiService.get('Location/GetByUserId/'+userId).subscribe((res:any)=>{
-    if(res){
-      console.log("ProfileComponent  this.apiService.get  res:", res)
+// getLocation(){
+//   const userId =localStorage.getItem('userId')
+//   this.apiService.get('Location/GetByUserId/'+userId).subscribe((res:any)=>{
+//     if(res){
+//       console.log("ProfileComponent  this.apiService.get  res:", res)
       
-    }
-  })
-}
+//     }
+//   })
+// }
   getProfileInfo(){
     const userId =localStorage.getItem('userId')
     this.apiService.get('Client/GetById/'+userId).subscribe((res:any)=>{
       if(res){
         this.data.imgSrc =environment.baseImageUrl+res.data.imgSrc
+        this.defaultImg=environment.baseImageUrl+res.data.imgSrc
+        localStorage.setItem('userImg',this.defaultImg)
         console.log("ProfileComponent  this.apiService.get   this.data:",  this.data)
         this.form.patchValue({
           ...res.data,
           dateOfBirth:new Date(res.data.dateOfBirth)
         })
-        console.log('gg',this.form.value)
 
       } 
     })
@@ -118,7 +118,11 @@ getLocation(){
 
     this.apiService.post('Client/EditProfile',this.form.value).subscribe(res=>{
       if(res)
-        this.getProfileInfo()
+      {
+       this.router.navigateByUrl('/profile').then(()=>{
+        window.location.reload()
+       })
+      }
     })
   }
 }
