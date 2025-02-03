@@ -2,14 +2,14 @@ import { Component, inject } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { ApiService } from '../../services/api.service';
 import { LanguageService } from '../../services/language.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services-section',
   standalone: true,
-  imports: [NgFor, TranslatePipe],
+  imports: [NgFor, TranslatePipe,NgIf],
   templateUrl: './services-section.component.html',
   styleUrl: './services-section.component.scss'
 })
@@ -32,6 +32,9 @@ export class ServicesSectionComponent {
     })
   }
 
+  isServiceList(){
+    return this.router.url.includes('/services/list')
+   }
   getAllServices() {
     this.api.get('Service/GetAll').subscribe((img: any) => {
       console.log(img);

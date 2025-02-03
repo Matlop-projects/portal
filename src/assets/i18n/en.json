@@ -15,7 +15,13 @@
   },
   "shared":{
      "enter_your":"Enter your",
-     "no_data_found":"No data found"
+     "no_data_found":"No data found",
+     "rsa":"rsa"
+
+  },
+  "orders":{
+   "title":"The orders",
+   "taxes":"Taxes included"
   },
   "location":{
    "title":"Location",
@@ -95,7 +101,9 @@
     "home": "Home",
     "aboutUs": "About Us",
     "contactUs": "Contact Us",
-    "locations":"Location"
+    "locations":"Location",
+    "services":"Services",
+    "orders":"The Orders"
   },
   "mobileApp": {
     "downloadText": "Download the application for faster and easier processing"

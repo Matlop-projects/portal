@@ -26,9 +26,10 @@ isMenuOpen = false;
   toaster = inject(ToasterService);
 
   menuItems = [
-    { path: '/home', label: 'menuItems.home' },
-    { path: '/about', label: 'menuItems.aboutUs' },
-    { path: '/contact', label: 'menuItems.contactUs' }
+    { path: '/home', label: 'menuItems.home' }, 
+    { path:'/services/list',label:'menuItems.services'},
+    // { path: '/about', label: 'menuItems.aboutUs' },
+    // { path: '/contact', label: 'menuItems.contactUs' }
   ];
 
   constructor(@Inject(DOCUMENT) private document: Document, private primeng: PrimeNG, private translate: TranslateService) { }

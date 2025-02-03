@@ -19,6 +19,15 @@
       </li>
       <li>
         <a 
+        [routerLink]="'/orders'"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}"
+           (click)="isMenuOpen = false"
+         class="nav-item pointer" *ngIf="hasToken">{{'menuItems.orders'|translate}}</a>
+
+      </li>
+      <li>
+        <a 
         [routerLink]="'/location'"
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"

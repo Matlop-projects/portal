@@ -15,8 +15,13 @@
 },
 "shared":{
   "enter_your":"ادخل",
-  "no_data_found":"لا توجد بيانات حاليا"
+  "no_data_found":"لا توجد بيانات حاليا",
+  "rsa":"ريال سعودي"
 },
+"orders":{
+  "title":"الطلبات",
+  "taxes":"شامل الضريبة"
+ },
 "location": {
   "title":"الموقع",
   "form":{
@@ -95,7 +100,9 @@
     "home": "الصفحة الرئيسية",
     "aboutUs": "من نحن",
     "contactUs": "اتصل بنا",
-    "locations":"الموقع"
+    "locations":"الموقع",
+    "services":"الخدمات",
+    "orders":"الطلبات"
   },
   "mobileApp": {
     "downloadText": "قم بتنزيل التطبيق لمعالجة أسرع وأسهل"
