@@ -1,4 +1,7 @@
 {
+  "Pending":"تحت الطلب",
+  "Completed":"مكتمل",
+  "Canceled":"ملغي",
   "SAR": "ريال",
   "actions": {
    "send": "إرسال",

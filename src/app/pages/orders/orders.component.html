@@ -5,14 +5,17 @@
     <div class="selected-btn">
         <p-selectbutton [options]="stateOptions" [(ngModel)]="defaultStatus"  (onChange)="onselectStatus($event.value)" optionLabel="label" optionValue="value"  size="large" />
     </div>
-    <div class="d-flex justify-content-between flex-wrap w-100">
+    <div class="d-flex justify-content-between flex-wrap w-100 mb-5">
             <div class="card  d-flex justify-content-between flex-wrap"*ngFor="let order of orders">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <span>{{currentLang=='en'?order.serviceNameEn:order.serviceNameAr}} </span>
+                        <span>
+                            <span class="pi pi-clipboard fz-20"></span>
+                            <span> {{currentLang=='en'?order.serviceNameEn:order.serviceNameAr}} </span>
+                        </span>
                     <span [ngClass]="order.orderStatusName">
-                        <span  class="pi pi-circle-on status-icon"></span>
-                        {{order.orderStatusName}}
+                        <span  class="pi pi-circle-on fz-icon-10"></span>
+                     <span> {{order.orderStatusName|translate}}</span>
                     </span>
                     </div>
                     <div>
@@ -20,12 +23,18 @@
                     </div>
                 </div>
                 <div class="card-content d-flex justify-content-between">
-                  <span>{{order?.package?.price}}{{'shared.rsa'|translate}}</span>
+                  <span>{{order?.package?.price}} {{'shared.rsa'|translate}}</span>
                   <span>{{'orders.taxes'|translate}}</span>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <span>{{convertDate(order.creationTime,'date')}}</span>
-                    <span>{{convertDate(order.creationTime,'time')}}</span>
+                    <span>
+                        <span class="pi pi-calendar-times fz-icon-15 color-blue"></span>
+                       <span class="fz-icon-15"> {{convertDateTime(order.creationTime,'date',currentLang)}}</span>
+                    </span>
+                    <span>
+                        <span class="pi pi-clock fz-icon-15 color-blue"></span>
+                       <span class="fz-icon-15"> {{convertDateTime(order.creationTime,'time',currentLang)}}</span>
+                    </span>
 
                 </div>
             </div> 

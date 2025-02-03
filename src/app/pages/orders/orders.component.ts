@@ -22,9 +22,9 @@ export class OrdersComponent {
   currentLang=this.lang.translationService.currentLang
   selectedStatus:number=0
   stateOptions=[
-    { label: 'Pending', id: 0,value: 0,color: '#c1cd6a' },
-    { label: 'Canceled', id: 8,value: 8, color: '#e94949' },
-    { label: 'Completed', id: 7, value: 7, color: '#49e97c' }
+    { label:this.currentLang =='en'?'Pending':'تحت الطلب', id: 0,value: 0,color: '#c1cd6a' },
+    { label: this.currentLang =='en'?'Canceled':'ملغي', id: 8,value: 8, color: '#e94949' },
+    { label: this.currentLang =='en'?'Completed':'مكتمل', id: 7, value: 7, color: '#49e97c' }
   ]
   defaultStatus = this.stateOptions[0].value; 
   orders:any={}
@@ -62,27 +62,27 @@ getOrders(orderStatus:number){
   })
 }
  
-convertDate(date:string ,convertTo:string){
-  const toWorkTimeDate = new Date(date)
-  if(convertTo=='date'){
-    const formattedDate = toWorkTimeDate.toLocaleDateString("en-US", {
+convertDateTime(date: string, convertTo: string, lang: string = "en") {
+  const toWorkTimeDate = new Date(date);
+  
+  if (convertTo === "date") {
+    return toWorkTimeDate.toLocaleDateString(lang === "ar" ? "ar-EG" : "en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
-    return formattedDate
-  }
-
-  
-  else{
-    const formattedTime = toWorkTimeDate.toLocaleTimeString("en-US", {
+  } else {
+    let formattedTime = toWorkTimeDate.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
       hour12: true,
     });
-    return  formattedTime
-  }
 
-  
+    if (lang === "ar") {
+      formattedTime = formattedTime.replace("AM", "ص").replace("PM", "م");
+    }
+
+    return formattedTime;
+  }
 }
 }

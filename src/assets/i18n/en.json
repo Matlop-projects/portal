@@ -1,4 +1,7 @@
 {
+  "Pending":"Pending",
+  "Completed":"Completed",
+  "Canceled":"Canceled",
   "SAR": "SAR",
   "actions": {
     "send": "Send",

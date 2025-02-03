@@ -105,8 +105,17 @@ p-datepicker.w-full-profile .p-datepicker .p-datepicker-panel{
         width: calc(100%/3)!important; 
        button{
         width: 100%;
+        padding: 15px 0px;
+
        }
       }
+      .p-togglebutton.p-togglebutton-checked {
+        color:#fff!important;
+      }
+  }
+  .p-togglebutton.p-togglebutton-checked::before{
+    background-image: linear-gradient(270deg, #00b8fe, #23d2b2, #41de93)!important;
+  
   }
 }
 

@@ -16,15 +16,25 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
+   
+    .fz-20{
+        font-size: 20px;
+    }
+    .fz-icon-10{
+        font-size: 10px;
+    }
+    .fz-icon-15{
+        font-size: 15px;
+    }
+    .color-blue{
+        color:#00b8fe;
+    }
     .card-header {
         background-color: #fcfcfc;
         padding: 12px;
         font-size: 18px;
         font-weight: bold;
         text-align: center;
-        .status-icon{
-            font-size: 10px;
-        }
       }
       
       .card-content {
