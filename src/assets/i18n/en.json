@@ -24,7 +24,9 @@
   },
   "orders":{
    "title":"The orders",
-   "taxes":"Taxes included"
+   "taxes":"Taxes included",
+   "visitNumber":"Number of visit ",
+   "visitHours":"hours"
   },
   "location":{
    "title":"Location",

@@ -23,7 +23,9 @@
 },
 "orders":{
   "title":"الطلبات",
-  "taxes":"شامل الضريبة"
+  "taxes":"شامل الضريبة",
+  "visitNumber":" عدد الزيارات" ,
+   "visitHours":"ساعات"
  },
 "location": {
   "title":"الموقع",

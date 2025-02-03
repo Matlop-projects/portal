@@ -9,31 +9,40 @@
             <div class="card  d-flex justify-content-between flex-wrap"*ngFor="let order of orders">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <span>
+                        <div>
                             <span class="pi pi-clipboard fz-20"></span>
-                            <span> {{currentLang=='en'?order.serviceNameEn:order.serviceNameAr}} </span>
-                        </span>
+                            <span> {{currentLang=='en'?order?.package?.nameEn:order?.package?.nameAr}} </span>
+                        </div>
+                       
                     <span [ngClass]="order.orderStatusName">
                         <span  class="pi pi-circle-on fz-icon-10"></span>
                      <span> {{order.orderStatusName|translate}}</span>
                     </span>
                     </div>
-                    <div>
-
+                    <div class="d-flex justify-content-between mt-3">
+                        <div class="color-gray">
+                            <span class="pi pi-users fz-20 "></span> 
+                            <span> {{'orders.visitNumber'|translate}} {{order?.package?.visitNumber}} </span>
+                        </div>
+                       
+                    <span class="color-gray" >
+                        <span  class="pi pi-calendar-times fz-icon-20 "></span>
+                     <span> {{'orders.visitHours'|translate}} {{order?.package?.visitHours|translate}}</span>
+                    </span>
                     </div>
                 </div>
                 <div class="card-content d-flex justify-content-between">
                   <span>{{order?.package?.price}} {{'shared.rsa'|translate}}</span>
-                  <span>{{'orders.taxes'|translate}}</span>
+                  <span class="color-gray bolder">{{'orders.taxes'|translate}}</span>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                     <span>
                         <span class="pi pi-calendar-times fz-icon-15 color-blue"></span>
-                       <span class="fz-icon-15"> {{convertDateTime(order.creationTime,'date',currentLang)}}</span>
+                       <span class="fz-icon-15 color-gray"> {{convertDateTime(order.creationTime,'date',currentLang)}}</span>
                     </span>
                     <span>
                         <span class="pi pi-clock fz-icon-15 color-blue"></span>
-                       <span class="fz-icon-15"> {{convertDateTime(order.creationTime,'time',currentLang)}}</span>
+                       <span class="fz-icon-15 color-gray"> {{convertDateTime(order.creationTime,'time',currentLang)}}</span>
                     </span>
 
                 </div>

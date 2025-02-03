@@ -72,7 +72,7 @@ convertDateTime(date: string, convertTo: string, lang: string = "en") {
       day: "numeric",
     });
   } else {
-    let formattedTime = toWorkTimeDate.toLocaleTimeString("en-US", {
+    let formattedTime = toWorkTimeDate.toLocaleTimeString(lang === "ar" ? "ar-EG" : "en-US", {
       hour: "2-digit",
       minute: "2-digit",
       hour12: true,
