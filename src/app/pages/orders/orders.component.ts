@@ -20,6 +20,7 @@ export class OrdersComponent {
   private router =inject(Router)
   private lang =inject(LanguageService)
   currentLang=this.lang.translationService.currentLang
+  selectedStatus:number=0
   stateOptions=[
     { label: 'Pending', id: 0,value: 0,color: '#c1cd6a' },
     { label: 'Canceled', id: 8,value: 8, color: '#e94949' },
@@ -30,10 +31,15 @@ export class OrdersComponent {
  
 
 ngOnInit() {
-    this.onselectStatus(0)
+    this.onselectStatus(this.selectedStatus)
+    this.lang.translationService.onLangChange.subscribe(() => {
+      this.currentLang = this.lang.translationService.currentLang;
+      this.onselectStatus(this.selectedStatus)
+    }); 
 }
 
 onselectStatus(value:number){
+  this.selectedStatus=value
   this.getOrders(value)
 
 }
