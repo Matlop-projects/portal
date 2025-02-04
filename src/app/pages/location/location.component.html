@@ -1,0 +1,52 @@
+<div class="header">
+    <h1>{{'location.title'|translate}}</h1>
+    </div>
+<div class="container mt-3 mb-3">
+    <div class="buttons text-end mt-4 mb-4">
+        <button class="btn" (click)="onAction('add')">
+            + {{'actions.addNew'|translate}}
+        </button>
+    </div>
+    <div class="d-flex justify-content-between flex-wrap">
+        <form  class="mt-4" *ngFor="let location of locations">
+            <div class="location">
+                <div class="actions text-end">
+                    <span class="edit pi pi-pencil pointer" (click)="onAction('edit',location)"></span>
+                    <span class="delete pi pi-trash pointer"(click)="onAction('delete',location)"></span>
+                </div>
+                <div class=" d-flex justify-content-between flex-wrap w-100">
+                    <div class="w-49">
+                        <p-floatlabel variant="on">
+                            <input  class="w-100" pInputText id="on_label" [value]="location.countryName" autocomplete="off" readonly="true"/>
+                            <label for="on_label">{{'location.form.countryName'|translate}}</label>
+                        </p-floatlabel>
+                    </div>
+                    <div class="w-49">
+                        <p-floatlabel variant="on">
+                            <input  class="w-100" pInputText id="on_label" [value]="location.cityName" autocomplete="off"readonly="true" />
+                            <label for="on_label">{{'location.form.cityName'|translate}}</label>
+                        </p-floatlabel>
+                    </div>
+                    <div class="w-49">
+                        <p-floatlabel variant="on">
+                            <input  class="w-100" pInputText id="on_label" [value]="location.districtName" autocomplete="off"readonly="true" />
+                            <label for="on_label">{{'location.form.districtName'|translate}}</label>
+                        </p-floatlabel>
+                    </div>
+                    <div class="w-49">
+                        <p-floatlabel variant="on">
+                            <input  class="w-100" pInputText id="on_label" [value]="location.blockNo" autocomplete="off"readonly="true" />
+                            <label for="on_label">{{'location.form.blockNo'|translate}}</label>
+                        </p-floatlabel>
+                    </div>
+                   
+                 
+                </div>
+            </div> 
+        </form>
+        <div class="w-100 text-center" *ngIf="locations.length==0">
+            <span>{{'shared.no_data_found'|translate}}</span>
+        </div>
+    </div>
+  
+</div>

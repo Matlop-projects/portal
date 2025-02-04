@@ -1,17 +1,50 @@
 {
+  "Pending":"تحت الطلب",
+  "Completed":"مكتمل",
+  "Canceled":"ملغي",
   "SAR": "ريال",
   "actions": {
    "send": "إرسال",
    "send_sms":"إرسال رسالة",
    "login": "تسجيل الدخول",
    "change": "تغيير",
-   "back": "رجوع"
+   "back": "رجوع",
+   "addNew":"اضافة جديد",
+   "update":"تحديث",
+   "add":"اضافة"
 },
 "validations":{
   "suadi_number":"يجب ان يبدأ الرقم ب  XXXXXXXX 05"
 },
 "shared":{
-  "enter_your":"ادخل"
+  "enter_your":"ادخل",
+  "no_data_found":"لا توجد بيانات حاليا",
+  "rsa":"ريال سعودي"
+},
+"orders":{
+  "title":"الطلبات",
+  "taxes":"شامل الضريبة",
+  "visitNumber":" عدد الزيارات" ,
+   "visitHours":"ساعات"
+ },
+"location": {
+  "title":"الموقع",
+  "form":{
+    "countryName": "اسم الدولة",
+  "cityName": "اسم المدينة",
+  "districtName": "اسم الحي",
+  "blockNo": "رقم البلوك"
+  }
+},
+"profile": {
+    "form": {
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "userName": "اسم المستخدم",
+        "email": "البريد الإلكتروني",
+        "mobileNumber": "رقم الهاتف",
+        "dateOfBirth": "تاريخ الميلاد"
+    }
 },
   "how_does": {
     "title": "كيف يعمل تطبيق مطلوب؟",
@@ -71,7 +104,10 @@
   "menuItems": {
     "home": "الصفحة الرئيسية",
     "aboutUs": "من نحن",
-    "contactUs": "اتصل بنا"
+    "contactUs": "اتصل بنا",
+    "locations":"الموقع",
+    "services":"الخدمات",
+    "orders":"الطلبات"
   },
   "mobileApp": {
     "downloadText": "قم بتنزيل التطبيق لمعالجة أسرع وأسهل"

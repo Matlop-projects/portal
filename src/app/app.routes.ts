@@ -7,13 +7,18 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { authGuard } from './core/auth.guard';
 import { SpecialSideNavComponent } from './pages/special-side-nav/special-side-nav.component';
-import { Component } from '@angular/core';
 import { CommonQuestionsComponent } from './pages/common-questions/common-questions.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { TermsPolicyComponent } from './pages/terms-policy/terms-policy.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LocationComponent } from './pages/location/location.component';
+import { LocationDetailsComponent } from './pages/location/location/location-details/location-details.component';
+import { ServerResponse } from 'node:http';
+import { ServicesSectionComponent } from './components/services-section/services-section.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 export const routes: Routes = [
   {
@@ -37,9 +42,16 @@ export const routes: Routes = [
     // canActivate: [authGuard], // Applying authGuard to the home layout
     children: [
       { path: 'home', component: HomeComponent },
+      { path: 'services/list', component: ServicesSectionComponent },
+      { path: 'orders', component: OrdersComponent },
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
       { path: 'reservation/:id', component: ReservationComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'location', component: LocationComponent },
+      { path: 'location/:id', component: LocationDetailsComponent },
+      { path: 'location/add', component: LocationDetailsComponent },
+
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {

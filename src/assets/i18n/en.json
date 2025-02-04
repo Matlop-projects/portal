@@ -1,17 +1,51 @@
 {
+  "Pending":"Pending",
+  "Completed":"Completed",
+  "Canceled":"Canceled",
   "SAR": "SAR",
   "actions": {
     "send": "Send",
     "send_sms": "Send a  message",
     "login": "Login",
     "change": "Change",
-    "back": "Back"
+    "back": "Back",
+    "addNew":"Add New",
+    "update":"Update",
+    "add":"Add"
   },
   "validations":{
     "suadi_number":"Number should be start with 05 XXXXXXXX"
   },
   "shared":{
-     "enter_your":"Enter your"
+     "enter_your":"Enter your",
+     "no_data_found":"No data found",
+     "rsa":"rsa"
+
+  },
+  "orders":{
+   "title":"The orders",
+   "taxes":"Taxes included",
+   "visitNumber":"Number of visit ",
+   "visitHours":"hours"
+  },
+  "location":{
+   "title":"Location",
+   "form":{
+    "countryName":"Country Name",
+    "cityName":"City Name",
+    "districtName":"District Name",
+    "blockNo":"Block No"
+   }
+  },
+  "profile":{
+      "form":{
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "userName":"User Name",
+        "email":"E-mail address",
+        "mobileNumber":"Phone Number",
+        "dateOfBirth":"date Of birth"
+      }
   },
   "how_does": {
     "title": "How does it work Matlop ?",
@@ -71,7 +105,10 @@
   "menuItems": {
     "home": "Home",
     "aboutUs": "About Us",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "locations":"Location",
+    "services":"Services",
+    "orders":"The Orders"
   },
   "mobileApp": {
     "downloadText": "Download the application for faster and easier processing"

@@ -5,7 +5,7 @@
         <div class="title mb-4 mt-4">
           <p>{{ 'services.mainSections' | translate }}</p>
         </div>
-        <div class="desc">
+        <div class="desc" *ngIf="!isServiceList()">
           <p>{{ 'services.description' | translate }}</p>
         </div>
       </div>
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="call-center-section mt-4 mb-4">
+      <div class="call-center-section mt-4 mb-4" *ngIf="!isServiceList()">
         <div class="call-content">
           <h3>{{ 'services.moreService' | translate }}</h3>
           <p>{{ 'services.callHelp' | translate }}</p>

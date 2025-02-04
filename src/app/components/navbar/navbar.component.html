@@ -17,6 +17,24 @@
           {{ item.label | translate }}
         </a>
       </li>
+      <li>
+        <a 
+        [routerLink]="'/orders'"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}"
+           (click)="isMenuOpen = false"
+         class="nav-item pointer" *ngIf="hasToken">{{'menuItems.orders'|translate}}</a>
+
+      </li>
+      <li>
+        <a 
+        [routerLink]="'/location'"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}"
+           (click)="isMenuOpen = false"
+         class="nav-item pointer" *ngIf="hasToken">{{'menuItems.locations'|translate}}</a>
+
+      </li>
     </ul>
   </div>
 
@@ -29,8 +47,8 @@
       {{ selectedLang.toUpperCase() == 'AR' ? 'EN' : 'AR' }}
     </button>
     <button *ngIf="!hasToken" class="signin-btn" routerLink="/auth/login">{{ 'navbar.signIn' | translate }}</button>
-    <div class="user-avatar" *ngIf="hasToken">
-      <img src="https://www.primefaces.org/cdn/primevue/images/landing/apps/main-avatar.png" alt="User Avatar">
+    <div [routerLink]="'/profile'" class="user-avatar pointer" *ngIf="hasToken">
+      <img [src]="profileImg" onerror="this.src='assets/images/user.png'" alt="User Avatar">
     </div>
   </div>
 
