@@ -1,90 +1,174 @@
-<div class="package-details-container" *ngIf="packageDetails">
-  <div class="row mt-1 mb-2">
-    <h3>{{ 'PACKAGE_DETAILS.TITLE' | translate }}</h3>
+<div class="reservation-details-container" *ngIf="packageDetails">
+  <div class="row mt-2 mb-2">
+    <h3>{{ 'PACKAGE.DETAILS' | translate }}</h3>
   </div>
-  <div class="content">
-    <div class="row mt-1">
-      <div class="details col-lg-6 col-md-12 mt-1">
+  <div class="content row">
+    <div class="col-lg-4 col-md-8 col-sm-12 section-one">
+      <div class="section-one-content">
         <div class="details-content">
-          <i class="pi pi-id-card"></i>
           <div class="data">
+            <i class="pi pi-id-card"></i>
             <div class="title">
               <p>{{ 'PACKAGE_DETAILS.PACKAGE_NAME' | translate }}</p>
             </div>
-            <div class="desc">
-              <p>{{ selectedLang == 'ar' ? packageDetails.nameAr : packageDetails.nameEn }}</p>
-            </div>
+          </div>
+          <div class="desc">
+            <p>{{ selectedLang == 'ar' ? packageDetails.nameAr : packageDetails.nameEn }}</p>
           </div>
         </div>
-      </div>
-      <div class="details col-lg-6 col-md-12 mt-1">
         <div class="details-content">
-          <i class="pi pi-money-bill"></i>
           <div class="data">
+            <i class="pi pi-money-bill"></i>
             <div class="title">
               <p>{{ 'PACKAGE_DETAILS.PRICE' | translate }}</p>
             </div>
-            <div class="desc">
-              <p>{{ packageDetails.price }}</p>
-            </div>
+          </div>
+          <div class="desc">
+            <p>{{ packageDetails.price}} SAR</p>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row mt-1">
-      <div class="details col-lg-6 col-md-12 mt-1">
-        <div class="details-content">
-          <i class="pi pi-clock"></i>
+        <div class="details-content" *ngIf="packageDetails.couponDiscount">
           <div class="data">
+            <i class="pi pi-dollar"></i>
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.DiscountAmount' | translate }}</p>
+            </div>
+          </div>
+          <div class="desc">
+            <p>{{ packageDetails.couponDiscount}} {{discountType == 1 ? '%' : 'SAR'}}</p>
+          </div>
+        </div>
+        <div class="details-content" *ngIf="packageDetails.couponPrice">
+          <div class="data">
+            <i class="pi pi-money-bill"></i>
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.PriceAfterDiscount' | translate }}</p>
+            </div>
+          </div>
+          <div class="desc">
+            <p>{{ packageDetails.couponPrice}} SAR</p>
+          </div>
+        </div>
+        <div class="details-content">
+          <div class="data">
+            <i class="pi pi-clock"></i>
             <div class="title">
               <p>{{ 'PACKAGE_DETAILS.VISIT_HOURS' | translate }}</p>
             </div>
-            <div class="desc">
-              <p>{{ packageDetails.visitHours }}</p>
-            </div>
+          </div>
+          <div class="desc">
+            <p>{{ packageDetails.visitHours }}</p>
           </div>
         </div>
-      </div>
-      <div class="details col-lg-6 col-md-12 mt-1">
         <div class="details-content">
-          <i class="pi pi-book"></i>
           <div class="data">
+            <i class="pi pi-calendar-clock"></i>
             <div class="title">
               <p>{{ 'PACKAGE_DETAILS.VISIT_NUMBER' | translate }}</p>
             </div>
-            <div class="desc">
-              <p>{{ packageDetails.visitNumber }}</p>
+          </div>
+          <div class="desc">
+            <p>{{packageDetails.visitNumber }}</p>
+          </div>
+        </div>
+        <div class="details-content" style="border: none;">
+          <div class="data">
+            <i class="pi pi-id-card"></i>
+            <div class="title">
+              <p>{{ 'PACKAGE_DETAILS.CONTRACT_TYPE' | translate }}</p>
             </div>
+          </div>
+          <div class="desc">
+            <p>{{selectedLang == 'ar' ? contractDetails.arName : contractDetails.enName}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-one-content-details mt-3">
+        <div class="">
+          <p><i class="pi pi-sort-down-fill"></i> {{ 'PACKAGE_DETAILS.DESCRIPTION' | translate }}</p>
+
+          <div class="desc mt-2">
+            <p [innerHTML]="selectedLang == 'ar' ? packageDetails.descriptionAr : packageDetails.descriptionEn"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-one-content-details mt-3">
+        <div class="">
+          <p><i class="pi pi-sort-down-fill"></i> {{ 'PACKAGE_DETAILS.INSTRUCTION' | translate }}</p>
+
+          <div class="desc mt-2">
+            <p [innerHTML]="selectedLang == 'ar' ? packageDetails.arInstraction : packageDetails.enInstraction"></p>
           </div>
         </div>
       </div>
     </div>
-    <div class="row mt-1">
-      <div class="details col-lg-12 mt-1">
-        <div class="details-content c">
-          <i class="pi pi-align-justify"></i>
-          <div class="data">
-            <div class="title">
-              <p>{{ 'PACKAGE_DETAILS.DESCRIPTION' | translate }}</p>
+
+
+    <div class="col-lg-8 col-md-8 col-sm-12 section-two">
+      <div class="section-two-content">
+        <div class="row mt-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <label>Location <span class="red-mark">*</span></label>
+            <p-select [options]="locationList" [(ngModel)]="locationSelect" (onChange)="onLocationChange($event)"
+              optionLabel="finalLocation" placeholder="Select a Location" class="w-full md:w-56" />
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="group-collection" style="display: flex;flex-direction: column;position: relative;">
+              <label for="Coupon">Coupon</label>
+              <input pInputText id="Coupon" [ngClass]="{ 'success-coupon': validCoupon }" aria-describedby="Coupon-help"
+                placeholder="Add Coupon" [(ngModel)]="coupon" />
+              <button class="coupon-btn" (click)="checkCoupon()">+</button>
             </div>
-            <div class="desc">
-              <p [innerHTML]="selectedLang == 'ar' ? packageDetails.descriptionAr : packageDetails.descriptionEn"></p>
-            </div>
+            <small *ngIf="invalidCoupn" id="Coupon-help">{{invalidCoupnMessage}}</small>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row mt-1">
-      <div class="details col-lg-12 mt-1">
-        <div class="details-content c">
-          <i class="pi pi-align-justify"></i>
-          <div class="data">
-            <div class="title">
-              <p>{{ 'PACKAGE_DETAILS.INSTRUCTION' | translate }}</p>
-            </div>
-            <div class="desc">
-              <p [innerHTML]="selectedLang == 'ar' ? packageDetails.arInstraction : packageDetails.enInstraction"></p>
-            </div>
+
+        <div class="row mt-4">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <label>Payment List <span class="red-mark">*</span></label>
+            <p-select [options]="paymentList" [(ngModel)]="paymentSelect" (onChange)="onPaymentChange($event)"
+              optionLabel="finalPayment" placeholder="Select a Payment" class="w-full md:w-56" />
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <label>Visit Time <span class="red-mark">*</span></label>
+            <p-select [options]="workingHoursList" [(ngModel)]="workingHoursSelect"
+              (onChange)="onWorkingHoursChange($event)" optionLabel="finalWorking" placeholder="Select a Visit time"
+              class="w-full md:w-56" />
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-12 col-md-12 col-sm-12 date-picker">
+            <label>Visit Date <span class="red-mark">*</span></label>
+            <p-datepicker [ngClass]="{ 'input-error': isDateInvalid }" [(ngModel)]="dates"
+              (onSelect)="validateMinDates()" selectionMode="multiple" [disabledDays]="[5, 6]" [minDate]="minDate"
+              [maxDate]="maxDate" [readonlyInput]="true" />
+            <small *ngIf="errorMessage" class="error-message">
+              {{ errorMessage }}
+            </small>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-12 date-picker">
+            <label>Note</label>
+            <textarea rows="5" pTextarea [(ngModel)]="noteValue"></textarea>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-12 date-picker">
+            <label>Upload Media</label>
+            <p-fileupload
+              (onSelect)="onSelect($event)"  (onClear)="clearMedia()" [multiple]="true" accept="image/*,video/*" maxFileSize="3000000" mode="advanced">
+              <ng-template #empty>
+                <div>Drag and drop files to here to upload.</div>
+              </ng-template>
+              <ng-template #content>
+                <ul *ngIf="uploadedFiles.length">
+                  <!-- <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} </li> -->
+                </ul>
+              </ng-template>
+            </p-fileupload>
           </div>
         </div>
       </div>

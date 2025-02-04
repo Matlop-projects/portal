@@ -10,11 +10,12 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { PackagesComponent } from '../packages/packages.component';
 import { NgIf } from '@angular/common';
 import { PackageDetailsComponent } from '../package-details/package-details.component';
+import { ReservationDetailsComponent } from '../reservation-details/reservation-details.component';
 
 @Component({
   selector: 'app-reservation',
   standalone: true,
-  imports: [StepperModule, NgIf, ButtonModule, PackageDetailsComponent, ContractsComponent, PackagesComponent, TranslatePipe],
+  imports: [StepperModule, NgIf, ButtonModule, PackageDetailsComponent, ContractsComponent, PackagesComponent, TranslatePipe , ReservationDetailsComponent],
   templateUrl: './reservation.component.html',
   styleUrl: './reservation.component.scss'
 })

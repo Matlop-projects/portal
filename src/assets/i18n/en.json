@@ -134,7 +134,8 @@
     "PACKAGE_LIST": "Package List",
     "VISIT_NUMBER": "Visit Number",
     "VAT": "VAT Included",
-    "NO_PACKAGES": "No packages available."
+    "NO_PACKAGES": "No packages available.",
+    "DETAILS" : "Package Details"
   },
   "PACKAGE_DETAILS": {
     "TITLE": "Package Details",
@@ -143,7 +144,10 @@
     "VISIT_HOURS": "Visit Hours",
     "VISIT_NUMBER": "Visit Number",
     "DESCRIPTION": "Description",
-    "INSTRUCTION": "Instruction"
+    "INSTRUCTION": "Instruction",
+    "CONTRACT_TYPE" : "Contract Type",
+    "DiscountAmount": "Discount Amount",
+    "PriceAfterDiscount" : "Price after Discount"
   },
   "RESERVATION": {
     "BACK": "Back",

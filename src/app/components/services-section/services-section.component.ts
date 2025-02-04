@@ -26,6 +26,7 @@ export class ServicesSectionComponent {
 
   ngOnInit(): void {
     this.getAllServices();
+    localStorage.removeItem('contractDetails');
     this.languageService.translationService.onLangChange.subscribe(() => {
       this.selectedLang = this.languageService.translationService.currentLang;
       // this.setImageLanguage();
