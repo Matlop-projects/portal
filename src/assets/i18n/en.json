@@ -26,7 +26,18 @@
    "title":"The orders",
    "taxes":"Taxes included",
    "visitNumber":"Number of visit ",
-   "visitHours":"hours"
+   "visitHours":"hours",
+   "location":"Location",
+   "pkg_name":"Package Name",
+   "type_pkg":"Type of Visit",
+   "price_pkg":"Price of Package",
+   "notes":"Notes",
+   "no_notes":"No notes found",
+    "no_img":"No photo found",
+   "img":"Order Photo",
+   "details":"Order details",
+   "date_time_info":"Determine the day and time of the visit",
+   "price_add":"Additional value to the order"
   },
   "location":{
    "title":"Location",

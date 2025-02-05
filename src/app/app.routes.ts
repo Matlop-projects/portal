@@ -19,6 +19,7 @@ import { LocationDetailsComponent } from './pages/location/location/location-det
 import { ServerResponse } from 'node:http';
 import { ServicesSectionComponent } from './components/services-section/services-section.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +45,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'services/list', component: ServicesSectionComponent },
       { path: 'orders', component: OrdersComponent },
+      { path: 'orders/:id', component: OrderDetailsComponent },
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
       { path: 'reservation/:id', component: ReservationComponent },
