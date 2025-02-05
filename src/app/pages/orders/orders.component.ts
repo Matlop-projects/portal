@@ -61,6 +61,11 @@ getOrders(orderStatus:number){
     }
   })
 }
+
+getOrderDetails(order:any){
+  this.router.navigateByUrl('/orders/'+order.orderId)
+ 
+}
  
 convertDateTime(date: string, convertTo: string, lang: string = "en") {
   const toWorkTimeDate = new Date(date);

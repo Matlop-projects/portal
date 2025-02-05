@@ -1,0 +1,111 @@
+<div class="header">
+    <h1>{{'orders.details'|translate}}</h1>
+</div>
+
+<div class="container  mt-3 mb-3" *ngIf="order">
+    <div class="d-flex justify-content-between flex-wrap">
+        <div class="w-49">
+            <div class="bk-gray">
+                <div class="text-center mb-4">
+                    <span class="header-title">{{'orders.date_time_info'|translate}}</span>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap mb-3">
+                    <span>
+                        <span class="pi pi pi-clock fz-icon-15 color-blue"></span>
+                        <span class="fz-icon-15 color-gray">
+                            {{convertDateTime(order.nextVistDate,'time',currentLang)}}</span>
+                    </span>
+                    <span>
+                        <span class="pi pi-calendar-times fz-icon-15 color-blue"></span>
+                        <span class="fz-icon-15 color-gray">
+                            {{convertDateTime(order.nextVistDate,'date',currentLang)}}</span>
+                    </span>
+                </div>
+            </div>
+            <div class="details">
+                <div class="d-flex justify-content-between flex-wrap">
+                    <span>
+                        <span class="pi pi-map-marker fz-20"></span>
+                        <span>
+                            {{'orders.location'|translate}}
+                        </span>
+                    </span>
+                    <span class="bold">{{order.locationName}}</span>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    <span>
+                        <span class="pi pi-gift fz-20"></span>
+                        <span>
+                            {{'orders.pkg_name'|translate}}
+                        </span>
+                    </span>
+                    <span class="bold"> {{currentLang=='en'?order?.package?.nameEn:order?.package?.nameAr}} </span>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    <span>
+                        <span class="pi pi-users fz-20"></span>
+                        <span>
+                            {{'orders.visitNumber'|translate}}
+                        </span>
+                    </span>
+                    <span class="bold"> {{order?.package?.visitNumber}} </span>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    <span>
+                        <span class="pi pi-clipboard fz-20"></span>
+                        <span>
+                            {{'orders.type_pkg'|translate}}
+                        </span>
+                    </span>
+                    <span class="bold">
+                        {{currentLang=='en'?
+                        PackageTypeList[order?.package?.typeOfPackage+1].name:
+                        PackageTypeList[order?.package?.typeOfPackage+1].nameAr
+                        }}</span>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    <span>
+                        <span class="pi pi-clock fz-20"></span>
+                        <span>
+                            {{'orders.visitHours'|translate}}
+                        </span>
+                    </span>
+                    <span class="bold"> {{order?.package?.visitHours|translate}}</span>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    <span>
+                        <span class="pi pi-money-bill fz-20"></span>
+                        <span>
+                            {{'orders.price_pkg'|translate}}
+                        </span>
+                    </span>
+                    <span class="bold">{{order?.package?.price}} {{'shared.rsa'|translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="w-49 mb-3">
+            <div class="order-img d-flex justify-content-between flex-wrap">
+                <span class="bold"> {{'orders.img'|translate}}</span>
+                <span *ngIf="order?.media?.length==0">{{'orders.no_img'|translate}}</span>
+                <img *ngIf="order?.media?.length!==0" [src]="order?.media?.length?imgBaseUrl+order?.media[0]?.src:defaultImg" alt="order-img">
+            </div>
+            <div class="order-notes d-flex justify-content-between flex-wrap">
+                <span  class="bold">
+                    {{'orders.notes'|translate}}
+                </span>
+                <span>
+                    {{order.notes?order.notes:'orders.no_notes'|translate}}
+                </span>
+            </div>
+            <div class="order-price-add d-flex justify-content-between flex-wrap">
+                <span  class="bold">
+                    {{'orders.price_add'|translate}}
+                </span>
+                <span>
+                    {{order.totalWithAdditional}}
+                    {{'shared.rsa'|translate}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
