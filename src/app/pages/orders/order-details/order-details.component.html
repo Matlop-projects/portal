@@ -3,6 +3,9 @@
 </div>
 
 <div class="container  mt-3 mb-3" *ngIf="order">
+    <div class="steps mb-5">
+        <p-steps [model]="steps" [activeIndex]="activeIndex" [readonly]="true" class="w-full"></p-steps>
+    </div>
     <div class="d-flex justify-content-between flex-wrap">
         <div class="w-49">
             <div class="bk-gray">
@@ -58,10 +61,7 @@
                         </span>
                     </span>
                     <span class="bold">
-                        {{currentLang=='en'?
-                        PackageTypeList[order?.package?.typeOfPackage+1].name:
-                        PackageTypeList[order?.package?.typeOfPackage+1].nameAr
-                        }}</span>
+                        {{order?.package?.typeOfPackageName}}</span>
                 </div>
                 <div class="d-flex justify-content-between flex-wrap">
                     <span>
