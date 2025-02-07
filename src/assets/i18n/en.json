@@ -41,6 +41,7 @@
   },
   "location":{
    "title":"Location",
+   "add_location":"Add Location",
    "form":{
     "countryName":"Country Name",
     "cityName":"City Name",

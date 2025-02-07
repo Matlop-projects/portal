@@ -40,6 +40,7 @@
 },
 "location": {
   "title":"الموقع",
+  "add_location":"اضافة موقع",
   "form":{
     "countryName": "اسم الدولة",
   "cityName": "اسم المدينة",
