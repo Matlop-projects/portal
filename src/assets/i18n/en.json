@@ -26,6 +26,7 @@
    "title":"The orders",
    "taxes":"Taxes included",
    "visitNumber":"Number of visit ",
+   "canceled":"Canceled Order",
    "visitHours":"hours",
    "location":"Location",
    "pkg_name":"Package Name",

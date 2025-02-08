@@ -29,7 +29,13 @@ export class OrderDetailsComponent {
       label: this.currentLang == 'en' ? 'Assigned To Provider' : 'مخصص للمزود',
     },
     {
+      label: this.currentLang == 'en' ? 'In The Way' : 'في الطريق',
+    },
+    {
       label: this.currentLang == 'en' ? 'Trying Solve Problem' : 'محاولة حل المشكلة',
+    },
+    {
+      label: this.currentLang == 'en' ? 'Solved' : 'تم الحل',
     },
     {
       label: this.currentLang == 'en' ? 'Client Confirmation' : 'معلومات العميل',

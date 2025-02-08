@@ -25,6 +25,7 @@
   "title": "الطلبات",
   "taxes": "الضرائب مشمولة",
   "visitNumber": "عدد الزيارات",
+  "canceled":"تم الغاء الطلب",
   "visitHours": "ساعات",
   "location": "الموقع",
   "pkg_name": "اسم الباقة",

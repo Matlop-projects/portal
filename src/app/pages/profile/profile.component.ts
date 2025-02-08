@@ -107,15 +107,13 @@ ngOnInit() {
     }
   }
   onSubmit(){
-    console.log('ggkkkk',this.form.value)
-    const date =this.form.value.dateOfBirth
-    // date.setHours(0, 0, 0, 0); 
-    console.log("ProfileComponent  onSubmit  date:", date)
+    const year = this.form.value.dateOfBirth.getFullYear();
+    const month = this.form.value.dateOfBirth.getMonth();
+    const day = this.form.value.dateOfBirth.getDate();
+    const date  = new Date(year, month, day, 12);
     this.form.patchValue({
       dateOfBirth:date
     })
-    console.log('ggkkkk---',this.form.value)
-
     this.apiService.post('Client/EditProfile',this.form.value).subscribe(res=>{
       if(res)
       {
