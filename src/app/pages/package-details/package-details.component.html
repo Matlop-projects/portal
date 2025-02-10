@@ -110,9 +110,14 @@
       <div class="section-two-content">
         <div class="row mt-3">
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <label>Location <span class="red-mark">*</span></label>
+            <div class="location">
+              <label>Location <span class="red-mark">*</span></label>
+           <div class="location-select">
             <p-select [options]="locationList" [(ngModel)]="locationSelect" (onChange)="onLocationChange($event)"
               optionLabel="finalLocation" placeholder="Select a Location" class="w-full md:w-56" />
+              <button>+</button>
+            </div>
+           </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="group-collection" style="display: flex;flex-direction: column;position: relative;">

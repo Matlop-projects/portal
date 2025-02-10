@@ -42,15 +42,15 @@ export const routes: Routes = [
     // canActivate: [authGuard], // Applying authGuard to the home layout
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'services/list', component: ServicesSectionComponent },
-      { path: 'orders', component: OrdersComponent },
+      { path: 'services/list', component: ServicesSectionComponent ,canActivate: [authGuard] },
+      { path: 'orders', component: OrdersComponent , canActivate: [authGuard] },
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
-      { path: 'reservation/:id', component: ReservationComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'location', component: LocationComponent },
-      { path: 'location/:id', component: LocationDetailsComponent },
-      { path: 'location/add', component: LocationDetailsComponent },
+      { path: 'reservation/:id', component: ReservationComponent , canActivate: [authGuard] },
+      { path: 'profile', component: ProfileComponent , canActivate: [authGuard] },
+      { path: 'location', component: LocationComponent , canActivate: [authGuard] },
+      { path: 'location/:id', component: LocationDetailsComponent , canActivate: [authGuard] },
+      { path: 'location/add', component: LocationDetailsComponent , canActivate: [authGuard] },
 
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
