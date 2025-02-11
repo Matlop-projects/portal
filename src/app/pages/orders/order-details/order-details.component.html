@@ -4,8 +4,10 @@
 
 <div class="container  mt-3 mb-3" *ngIf="order">
     <div class="steps mb-5 text-center">
-        <p-steps *ngIf="order?.orderStatusEnum!=8" [model]="steps" [activeIndex]="activeIndex" [readonly]="true" class="w-full"></p-steps>
-         <h3  *ngIf="order?.orderStatusEnum==8" class="text-danger">{{'orders.canceled'|translate}}</h3>
+        <div class="w-100">
+            <p-steps  *ngIf="order?.orderStatusEnum!=8" [model]="steps" [activeIndex]="activeIndex" [readonly]="true" class="w-full"></p-steps>
+            <h3  *ngIf="order?.orderStatusEnum==8" class="text-danger">{{'orders.canceled'|translate}}</h3>   
+        </div>
     </div>
     <div class="d-flex justify-content-between flex-wrap">
         <div class="w-49">
