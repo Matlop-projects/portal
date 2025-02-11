@@ -45,9 +45,21 @@
   }
   
 
-
+.step-sm-screen{
+  display: none;
+}
 @media (max-width: 768px) {
     .w-49 {
       width:100%;
     }
+}
+@media (max-width: 992px) {
+  .step-lg-screen{
+    display: none;
+  }
+  .step-sm-screen{
+    display: block!important;
+    color: #10b981;
+    font-weight: bolder;
+  }
 }
