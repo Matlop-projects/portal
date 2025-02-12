@@ -6,10 +6,11 @@ import { NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { StepsModule } from 'primeng/steps';
+import { TextareaModule } from 'primeng/textarea';
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [TranslatePipe, NgIf, StepsModule],
+  imports: [TranslatePipe, NgIf, StepsModule,TextareaModule],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.scss',
 })
