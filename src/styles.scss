@@ -119,7 +119,11 @@ p-datepicker.w-full-profile .p-datepicker .p-datepicker-panel{
 
   }
 }
-.p-steps-item-active .p-steps-item-label{
-  font-weight: bolder;
+.steps{
+  direction: ltr;
+  .p-steps-item-active .p-steps-item-label{
+    font-weight: bolder;
+  }
+  
 }
 

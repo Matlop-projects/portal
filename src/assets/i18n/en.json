@@ -19,7 +19,8 @@
   "shared":{
      "enter_your":"Enter your",
      "no_data_found":"No data found",
-     "rsa":"rsa"
+     "rsa":"rsa",
+     "browser_warning":" Your browser does not support the video"
 
   },
   "orders":{
@@ -35,7 +36,11 @@
    "notes":"Notes",
    "no_notes":"No notes found",
     "no_img":"No photo found",
+    "no_vedio":"No Vedio found",
+    "no_file":"No file found",
+    "file":"Files",
    "img":"Order Photo",
+   "vedio":"Order Vedio",
    "details":"Order details",
    "date_time_info":"Determine the day and time of the visit",
    "price_add":"Additional value to the order"

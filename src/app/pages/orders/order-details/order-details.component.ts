@@ -6,10 +6,11 @@ import { NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { StepsModule } from 'primeng/steps';
+import { TextareaModule } from 'primeng/textarea';
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [TranslatePipe, NgIf, StepsModule],
+  imports: [TranslatePipe, NgIf, StepsModule,TextareaModule],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.scss',
 })
@@ -18,32 +19,7 @@ export class OrderDetailsComponent {
   private route = inject(ActivatedRoute);
   private lang = inject(LanguageService);
   currentLang = this.lang.translationService.currentLang;
-  steps: any = [
-    {
-      label: this.currentLang == 'en' ? 'Pending' : 'قيد الانتظار',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Paid' : 'مدفوع',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Assigned To Provider' : 'مخصص للمزود',
-    },
-    {
-      label: this.currentLang == 'en' ? 'In The Way' : 'في الطريق',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Trying Solve Problem' : 'محاولة حل المشكلة',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Solved' : 'تم الحل',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Client Confirmation' : 'معلومات العميل',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Completed' : 'مكتمل',
-    }
-  ];
+  steps: any = [];
   activeIndex=-1
   order: any = {};
   imgBaseUrl = environment.baseImageUrl;
@@ -92,7 +68,36 @@ export class OrderDetailsComponent {
     });
   }
 
+  getSteps(){
+   this.steps=[
+    {
+      label: this.currentLang == 'en' ? 'Pending' : 'قيد الانتظار',
+    },
+    {
+      label: this.currentLang == 'en' ? 'Paid' : 'مدفوع',
+    },
+    {
+      label: this.currentLang == 'en' ? 'Assigned To Provider' : 'مخصص للمزود',
+    },
+    {
+      label: this.currentLang == 'en' ? 'In The Way' : 'في الطريق',
+    },
+    {
+      label: this.currentLang == 'en' ? 'Trying Solve Problem' : 'محاولة حل المشكلة',
+    },
+    {
+      label: this.currentLang == 'en' ? 'Solved' : 'تم الحل',
+    },
+    {
+      label: this.currentLang == 'en' ? 'Client Confirmation' : 'معلومات العميل',
+    },
+    {
+      label: this.currentLang == 'en' ? 'Completed' : 'مكتمل',
+    }
+   ]
+  }
   getOrderDetails() {
+    this.getSteps()
     this.apiService.get(`Order/get/${this.orderId}`).subscribe((res: any) => {
       if (res.data){
         this.order = res.data;
