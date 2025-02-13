@@ -16,9 +16,10 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LocationComponent } from './pages/location/location.component';
 import { LocationDetailsComponent } from './pages/location/location/location-details/location-details.component';
-import { ServerResponse } from 'node:http';
 import { ServicesSectionComponent } from './components/services-section/services-section.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
+import { SpecialOrderDetailsComponent } from './pages/special-order-details/special-order-details.component';
 
 export const routes: Routes = [
   {
@@ -42,8 +43,9 @@ export const routes: Routes = [
     // canActivate: [authGuard], // Applying authGuard to the home layout
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'services/list', component: ServicesSectionComponent ,canActivate: [authGuard] },
-      { path: 'orders', component: OrdersComponent , canActivate: [authGuard] },
+      { path: 'services/list', component: ServicesSectionComponent },
+      { path: 'orders', component: OrdersComponent },
+      { path: 'orders/:id', component: OrderDetailsComponent },
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
       { path: 'reservation/:id', component: ReservationComponent , canActivate: [authGuard] },
@@ -51,6 +53,7 @@ export const routes: Routes = [
       { path: 'location', component: LocationComponent , canActivate: [authGuard] },
       { path: 'location/:id', component: LocationDetailsComponent , canActivate: [authGuard] },
       { path: 'location/add', component: LocationDetailsComponent , canActivate: [authGuard] },
+      { path: 'special_order_details/:id', component: SpecialOrderDetailsComponent , canActivate: [authGuard] },
 
       { path: 'sp', component: SpecialSideNavComponent,
         children:[

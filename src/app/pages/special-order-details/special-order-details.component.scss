@@ -1,0 +1,28 @@
+.special-order-details-container {
+  .content {
+    .desc-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-block: 50px;
+
+      .title {
+        p {
+          font-size: 40px;
+        }
+      }
+
+      .add-btn {
+        border: none;
+        color: white;
+        height: 45px;
+        font-size: 18px;
+        border-radius: 16px;
+        background: linear-gradient(45deg, #00b8fe, #23d2b2, #41de93);
+        &:hover {
+          background: linear-gradient(45deg, #41de93, #23d2b2, #00b8fe);
+        }
+      }
+    }
+  }
+}

@@ -40,23 +40,31 @@ export class ApiService {
       );
   }
 
-  get<T>(APIName: string, params?: any,options:IOptions={showAlert:false,message:''}): Observable<T> {
-    let queryParams: any = [];
+  get<T>(APIName: string, params?: any, options: IOptions = { showAlert: false, message: '' }): Observable<T> {
+    let queryParams: string[] = [];
+
     if (params) {
       for (const key in params) {
-        queryParams.push(`${key}=${params[key]}`);
+        if (params.hasOwnProperty(key)) {
+          queryParams.push(`${key}=${params[key]}`);
+        }
       }
     }
-    return this.http
-      .get(`${baseUrl}${APIName}?${queryParams.join('&')}`)
-      .pipe(
-        take(1),
-        map((res: any) => {
-          options.showAlert ?   this.toaster.successToaster(options.message) :''
-          return res;
-        })
-      );
+
+    // Only append the '?' if there are query parameters.
+    const queryString = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
+
+    return this.http.get(`${baseUrl}${APIName}${queryString}`).pipe(
+      take(1),
+      map((res: any) => {
+        if (options.showAlert) {
+          this.toaster.successToaster(options.message);
+        }
+        return res;
+      })
+    );
   }
+
 
 
   put<T>(APIName: string, body: any ,options:IOptions={showAlert:false,message:''}): Observable<T> {

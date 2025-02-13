@@ -21,14 +21,27 @@
   "no_data_found":"لا توجد بيانات حاليا",
   "rsa":"ريال سعودي"
 },
-"orders":{
-  "title":"الطلبات",
-  "taxes":"شامل الضريبة",
-  "visitNumber":" عدد الزيارات" ,
-   "visitHours":"ساعات"
- },
+"orders": {
+  "title": "الطلبات",
+  "taxes": "الضرائب مشمولة",
+  "visitNumber": "عدد الزيارات",
+  "canceled":"تم الغاء الطلب",
+  "visitHours": "ساعات",
+  "location": "الموقع",
+  "pkg_name": "اسم الباقة",
+  "type_pkg": "نوع الزيارة",
+  "price_pkg": "سعر الباقة",
+  "notes": "ملاحظات",
+  "no_notes": "لم يتم العثور على ملاحظات",
+  "no_img": "لم يتم العثور على صورة",
+  "img": "صورة الطلب",
+  "details": "تفاصيل الطلب",
+  "date_time_info": "تحديد اليوم والوقت للزيارة",
+  "price_add": "قيمة إضافية للطلب"
+},
 "location": {
   "title":"الموقع",
+  "add_location":"اضافة موقع",
   "form":{
     "countryName": "اسم الدولة",
   "cityName": "اسم المدينة",
@@ -188,5 +201,11 @@
   "RESERVATION": {
     "BACK": "رجوع",
     "NEXT": "التالي"
+  },
+  "SPECIAL_ORDER": {
+    "TITLE": "الطلبات الخاصة",
+    "EMERGNCY": " طلب طارئ",
+    "SPECIAL": " طلب خاص ",
+    "NEW_ORDER": " + طلب جديد"
   }
 }

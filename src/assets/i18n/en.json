@@ -26,10 +26,23 @@
    "title":"The orders",
    "taxes":"Taxes included",
    "visitNumber":"Number of visit ",
-   "visitHours":"hours"
+   "canceled":"Canceled Order",
+   "visitHours":"hours",
+   "location":"Location",
+   "pkg_name":"Package Name",
+   "type_pkg":"Type of Visit",
+   "price_pkg":"Price of Package",
+   "notes":"Notes",
+   "no_notes":"No notes found",
+    "no_img":"No photo found",
+   "img":"Order Photo",
+   "details":"Order details",
+   "date_time_info":"Determine the day and time of the visit",
+   "price_add":"Additional value to the order"
   },
   "location":{
    "title":"Location",
+   "add_location":"Add Location",
    "form":{
     "countryName":"Country Name",
     "cityName":"City Name",
@@ -189,5 +202,11 @@
   "RESERVATION": {
     "BACK": "Back",
     "NEXT": "Next"
+  },
+  "SPECIAL_ORDER": {
+    "TITLE": "Special Order",
+    "EMERGNCY": "Emergncy Order",
+    "SPECIAL": "Special Order",
+    "NEW_ORDER": " + New Order"
   }
 }

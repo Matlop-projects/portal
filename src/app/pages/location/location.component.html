@@ -50,3 +50,7 @@
     </div>
   
 </div>
+<p-dialog header="{{'location.add_location'|translate}}" [modal]="true" [(visible)]="showAddLocationDialog" [style]="{ width: '25rem' }">
+   
+   <app-add-location (value)="onAddLocation($event)"></app-add-location>
+</p-dialog>

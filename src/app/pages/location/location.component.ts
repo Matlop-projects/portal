@@ -6,12 +6,14 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { Dialog } from 'primeng/dialog';
+import { AddLocationComponent } from './location/add-location/add-location.component';
 
 
 @Component({
   selector: 'app-location',
   standalone: true,
-  imports: [ReactiveFormsModule,NgIf,TranslatePipe,InputTextModule,FloatLabelModule,NgFor],
+  imports: [ReactiveFormsModule,NgIf,TranslatePipe,InputTextModule,FloatLabelModule,NgFor,Dialog,AddLocationComponent],
   templateUrl: './location.component.html',
   styleUrl: './location.component.scss'
 })
@@ -19,6 +21,7 @@ export class LocationComponent {
   private apiService =inject(ApiService)
   private router =inject(Router)
   locations:any[]=[]
+  showAddLocationDialog:boolean=false
   // baseImageUrl=environment.baseImageUrl
   form = new FormGroup({
     userId: new FormControl(0),
@@ -55,8 +58,10 @@ onAction(value:string,location?:any){
      this.router.navigateByUrl('location/'+location.id)
     else if(value=='delete')
     this.deleteLocation(location.id)
-  else
-  this.router.navigateByUrl('location/add')
+  else{
+    // this.router.navigateByUrl('location/add')
+this.showAddLocationDialog=true
+  }
 
 }
 
@@ -86,6 +91,21 @@ getLocation(){
       
     }
   })
+}
+
+API_addLocation(payload:any) {
+    this.apiService
+      .post('Location/Create', payload)
+      .subscribe((res) => {
+        if (res) {
+         this.getLocation()
+        }
+      });
+  }
+
+onAddLocation(formValue:any){
+this.API_addLocation(formValue)
+this.showAddLocationDialog=false
 }
  
 }

@@ -36,6 +36,7 @@ export class ServicesSectionComponent {
   isServiceList(){
     return this.router.url.includes('/services/list')
    }
+
   getAllServices() {
     this.api.get('Service/GetAll').subscribe((img: any) => {
       console.log(img);
