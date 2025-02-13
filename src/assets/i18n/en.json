@@ -17,6 +17,8 @@
     "suadi_number":"Number should be start with 05 XXXXXXXX"
   },
   "shared":{
+    "upload_media":"Upload Media",
+    "drag_drop":"Drag and drop files to here to upload.",
      "enter_your":"Enter your",
      "no_data_found":"No data found",
      "rsa":"rsa",
@@ -212,6 +214,13 @@
     "TITLE": "Special Order",
     "EMERGNCY": "Emergncy Order",
     "SPECIAL": "Special Order",
-    "NEW_ORDER": " + New Order"
+    "NEW_ORDER": " + New Order",
+    "add":"Add Special Order"
+  },
+  "add_sp_order":{
+    "date":"date",
+    "location":"Location",
+    "amount":"Amount",
+    "notes":"Notes"
   }
 }

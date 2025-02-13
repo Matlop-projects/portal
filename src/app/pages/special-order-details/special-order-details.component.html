@@ -5,7 +5,7 @@
         <div class="title">
           <p>{{ (SpecialOrderEnum == 1 ? 'SPECIAL_ORDER.EMERGNCY' : 'SPECIAL_ORDER.SPECIAL') | translate }}</p>
         </div>
-        <button class="add-btn">
+        <button class="add-btn"(click)="addSpecialOrder()">
           {{'SPECIAL_ORDER.NEW_ORDER'| translate}}
         </button>
       </div>
@@ -69,3 +69,6 @@
     </div>
   </div>
 </div>
+<p-dialog class="sp-order" header="{{'SPECIAL_ORDER.add'|translate}}" [modal]="true" [(visible)]="showAddSpecialOrder" [style]="{ width: '26rem' }">
+   <app-add-special-order [SpecialOrderType]="SpecialOrderEnum" (value)="onSubmitSpecialOrder($event)"></app-add-special-order>
+</p-dialog>

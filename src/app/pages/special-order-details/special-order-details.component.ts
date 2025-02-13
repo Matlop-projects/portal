@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { LanguageService } from '../../services/language.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,20 +8,22 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { Dialog } from 'primeng/dialog';
+import { AddSpecialOrderComponent } from '../../components/add-special-order/add-special-order.component';
 
 @Component({
   selector: 'app-special-order-details',
   standalone: true,
-  imports: [ReactiveFormsModule,NgIf,NgClass,FormsModule,TranslatePipe,SelectButtonModule,InputTextModule,FloatLabelModule,NgFor],
+  imports: [ReactiveFormsModule,NgIf,NgClass,Dialog,AddSpecialOrderComponent,FormsModule,TranslatePipe,SelectButtonModule,InputTextModule,FloatLabelModule,NgFor],
   templateUrl: './special-order-details.component.html',
   styleUrl: './special-order-details.component.scss'
 })
 
 export class SpecialOrderDetailsComponent {
-
   api = inject(ApiService);
   languageService = inject(LanguageService);
   selectedLang = this.languageService.translationService.currentLang;
+  showAddSpecialOrder:boolean=false
 
   route = inject(ActivatedRoute);
   router = inject(Router)
@@ -71,5 +73,17 @@ export class SpecialOrderDetailsComponent {
     })
   }
 
+  addSpecialOrder(){
+     this.showAddSpecialOrder=true
+  }
+  API_createSpecialOrder(payload:any){
+    this.api.post('SpecialOrder/Create',payload).subscribe(res=>{
+     if(res)this.showAddSpecialOrder=false
+    })
+  }
+  onSubmitSpecialOrder(event:any){
+    this.API_createSpecialOrder(event)
+  console.log("SpecialOrder____ent  onSubmitSpecialOrder  event:", event)
 
+  }
 }

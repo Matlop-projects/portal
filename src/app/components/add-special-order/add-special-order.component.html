@@ -1,0 +1,69 @@
+
+<div class="container mt-2 mb-3">
+    <form  [formGroup]="form" class="mb-5"  (ngSubmit)="onSubmit()">
+            <div class=" d-flex justify-content-between flex-wrap w-100">
+                <div class="w-49"*ngIf="SpecialOrderType=='2'">
+                    <p-floatlabel variant="on">
+                        <p-datepicker  class="w-full-profile" id="on_label" [dateFormat]="'dd-mm-yy'"
+                         formControlName="specialOrderDate"[readonlyInput]="true" />
+                        <label for="on_label">{{'add_sp_order.date'|translate}}</label>    
+                </p-floatlabel>
+                     </div>
+                <div class="w-49">
+                   <div class="d-flex justify-content-between">
+                   <div class="flex-fill">
+                    <p-floatlabel variant="on">
+                        <p-select class="w-100" 
+                          [options]="locations" formControlName="locationId"  optionValue="code" optionLabel="name" />
+                        <label for="on_label">{{'add_sp_order.location'|translate}}</label>
+                    </p-floatlabel>
+                   </div>
+                    <div class="add-location" *ngIf="locations.length==0"(click)="addLocation()">
+                        +
+                    </div>
+                   </div>
+                </div>
+                <div class="w-49">
+                    <p-floatlabel variant="on">
+                        <input  class="w-100" type="number" pInputText id="on_label"  formControlName="amount" autocomplete="off" />
+                        <label for="on_label">{{'add_sp_order.amount'|translate}}</label>
+                    </p-floatlabel>
+                </div>
+                <div class="w-49">
+                    <p-floatlabel variant="on">
+                        <textarea rows="5"class="w-100" pTextarea formControlName="notes"></textarea>
+                        <label for="on_label">{{'add_sp_order.notes'|translate}}</label>
+                    </p-floatlabel>
+                </div>
+
+                <div class="w-49 upload">
+                    <div class="">
+                      <label>{{'shared.upload_media'|translate}}</label>
+                      <p-fileupload
+                        (onSelect)="onSelect($event)"  (onClear)="clearMedia()" [multiple]="true" accept="image/*,video/*" maxFileSize="3000000" mode="advanced">
+                        <ng-template #empty>
+                          <div>{{'shared.drag_drop'|translate}}</div>
+                        </ng-template>
+                        <ng-template #content>
+                          <ul *ngIf="uploadedFiles.length">
+                            <!-- <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} </li> -->
+                          </ul>
+                        </ng-template>
+                      </p-fileupload>
+                    </div>
+                  </div>
+             
+            </div>
+            <div class="buttons mt-4 mb-4">
+                <button class="btn submit" type="submit"
+                 [class.not-allowed]="!form.valid||uploadedFiles.length==0"
+                 [disabled]="!form.valid||uploadedFiles.length==0">
+                    <span >{{'actions.add'|translate}}</span>
+                </button>
+            </div>
+    </form>
+
+</div>
+<p-dialog header="{{'location.add_location'|translate}}" [modal]="true" [(visible)]="showAddLocationDialog" [style]="{ width: '25rem' }">
+    <app-add-location (value)="onAddLocation($event)"></app-add-location>
+ </p-dialog>
