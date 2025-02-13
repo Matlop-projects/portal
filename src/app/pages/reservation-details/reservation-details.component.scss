@@ -1,0 +1,26 @@
+::ng-deep {
+  .reservation-details-container {
+    .content {
+      margin-block:30px ;
+      .section-one {
+        padding-inline: 20px;
+        .section-one-content {
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          border-radius: 12px;
+          min-height: 400px;
+          padding: 10px;
+        }
+      }
+
+      .section-two {
+        padding-inline: 20px;
+        .section-two-content {
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          border-radius: 12px;
+          min-height: 400px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

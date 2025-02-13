@@ -1,33 +1,46 @@
 ::ng-deep {
-  .package-details-container {
+  .reservation-details-container {
     .content {
       margin-block: 30px;
-      padding-inline: 20px;
-      .details {
-        padding: 0 10px;
 
-        .details-content {
-          border: 1px solid #e4e4e4;
+      .red-mark {
+        color: red;
+      }
+
+      .section-one {
+        padding-inline: 20px;
+
+        .section-one-content-details {
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
           border-radius: 12px;
-          padding: 15px;
-          display: flex;
-          gap: 20px;
-          align-items: center;
-          i {
-            font-size: 30px;
-            color: gray;
+          height: auto;
+          padding: 10px;
+
+          p {
+            font-size: 20px;
           }
 
-          .data {
-            display: flex;
-            flex-direction: column;
-
-            .title {
-              p {
-                font-size: 25px;
-                color: gray;
-              }
+          .desc {
+            p {
+              font-size: 17px;
+              color: #28c8aa;
             }
+          }
+        }
+
+        .section-one-content {
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          border-radius: 12px;
+          min-height: 323px;
+          height: auto;
+          padding: 10px;
+
+          .details-content {
+            border-bottom: 1px solid #e4e4e4;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
             .desc {
               p {
@@ -36,14 +49,189 @@
               }
             }
 
+            .data {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .title {
+                p {
+                  font-size: 20px;
+                }
+              }
+
+              i {
+                font-size: 25px;
+                color: gray;
+              }
+            }
           }
 
-
         }
-        .c {
-          align-items: flex-start !important;
+      }
+
+      .section-two {
+        padding-inline: 20px;
+
+        .section-two-content {
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          border-radius: 12px;
+          min-height: 400px;
+          padding: 10px;
+
+          .p-select {
+            width: 100% !important;
+          }
+
+          .success-coupon {
+            border-color: greenyellow;
+          }
+
+          .location {
+            display: flex;
+            flex-direction: column;
+
+            .location-select {
+              display: flex;
+              gap: 10px;
+
+              button {
+                width: 48px;
+                border-radius: 8px;
+                border: none;
+                color: white;
+                background-image: linear-gradient(90deg, #00b8fe, #23d2b2, #41de93);
+
+                &:hover {
+                  background-image: linear-gradient(90deg, #41de93, #23d2b2, #00b8fe);
+                }
+              }
+            }
+          }
+
+          .coupon-btn {
+            width: 40px;
+            height: 31px;
+            border-radius: 8px;
+            position: absolute;
+            right: 10px;
+            top: 30px;
+            background-image: linear-gradient(90deg, #00b8fe, #23d2b2, #41de93);
+            color: #fff;
+            border: none;
+
+            &:hover {
+              background-image: linear-gradient(90deg, #41de93, #23d2b2, #00b8fe);
+            }
+
+            &:lang(ar) {
+              right: unset !important;
+              left: 10px;
+            }
+          }
+
+          .date-picker {
+            display: flex;
+            flex-direction: column;
+
+            p-datepicker {
+              .p-datepicker {
+                width: 100% !important;
+              }
+            }
+          }
+
+          .input-error {
+            border: 1px solid red;
+            /* Add a red border */
+            border-radius: 6px;
+            /* Optional: Keep the border rounded */
+          }
+
+          .p-fileupload-upload-button {
+            display: none !important;
+          }
+
+          p-fileupload {
+            .p-fileupload-upload-button {
+              display: none !important;
+            }
+
+          }
         }
       }
     }
+
+    p-datepicker {
+      .p-datepicker-calendar-container {
+        th.p-datepicker-weekday-cell {
+          text-align: center !important;
+        }
+      }
+    }
+
+  }
+}
+
+
+form {
+  .w-49 {
+    width: 48%;
+    margin: 10px auto;
+  }
+
+  .location {
+    background-color: rgb(246 246 246);
+    padding: 5px;
+    border-radius: 5px;
+
+    span.edit {
+      margin: 5px
+    }
+
+    span.delete {
+      color: red;
+      margin: 5px
+    }
+  }
+
+  .buttons {
+    button {
+      background: linear-gradient(45deg, #00b8fe, #23d2b2, #41de93);
+      border-radius: 50px;
+      padding: 10px 60px;
+      margin: 0px 10px;
+      text-align: center;
+      color: #fff;
+
+      &:hover {
+        background: linear-gradient(45deg, #41de93, #23d2b2, #00b8fe);
+        border: 1px solid #00b8fe;
+        color: #fff
+      }
+
+    }
+  }
+
+  .not-allowed {
+    pointer-events: auto;
+    cursor: not-allowed !important;
+    background-color: #e9e9e9 !important;
+    opacity: 0.4;
+    border: unset !important;
+  }
+
+
+
+}
+
+@media (max-width: 450px) {
+  .w-49 {
+    width: 100% !important;
+  }
+
+  button.submit {
+    width: 100% !important;
+    margin: auto !important;
   }
 }

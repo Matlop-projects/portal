@@ -189,7 +189,8 @@
     "PACKAGE_LIST": "قائمة الباقات",
     "VISIT_NUMBER": "عدد الزيارات",
     "VAT": "شامل الضريبة",
-    "NO_PACKAGES": "لا توجد باقات متاحة."
+    "NO_PACKAGES": "لا توجد باقات متاحة.",
+    "DETAILS" : "تفاصيل الباقة"
   },
   "PACKAGE_DETAILS": {
     "TITLE": "تفاصيل الباقة",
@@ -198,10 +199,19 @@
     "VISIT_HOURS": "ساعات الزيارة",
     "VISIT_NUMBER": "عدد الزيارات",
     "DESCRIPTION": "الوصف",
-    "INSTRUCTION": "التعليمات"
+    "INSTRUCTION": "التعليمات",
+    "CONTRACT_TYPE" : "نوع العقد",
+    "DiscountAmount": "مبلغ الخصم",
+    "PriceAfterDiscount" : "السعر بعد الخصم"
   },
   "RESERVATION": {
     "BACK": "رجوع",
     "NEXT": "التالي"
+  },
+  "SPECIAL_ORDER": {
+    "TITLE": "الطلبات الخاصة",
+    "EMERGNCY": " طلب طارئ",
+    "SPECIAL": " طلب خاص ",
+    "NEW_ORDER": " + طلب جديد"
   }
 }

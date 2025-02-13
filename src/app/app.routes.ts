@@ -19,6 +19,7 @@ import { LocationDetailsComponent } from './pages/location/location/location-det
 import { ServicesSectionComponent } from './components/services-section/services-section.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
+import { SpecialOrderDetailsComponent } from './pages/special-order-details/special-order-details.component';
 
 export const routes: Routes = [
   {
@@ -47,11 +48,12 @@ export const routes: Routes = [
       { path: 'orders/:id', component: OrderDetailsComponent },
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactUsComponent },
-      { path: 'reservation/:id', component: ReservationComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'location', component: LocationComponent },
-      { path: 'location/:id', component: LocationDetailsComponent },
-      { path: 'location/add', component: LocationDetailsComponent },
+      { path: 'reservation/:id', component: ReservationComponent , canActivate: [authGuard] },
+      { path: 'profile', component: ProfileComponent , canActivate: [authGuard] },
+      { path: 'location', component: LocationComponent , canActivate: [authGuard] },
+      { path: 'location/:id', component: LocationDetailsComponent , canActivate: [authGuard] },
+      { path: 'location/add', component: LocationDetailsComponent , canActivate: [authGuard] },
+      { path: 'special_order_details/:id', component: SpecialOrderDetailsComponent , canActivate: [authGuard] },
 
       { path: 'sp', component: SpecialSideNavComponent,
         children:[

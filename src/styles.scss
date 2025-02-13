@@ -87,6 +87,7 @@ border: unset!important
 
 
   }
+
   p-datepicker.w-full-profile span{
    width: 100%!important;
 }
@@ -102,7 +103,7 @@ p-datepicker.w-full-profile .p-datepicker .p-datepicker-panel{
       border: 3px solid #ecedec;
       display: flex;
       p-togglebutton{
-        width: calc(100%/3)!important; 
+        width: calc(100%/3)!important;
        button{
         width: 100%;
         padding: 15px 0px;
@@ -115,7 +116,7 @@ p-datepicker.w-full-profile .p-datepicker .p-datepicker-panel{
   }
   .p-togglebutton.p-togglebutton-checked::before{
     background-image: linear-gradient(270deg, #00b8fe, #23d2b2, #41de93)!important;
-  
+
   }
 }
 .steps{

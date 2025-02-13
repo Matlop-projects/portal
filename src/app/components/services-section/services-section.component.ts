@@ -26,6 +26,7 @@ export class ServicesSectionComponent {
 
   ngOnInit(): void {
     this.getAllServices();
+    localStorage.removeItem('contractDetails');
     this.languageService.translationService.onLangChange.subscribe(() => {
       this.selectedLang = this.languageService.translationService.currentLang;
       // this.setImageLanguage();
@@ -35,6 +36,7 @@ export class ServicesSectionComponent {
   isServiceList(){
     return this.router.url.includes('/services/list')
    }
+
   getAllServices() {
     this.api.get('Service/GetAll').subscribe((img: any) => {
       console.log(img);

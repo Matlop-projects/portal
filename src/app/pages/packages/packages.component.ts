@@ -22,19 +22,21 @@ export class PackagesComponent {
   @Input() contractId: any;
   packageList: any;
   packageId: any;
+  serviceId: any;
 
   @Output() contractSelected = new EventEmitter<any>(); // Event emitter
 
   ngOnInit(): void {
-    this.getPackagesListBiContractId(this.contractId);
+    this.serviceId = this.route.snapshot.params['id'];
+    this.getPackagesListBiContractId(this.contractId,this.serviceId);
     this.selectedLang = this.languageService.translationService.currentLang;
     this.languageService.translationService.onLangChange.subscribe(() => {
       this.selectedLang = this.languageService.translationService.currentLang;
     });
   }
 
-  getPackagesListBiContractId(contractId: string) {
-    this.ApiService.get(`Package/GetPackageByContractId/${contractId}`).subscribe((item: any) => {
+  getPackagesListBiContractId(contractId: string , serviceId: any) {
+    this.ApiService.get(`Package/GetPackageByContractIdAndServiceId/${contractId}/${serviceId}`).subscribe((item: any) => {
       console.log(item.data);
       this.packageList = item.data;
     });
