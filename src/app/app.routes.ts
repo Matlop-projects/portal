@@ -20,6 +20,7 @@ import { ServicesSectionComponent } from './components/services-section/services
 import { OrdersComponent } from './pages/orders/orders.component';
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 import { SpecialOrderDetailsComponent } from './pages/special-order-details/special-order-details.component';
+import { SpecialOrderDataInformationComponent } from './pages/special-order-details/components/special-order-data-information/special-order-data-information.component';
 
 export const routes: Routes = [
   {
@@ -54,7 +55,7 @@ export const routes: Routes = [
       { path: 'location/:id', component: LocationDetailsComponent , canActivate: [authGuard] },
       { path: 'location/add', component: LocationDetailsComponent , canActivate: [authGuard] },
       { path: 'special_order_details/:id', component: SpecialOrderDetailsComponent , canActivate: [authGuard] },
-
+      { path: 'special_order_details/information/:id', component: SpecialOrderDataInformationComponent , canActivate: [authGuard] },
       { path: 'sp', component: SpecialSideNavComponent,
         children:[
           {

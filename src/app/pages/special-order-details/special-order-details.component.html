@@ -15,7 +15,7 @@
           <div class="selected-btn">
               <p-selectbutton [options]="stateOptions" [(ngModel)]="defaultStatus"  (onChange)="onselectStatus($event.value)" optionLabel="label" optionValue="value"  size="large" />
           </div>
-          <!-- <div class="d-flex justify-content-between flex-wrap w-100 mb-5">
+          <div class="d-flex justify-content-between flex-wrap w-100 mb-5">
                   <div (click)="getOrderDetails(order)"
                    class="card  d-flex justify-content-between flex-wrap"
                   *ngFor="let order of orders">
@@ -23,29 +23,19 @@
                           <div class="d-flex justify-content-between">
                               <div>
                                   <span class="pi pi-clipboard fz-20"></span>
-                                  <span> {{currentLang=='en'?order?.package?.nameEn:order?.package?.nameAr}} </span>
+                                  <span> {{currentLang=='en'?order?.specialOrderName:order?.specialOrderName}} </span>
                               </div>
 
-                          <span [ngClass]="order.orderStatusName">
+                          <span [ngClass]="order.specialOrderStatusName">
                               <span  class="pi pi-circle-on fz-icon-10"></span>
-                           <span> {{order.orderStatusName|translate}}</span>
+                           <span> {{order.specialOrderStatusName|translate}}</span>
                           </span>
                           </div>
-                          <div class="d-flex justify-content-between mt-3">
-                              <div class="color-gray">
-                                  <span class="pi pi-users fz-20 "></span>
-                                  <span> {{'orders.visitNumber'|translate}} {{order?.package?.visitNumber}} </span>
-                              </div>
-
-                          <span class="color-gray" >
-                              <span  class="pi pi-calendar-times fz-icon-20 "></span>
-                           <span> {{'orders.visitHours'|translate}} {{order?.package?.visitHours|translate}}</span>
-                          </span>
-                          </div>
+                        
                       </div>
                       <div class="card-content d-flex justify-content-between">
-                        <span>{{order?.package?.price}} {{'shared.rsa'|translate}}</span>
-                        <span class="color-gray bolder">{{'orders.taxes'|translate}}</span>
+                        <span>{{'SPECIAL_ORDER.amount'|translate}} </span>
+                        <span>{{order?.amount}}</span>
                       </div>
                       <div class="card-footer d-flex justify-content-between">
                           <span>
@@ -59,10 +49,10 @@
 
                       </div>
                   </div>
-              <div class="w-100 text-center" *ngIf="orders.length==0">
+              <div class="w-100 text-center" *ngIf="orders?.length==0">
                   <span>{{'shared.no_data_found'|translate}}</span>
               </div>
-          </div> -->
+          </div>
 
       </div>
       </div>

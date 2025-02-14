@@ -67,10 +67,16 @@ export class SpecialOrderDetailsComponent {
   }
 
   getAllOrders(OrderStatus: any) {
+    this.orders=[]
     this.api.get(`SpecialOrder/GetByClientId/${this.clientId}?OrderStatus=${OrderStatus}&SpecialOrderEnum=${this.SpecialOrderEnum}`).subscribe((res: any) => {
-      console.log(res);
-      this.orders = res;
+      console.log('ffff',res);
+      this.orders=[]
+      this.orders = res.data;
     })
+  }
+  getOrderDetails(order: any) {
+    this.router.navigateByUrl('special_order_details/information/' + order.specialOrderId)
+
   }
 
   addSpecialOrder(){
@@ -80,6 +86,29 @@ export class SpecialOrderDetailsComponent {
     this.api.post('SpecialOrder/Create',payload).subscribe(res=>{
      if(res)this.showAddSpecialOrder=false
     })
+  }
+  convertDateTime(date: string, convertTo: string, lang: string = "en") {
+    const toWorkTimeDate = new Date(date);
+
+    if (convertTo === "date") {
+      return toWorkTimeDate.toLocaleDateString(lang === "ar" ? "ar-EG" : "en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } else {
+      let formattedTime = toWorkTimeDate.toLocaleTimeString(lang === "ar" ? "ar-EG" : "en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+
+      if (lang === "ar") {
+        formattedTime = formattedTime.replace("AM", "ص").replace("PM", "م");
+      }
+
+      return formattedTime;
+    }
   }
   onSubmitSpecialOrder(event:any){
     this.API_createSpecialOrder(event)

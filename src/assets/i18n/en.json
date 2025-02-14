@@ -215,7 +215,8 @@
     "EMERGNCY": "Emergncy Order",
     "SPECIAL": "Special Order",
     "NEW_ORDER": " + New Order",
-    "add":"Add Special Order"
+    "add":"Add Special Order",
+    "amount":"Amount"
   },
   "add_sp_order":{
     "date":"date",
