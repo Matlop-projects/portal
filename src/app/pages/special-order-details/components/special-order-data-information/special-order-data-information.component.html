@@ -57,7 +57,7 @@
         </span>
       </div>
     </div>
-    <div class="w-49 mb-3">
+    <div class="w-49 mb-3"*ngIf="order?.media">
       <div class="order-img d-flex justify-content-between flex-wrap">
         <span class="bold">
           <span *ngIf="order?.media?.length==0">
@@ -105,7 +105,7 @@
   [draggable]="false" [resizable]="false">
    <div class="card" *ngFor="let offer of offerList">
         <div class="d-flex justify-content-between">
-          <p-radiobutton name="offer"  [value]="offer" (onClick)="onSelectOffer($event.value)" inputId="ingredient1" />
+          <p-radiobutton name="offer"  [value]="offer" ngModel="" (onClick)="onSelectOffer($event.value)" inputId="offer" />
           <div class="w-90 d-flex justify-content-between">
             <span class="bold">{{offer.technicalName}}</span>
             <span>{{offer.price}}</span>

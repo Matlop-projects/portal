@@ -9,11 +9,12 @@ import { StepsModule } from 'primeng/steps';
 import { TextareaModule } from 'primeng/textarea';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButton } from 'primeng/radiobutton';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-special-order-data-information',
   standalone: true,
-  imports: [TranslatePipe, NgIf, StepsModule, TextareaModule , DialogModule,NgFor,RadioButton],
+  imports: [TranslatePipe, NgIf, StepsModule, TextareaModule , DialogModule,NgFor,RadioButton,FormsModule],
   templateUrl: './special-order-data-information.component.html',
   styleUrl: './special-order-data-information.component.scss'
 })
