@@ -119,7 +119,7 @@
 
   <!-- Dialog footer with buttons -->
   <ng-template pTemplate="footer">
-    <button (click)="onSubmitOffer()" [disabled]="offerSelectedValue.price==-1" class="add-offer">{{'actions.select'|translate}}</button>
+    <button (click)="onSubmitOffer()" [disabled]="offerSelectedValue.specialOrderId==-1" class="add-offer">{{'actions.select'|translate}}</button>
     <button (click)="hideDialog()" class="close-btn">{{'actions.close'|translate}}</button>
   </ng-template>
 </p-dialog>

@@ -33,8 +33,7 @@ export class SpecialOrderDataInformationComponent {
   orderType: any
   offerList: any[] = []
   offerSelectedValue: any = {
-    price: -1,
-    specialOrderId: '',
+    specialOrderId: -1,
     technicalId: ''
   }
   get orderId() {
@@ -121,11 +120,10 @@ export class SpecialOrderDataInformationComponent {
   }
   onSubmitOffer() {
     let payload = {
-      price: this.offerSelectedValue.price,
       specialOrderId: this.offerSelectedValue.specialOrderId,
       technicalId: this.offerSelectedValue.technicalId,
     }
-    this.apiService.post(`SpecialOrderOffer/Create`, payload).subscribe((res: any) => {
+    this.apiService.post(`SpecialOrderOffer/SubmitSpecialOrder`, payload).subscribe((res: any) => {
       if (res) {
         this.hideDialog()
       }
@@ -135,7 +133,6 @@ export class SpecialOrderDataInformationComponent {
     this.getOfferList();
     this.displayDialog = true;
     this.offerSelectedValue = {
-      price: -1,
       specialOrderId: '',
       technicalId: ''
     }
