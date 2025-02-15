@@ -45,7 +45,8 @@
    "vedio":"Order Vedio",
    "details":"Order details",
    "date_time_info":"Determine the day and time of the visit",
-   "price_add":"Additional value to the order"
+   "price_add":"Additional value to the order",
+   "CREATE_TIME": "Order Created Time"
   },
   "location":{
    "title":"Location",
@@ -216,7 +217,8 @@
     "SPECIAL": "Special Order",
     "NEW_ORDER": " + New Order",
     "add":"Add Special Order",
-    "amount":"Amount"
+    "amount":"Amount",
+    "SELECT_OFFER": "Select Offer"
   },
   "add_sp_order":{
     "date":"date",
