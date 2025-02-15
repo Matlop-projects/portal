@@ -10,6 +10,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButton } from 'primeng/radiobutton';
 import { FormsModule } from '@angular/forms';
+import { Select } from 'primeng/select';
 
 @Component({
   selector: 'app-special-order-data-information',
@@ -33,8 +34,9 @@ export class SpecialOrderDataInformationComponent {
   orderType: any
   offerList: any[] = []
   offerSelectedValue: any = {
-    specialOrderId: -1,
-    technicalId: ''
+    specialOrderOfferId: 0,
+    technicalId:0,
+    select:false
   }
   get orderId() {
     const id = this.route.snapshot.params['id'];
@@ -76,6 +78,7 @@ export class SpecialOrderDataInformationComponent {
   onSelectOffer(value: any) {
     console.log("SpecialOrderDataInformationComponent  onSelectOffer  value:", value)
     this.offerSelectedValue = value
+    this.offerSelectedValue.select=true
 
   }
   convertDateTime(date: string, convertTo: string, lang: string = 'en') {
@@ -120,7 +123,7 @@ export class SpecialOrderDataInformationComponent {
   }
   onSubmitOffer() {
     let payload = {
-      specialOrderId: this.offerSelectedValue.specialOrderId,
+      specialOrderOfferId: this.offerSelectedValue.specialOrderOfferId,
       technicalId: this.offerSelectedValue.technicalId,
     }
     this.apiService.post(`SpecialOrderOffer/SubmitSpecialOrder`, payload).subscribe((res: any) => {
@@ -133,8 +136,9 @@ export class SpecialOrderDataInformationComponent {
     this.getOfferList();
     this.displayDialog = true;
     this.offerSelectedValue = {
-      specialOrderId: '',
-      technicalId: ''
+      specialOrderOfferId: '',
+      technicalId: '',
+      selected:false
     }
   }
 
