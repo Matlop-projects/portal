@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-special-order-data-information',
   standalone: true,
-  imports: [TranslatePipe, NgIf, StepsModule, TextareaModule , DialogModule,NgFor,RadioButton,FormsModule],
+  imports: [TranslatePipe, NgIf, StepsModule, TextareaModule, DialogModule, NgFor, RadioButton, FormsModule],
   templateUrl: './special-order-data-information.component.html',
   styleUrl: './special-order-data-information.component.scss'
 })
@@ -32,11 +32,11 @@ export class SpecialOrderDataInformationComponent {
   displayDialog: boolean = false;
   orderType: any
   offerList: any[] = []
- offerSelectedValue:any={
-  price: -1,
-  specialOrderId: '',
-  technicalId:''
- }
+  offerSelectedValue: any = {
+    price: -1,
+    specialOrderId: '',
+    technicalId: ''
+  }
   get orderId() {
     const id = this.route.snapshot.params['id'];
     return id;
@@ -74,10 +74,10 @@ export class SpecialOrderDataInformationComponent {
       }
     });
   }
-  onSelectOffer(value:any){
+  onSelectOffer(value: any) {
     console.log("SpecialOrderDataInformationComponent  onSelectOffer  value:", value)
-    this.offerSelectedValue=value
-    
+    this.offerSelectedValue = value
+
   }
   convertDateTime(date: string, convertTo: string, lang: string = 'en') {
     const toWorkTimeDate = new Date(date);
@@ -112,20 +112,20 @@ export class SpecialOrderDataInformationComponent {
   getOfferList() {
     this.apiService.get(`SpecialOrderOffer/GetBySpecialOrderId/${this.orderId}`).subscribe((res: any) => {
       if (res.data) {
-        this.offerList=[]
-        this.offerList=res.data
+        this.offerList = []
+        this.offerList = res.data
         console.log(res.data);
 
       }
     });
   }
-  onSubmitOffer(){
-    let payload={
+  onSubmitOffer() {
+    let payload = {
       price: this.offerSelectedValue.price,
       specialOrderId: this.offerSelectedValue.specialOrderId,
       technicalId: this.offerSelectedValue.technicalId,
     }
-    this.apiService.post(`SpecialOrderOffer/Create`,payload).subscribe((res: any) => {
+    this.apiService.post(`SpecialOrderOffer/Create`, payload).subscribe((res: any) => {
       if (res) {
         this.hideDialog()
       }
@@ -134,6 +134,11 @@ export class SpecialOrderDataInformationComponent {
   showDialog() {
     this.getOfferList();
     this.displayDialog = true;
+    this.offerSelectedValue = {
+      price: -1,
+      specialOrderId: '',
+      technicalId: ''
+    }
   }
 
   hideDialog() {
