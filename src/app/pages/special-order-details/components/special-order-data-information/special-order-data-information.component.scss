@@ -55,6 +55,9 @@
   font-weight: bolder;
 }
 
+.card{
+  padding: 10px;
+}
 .details {
   background-color: #FFFFFF;
 
@@ -147,4 +150,8 @@
   &:hover {
     background-color: rgb(201, 13, 13);
   }
+}
+.w-90{
+  width: 90%;
+  margin: auto;
 }

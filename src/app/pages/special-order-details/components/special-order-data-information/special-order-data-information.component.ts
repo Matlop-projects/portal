@@ -2,16 +2,18 @@ import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ApiService } from '../../../../services/api.service';
 import { LanguageService } from '../../../../services/language.service';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../../environments/environment';
 import { StepsModule } from 'primeng/steps';
 import { TextareaModule } from 'primeng/textarea';
 import { DialogModule } from 'primeng/dialog';
+import { RadioButton } from 'primeng/radiobutton';
+
 @Component({
   selector: 'app-special-order-data-information',
   standalone: true,
-  imports: [TranslatePipe, NgIf, StepsModule, TextareaModule , DialogModule],
+  imports: [TranslatePipe, NgIf, StepsModule, TextareaModule , DialogModule,NgFor,RadioButton],
   templateUrl: './special-order-data-information.component.html',
   styleUrl: './special-order-data-information.component.scss'
 })
@@ -29,7 +31,11 @@ export class SpecialOrderDataInformationComponent {
   displayDialog: boolean = false;
   orderType: any
   offerList: any[] = []
-
+ offerSelectedValue:any={
+  price: -1,
+  specialOrderId: '',
+  technicalId:''
+ }
   get orderId() {
     const id = this.route.snapshot.params['id'];
     return id;
@@ -67,7 +73,11 @@ export class SpecialOrderDataInformationComponent {
       }
     });
   }
-
+  onSelectOffer(value:any){
+    console.log("SpecialOrderDataInformationComponent  onSelectOffer  value:", value)
+    this.offerSelectedValue=value
+    
+  }
   convertDateTime(date: string, convertTo: string, lang: string = 'en') {
     const toWorkTimeDate = new Date(date);
 
@@ -101,12 +111,25 @@ export class SpecialOrderDataInformationComponent {
   getOfferList() {
     this.apiService.get(`SpecialOrderOffer/GetBySpecialOrderId/${this.orderId}`).subscribe((res: any) => {
       if (res.data) {
+        this.offerList=[]
+        this.offerList=res.data
         console.log(res.data);
 
       }
     });
   }
-
+  onSubmitOffer(){
+    let payload={
+      price: this.offerSelectedValue.price,
+      specialOrderId: this.offerSelectedValue.specialOrderId,
+      technicalId: this.offerSelectedValue.technicalId,
+    }
+    this.apiService.post(`SpecialOrderOffer/Create`,payload).subscribe((res: any) => {
+      if (res) {
+        this.hideDialog()
+      }
+    });
+  }
   showDialog() {
     this.getOfferList();
     this.displayDialog = true;

@@ -103,15 +103,23 @@
 
 <p-dialog [(visible)]="displayDialog" [modal]="true" [style]="{ width: '500px' }" header="Select an Offer"
   [draggable]="false" [resizable]="false">
+   <div class="card" *ngFor="let offer of offerList">
+        <div class="d-flex justify-content-between">
+          <p-radiobutton name="offer"  [value]="offer" (onClick)="onSelectOffer($event.value)" inputId="ingredient1" />
+          <div class="w-90 d-flex justify-content-between">
+            <span class="bold">{{offer.technicalName}}</span>
+            <span>{{offer.price}}</span>
+          </div>
+        </div>
+   </div>
 
-
-  <div class="content">
+  <div class="content"*ngIf="offerList.length==0">
     {{ 'shared.no_data_found' | translate}}
   </div>
 
   <!-- Dialog footer with buttons -->
   <ng-template pTemplate="footer">
-    <button (click)="hideDialog()" [disabled]="true" class="add-offer">Select</button>
+    <button (click)="onSubmitOffer()" [disabled]="offerSelectedValue.price==-1" class="add-offer">Select</button>
     <button (click)="hideDialog()" class="close-btn">Close</button>
   </ng-template>
 </p-dialog>

@@ -11,14 +11,14 @@
                      </div>
                 <div class="w-49">
                    <div class="d-flex justify-content-between">
-                   <div class="flex-fill">
+                   <div class="flex-fill w-90">
                     <p-floatlabel variant="on">
                         <p-select class="w-100"
                           [options]="locations" formControlName="locationId"  optionValue="code" optionLabel="name" />
                         <label for="on_label">{{'add_sp_order.location'|translate}}</label>
                     </p-floatlabel>
                    </div>
-                    <div class="add-location" *ngIf="locations.length==0"(click)="addLocation()">
+                    <div class="add-location"(click)="addLocation()">
                         +
                     </div>
                    </div>
