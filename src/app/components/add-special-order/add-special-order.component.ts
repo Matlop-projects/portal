@@ -56,7 +56,7 @@ export class AddSpecialOrderComponent {
   form = new FormGroup({
     clientId: new FormControl(localStorage.getItem('userId')),
     specialOrderId: new FormControl(0),
-    amount: new FormControl('',Validators.required),
+    amount: new FormControl(0),
     locationId: new FormControl('',Validators.required),
     specialOrderDate: new FormControl<any>(null),
     notes: new FormControl('',Validators.required),
@@ -76,10 +76,10 @@ export class AddSpecialOrderComponent {
       if (this.SpecialOrderType=='2') {
         dateControl?.setValidators([Validators.required]);
       } else {
-        dateControl?.clearValidators(); 
+        dateControl?.clearValidators();
       }
-      dateControl?.updateValueAndValidity(); 
-      
+      dateControl?.updateValueAndValidity();
+
   }
 
 
@@ -160,5 +160,5 @@ export class AddSpecialOrderComponent {
     this.showAddLocationDialog=false
     }
 
-   
+
 }

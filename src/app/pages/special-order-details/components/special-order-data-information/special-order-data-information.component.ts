@@ -7,59 +7,34 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../../environments/environment';
 import { StepsModule } from 'primeng/steps';
 import { TextareaModule } from 'primeng/textarea';
+import { DialogModule } from 'primeng/dialog';
 @Component({
   selector: 'app-special-order-data-information',
   standalone: true,
-  imports: [TranslatePipe, NgIf, StepsModule,TextareaModule],
+  imports: [TranslatePipe, NgIf, StepsModule, TextareaModule , DialogModule],
   templateUrl: './special-order-data-information.component.html',
   styleUrl: './special-order-data-information.component.scss'
 })
 export class SpecialOrderDataInformationComponent {
-private apiService = inject(ApiService);
+
+  private apiService = inject(ApiService);
   private route = inject(ActivatedRoute);
   private lang = inject(LanguageService);
   currentLang = this.lang.translationService.currentLang;
   steps: any = [];
-  activeIndex=-1
+  activeIndex = -1
   order: any = {};
   imgBaseUrl = environment.baseImageUrl;
   defaultImg = 'assets/images/empty-state.png';
+  displayDialog: boolean = false;
+  orderType: any
+  offerList: any[] = []
+
   get orderId() {
     const id = this.route.snapshot.params['id'];
     return id;
   }
-  // PackageTypeList = [
-  //   {
-  //     name: 'Daily',
-  //     nameAr: 'يومي',
-  //     code: 1,
-  //   },
-  //   {
-  //     name: 'Monthly',
-  //     nameAr: 'شهري',
-  //     code: 2,
-  //   },
-  //   {
-  //     name: 'Qurater',
-  //     nameAr: 'ربع سنوي',
-  //     code: 3,
-  //   },
-  //   {
-  //     name: 'Biannual',
-  //     nameAr: 'نصف سنوي',
-  //     code: 4,
-  //   },
-  //   {
-  //     name: 'Yearly',
-  //     nameAr: 'سنوي',
-  //     code: 5,
-  //   },
-  //   {
-  //     name: 'Weekly',
-  //     nameAr: 'اسبوعي',
-  //     code: 6,
-  //   },
-  // ];
+
   ngOnInit() {
     this.getOrderDetails();
     this.lang.translationService.onLangChange.subscribe(() => {
@@ -68,41 +43,28 @@ private apiService = inject(ApiService);
     });
   }
 
-  getSteps(){
-   this.steps=[
-    {
-      label: this.currentLang == 'en' ? 'Pending' : 'قيد الانتظار',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Paid' : 'مدفوع',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Assigned To Provider' : 'مخصص للمزود',
-    },
-    {
-      label: this.currentLang == 'en' ? 'In The Way' : 'في الطريق',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Trying Solve Problem' : 'محاولة حل المشكلة',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Solved' : 'تم الحل',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Client Confirmation' : 'معلومات العميل',
-    },
-    {
-      label: this.currentLang == 'en' ? 'Completed' : 'مكتمل',
-    }
-   ]
+  getSteps() {
+    this.steps = [
+      {
+        label: this.currentLang == 'en' ? 'Pending' : 'تحت الطلب'
+      },
+      {
+        label: this.currentLang == 'en' ? 'Canceled' : 'ملغي'
+      },
+      {
+        label: this.currentLang == 'en' ? 'Completed' : 'مكتمل',
+      }
+    ]
   }
+
   getOrderDetails() {
     this.getSteps()
     this.apiService.get(`SpecialOrder/get/${this.orderId}`).subscribe((res: any) => {
-      if (res.data){
+      if (res.data) {
         this.order = res.data;
-        this.activeIndex=res.data.specialOrderEnum
-      } 
+        this.activeIndex = res.data.specialOrderStatus - 1;
+        this.orderType = res.data.specialOrderEnum
+      }
     });
   }
 
@@ -134,6 +96,24 @@ private apiService = inject(ApiService);
 
       return formattedTime;
     }
+  }
+
+  getOfferList() {
+    this.apiService.get(`SpecialOrderOffer/GetBySpecialOrderId/${this.orderId}`).subscribe((res: any) => {
+      if (res.data) {
+        console.log(res.data);
+
+      }
+    });
+  }
+
+  showDialog() {
+    this.getOfferList();
+    this.displayDialog = true;
+  }
+
+  hideDialog() {
+    this.displayDialog = false;
   }
 
 }

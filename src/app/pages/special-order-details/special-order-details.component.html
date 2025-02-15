@@ -12,7 +12,7 @@
 
       <div class="order-details">
         <div class="container mt-3 mb-3">
-          <div class="selected-btn">
+          <div class="selected-btn" *ngIf="stateOptions.length != 0">
               <p-selectbutton [options]="stateOptions" [(ngModel)]="defaultStatus"  (onChange)="onselectStatus($event.value)" optionLabel="label" optionValue="value"  size="large" />
           </div>
           <div class="d-flex justify-content-between flex-wrap w-100 mb-5">
@@ -31,7 +31,6 @@
                            <span> {{order.specialOrderStatusName|translate}}</span>
                           </span>
                           </div>
-                        
                       </div>
                       <div class="card-content d-flex justify-content-between">
                         <span>{{'SPECIAL_ORDER.amount'|translate}} </span>
@@ -49,7 +48,7 @@
 
                       </div>
                   </div>
-              <div class="w-100 text-center" *ngIf="orders?.length==0">
+              <div class="w-100 text-center" style="min-height: 300px;" *ngIf="orders?.length==0">
                   <span>{{'shared.no_data_found'|translate}}</span>
               </div>
           </div>

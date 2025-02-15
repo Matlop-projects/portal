@@ -6,14 +6,14 @@
                     <p-floatlabel variant="on">
                         <p-datepicker  class="w-full-profile" id="on_label" [dateFormat]="'dd-mm-yy'"
                          formControlName="specialOrderDate"[readonlyInput]="true" />
-                        <label for="on_label">{{'add_sp_order.date'|translate}}</label>    
+                        <label for="on_label">{{'add_sp_order.date'|translate}}</label>
                 </p-floatlabel>
                      </div>
                 <div class="w-49">
                    <div class="d-flex justify-content-between">
                    <div class="flex-fill">
                     <p-floatlabel variant="on">
-                        <p-select class="w-100" 
+                        <p-select class="w-100"
                           [options]="locations" formControlName="locationId"  optionValue="code" optionLabel="name" />
                         <label for="on_label">{{'add_sp_order.location'|translate}}</label>
                     </p-floatlabel>
@@ -23,12 +23,12 @@
                     </div>
                    </div>
                 </div>
-                <div class="w-49">
+                <!-- <div class="w-49">
                     <p-floatlabel variant="on">
                         <input  class="w-100" type="number" pInputText id="on_label"  formControlName="amount" autocomplete="off" />
                         <label for="on_label">{{'add_sp_order.amount'|translate}}</label>
                     </p-floatlabel>
-                </div>
+                </div> -->
                 <div class="w-49">
                     <p-floatlabel variant="on">
                         <textarea rows="5"class="w-100" pTextarea formControlName="notes"></textarea>
@@ -52,7 +52,7 @@
                       </p-fileupload>
                     </div>
                   </div>
-             
+
             </div>
             <div class="buttons mt-4 mb-4">
                 <button class="btn submit" type="submit"
