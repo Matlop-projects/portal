@@ -218,7 +218,8 @@
     "NEW_ORDER": " + New Order",
     "add":"Add Special Order",
     "amount":"Amount",
-    "SELECT_OFFER": "Select Offer"
+    "SELECT_OFFER": "Select Offer",
+    "offerAmount":"Offer Amount"
   },
   "add_sp_order":{
     "date":"date",

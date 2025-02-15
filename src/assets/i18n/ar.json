@@ -216,7 +216,8 @@
     "NEW_ORDER": " + طلب جديد",
     "add":"اضافة طلب خاص",
     "amount":"الكمية",
-    "SELECT_OFFER": "اختر عرض"
+    "SELECT_OFFER": "اختر عرض",
+    "offerAmount":"كمية العرض"
   },
   "add_sp_order":{
     "date":"التاريخ",
