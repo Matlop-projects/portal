@@ -11,7 +11,9 @@
    "back": "رجوع",
    "addNew":"اضافة جديد",
    "update":"تحديث",
-   "add":"اضافة"
+   "add":"اضافة",
+    "close":"اغلاق",
+    "select":"اختر"
 },
 "validations":{
   "suadi_number":"يجب ان يبدأ الرقم ب  XXXXXXXX 05"
@@ -217,7 +219,8 @@
     "add":"اضافة طلب خاص",
     "amount":"الكمية",
     "SELECT_OFFER": "اختر عرض",
-    "offerAmount":"كمية العرض"
+    "offerAmount":"كمية العرض",
+    "select_an_offer":"اختر عرض"
   },
   "add_sp_order":{
     "date":"التاريخ",

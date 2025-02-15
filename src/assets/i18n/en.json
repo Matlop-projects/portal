@@ -11,7 +11,9 @@
     "back": "Back",
     "addNew":"Add New",
     "update":"Update",
-    "add":"Add"
+    "add":"Add",
+    "close":"Close",
+    "select":"Select"
   },
   "validations":{
     "suadi_number":"Number should be start with 05 XXXXXXXX"
@@ -219,7 +221,8 @@
     "add":"Add Special Order",
     "amount":"Amount",
     "SELECT_OFFER": "Select Offer",
-    "offerAmount":"Offer Amount"
+    "offerAmount":"Offer Amount",
+    "select_an_offer":"Select an Offer"
   },
   "add_sp_order":{
     "date":"date",
