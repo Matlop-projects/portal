@@ -6,6 +6,7 @@ import { Router, RouterModule } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ModuleTypeEnum } from './type-module.enum';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-notifications',
@@ -24,11 +25,15 @@ export class NotificationsComponent {
   totlaCount = 0;
   totalUnSeen = 0;
   @ViewChild('op') popover: Popover | undefined; // Reference to the popover
-
+  private lang = inject(LanguageService);
+  currentLang = this.lang.translationService.currentLang;
 
   ngOnInit(): void {
     this.getNotifications();
-
+    this.lang.translationService.onLangChange.subscribe(() => {
+      this.currentLang = this.lang.translationService.currentLang;
+      this.getNotifications();
+    });
     setInterval(() => {
       this.getNotifications();
     }, 180000);
