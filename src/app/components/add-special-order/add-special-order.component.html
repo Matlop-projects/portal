@@ -4,7 +4,7 @@
             <div class=" d-flex justify-content-between flex-wrap w-100">
                 <div class="w-49"*ngIf="SpecialOrderType=='2'">
                     <p-floatlabel variant="on">
-                        <p-datepicker  class="w-full-profile" id="on_label" [dateFormat]="'dd-mm-yy'"
+                        <p-datepicker  class="w-full-profile" id="on_label" [minDate]="minDate"  [dateFormat]="'dd-mm-yy'"
                          formControlName="specialOrderDate"[readonlyInput]="true" />
                         <label for="on_label">{{'add_sp_order.date'|translate}}</label>
                 </p-floatlabel>
@@ -56,8 +56,8 @@
             </div>
             <div class="buttons mt-4 mb-4">
                 <button class="btn submit" type="submit"
-                 [class.not-allowed]="!form.valid||uploadedFiles.length==0"
-                 [disabled]="!form.valid||uploadedFiles.length==0">
+                 [class.not-allowed]="!form.valid"
+                 [disabled]="!form.valid">
                     <span >{{'actions.add'|translate}}</span>
                 </button>
             </div>

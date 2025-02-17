@@ -52,14 +52,14 @@ export class AddSpecialOrderComponent {
   locations: any[] = []
   showAddLocationDialog:boolean=false
   currentLang = this.lang.translationService.currentLang;
-
+  minDate:Date=new Date();
   form = new FormGroup({
     clientId: new FormControl(localStorage.getItem('userId')),
     specialOrderId: new FormControl(0),
     amount: new FormControl(0),
     locationId: new FormControl('',Validators.required),
     specialOrderDate: new FormControl<any>(null),
-    notes: new FormControl('',Validators.required),
+    notes: new FormControl(''),
     specialOrderEnum: new FormControl(0),
     specialOrderStatus: new FormControl(1),
     media: new FormControl<any[]>([])
@@ -69,6 +69,7 @@ export class AddSpecialOrderComponent {
   }
 
   ngOnInit() {
+    this.setMinDate()
     this.getLocation()
 
       const dateControl = this.form.get('specialOrderDate');
@@ -82,6 +83,11 @@ export class AddSpecialOrderComponent {
 
   }
 
+  setMinDate() {
+    const today = new Date();
+    today.setDate(today.getDate() + 1)
+    this.minDate = today;
+  }
 
   getLocation() {
     const userId = localStorage.getItem('userId')
@@ -94,8 +100,6 @@ export class AddSpecialOrderComponent {
             code: item.locationId,
           })
         })
-
-
       }
     })
   }
