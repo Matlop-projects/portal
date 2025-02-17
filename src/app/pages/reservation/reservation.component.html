@@ -6,7 +6,7 @@
           <p-step [value]="1" class="non-clickable">{{ 'Contract.CONTRACT_LIST' | translate }}</p-step>
           <p-step [value]="2" class="non-clickable">{{ 'PACKAGE.PACKAGE_LIST' | translate }}</p-step>
           <p-step [value]="3" class="non-clickable">{{ 'PACKAGE_DETAILS.TITLE' | translate }}</p-step>
-          <p-step [value]="4" class="non-clickable">{{ 'PACKAGE_DETAILS.TITLE' | translate }}</p-step>
+          <!-- <p-step [value]="4" class="non-clickable">{{ 'PACKAGE_DETAILS.TITLE' | translate }}</p-step> -->
         </p-step-list>
         <p-step-panels>
           <p-step-panel [value]="1">
@@ -48,12 +48,12 @@
               <div class="d-flex pt-6 justify-start" style="gap: 10px;">
                 <p-button [label]="'RESERVATION.BACK' | translate" severity="secondary" icon="pi pi-arrow-left"
                   iconPos="left" (onClick)="onBack(activateCallback, 2)" />
-                <p-button (onClick)="onNext(activateCallback, 4 , '')" label="Next" icon="pi pi-arrow-right" iconPos="right" />
+                <!-- <p-button (onClick)="onNext(activateCallback, 4 , '')" label="Next" icon="pi pi-arrow-right" iconPos="right" /> -->
               </div>
 
             </ng-template>
           </p-step-panel>
-          <p-step-panel [value]="4">
+          <!-- <p-step-panel [value]="4">
             <ng-template #content let-activateCallback="activateCallback">
               <div class="flex flex-col h-48">
                 <div
@@ -67,7 +67,7 @@
                 <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" />
               </div>
             </ng-template>
-          </p-step-panel>
+          </p-step-panel> -->
         </p-step-panels>
       </p-stepper>
     </div>
