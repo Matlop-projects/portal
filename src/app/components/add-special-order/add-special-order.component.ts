@@ -104,6 +104,7 @@ export class AddSpecialOrderComponent {
   addLocation(){
     this.showAddLocationDialog=true
   }
+
   onSelect(event: any): void {
     const files = event.currentFiles; // Array of selected files
     console.log(files);

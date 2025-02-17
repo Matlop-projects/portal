@@ -39,6 +39,8 @@ export class PackagesComponent {
     this.ApiService.get(`Package/GetPackageByContractIdAndServiceId/${contractId}/${serviceId}`).subscribe((item: any) => {
       console.log(item.data);
       this.packageList = item.data;
+      localStorage.setItem('contractDetails' , JSON.stringify(this.packageList));
+
     });
   }
 

@@ -11,14 +11,19 @@ import { ToasterService } from '../../services/toaster.service';
 import { DatePicker } from 'primeng/datepicker';
 import { TextareaModule } from 'primeng/textarea';
 import { FileUpload } from 'primeng/fileupload';
+import { AddLocationComponent } from '../../pages/location/location/add-location/add-location.component';
+import { Dialog } from 'primeng/dialog';
 
 
-
+interface UploadedFile {
+  src: string;
+  mediaTypeEnum: number;
+}
 
 @Component({
   selector: 'app-package-details',
   standalone: true,
-  imports: [TranslatePipe, NgIf, NgFor, Select, FileUpload, TextareaModule, FormsModule, DatePicker, InputTextModule, NgClass],
+  imports: [TranslatePipe, NgIf, Dialog, AddLocationComponent, Select, FileUpload, TextareaModule, FormsModule, DatePicker, InputTextModule, NgClass],
   templateUrl: './package-details.component.html',
   styleUrl: './package-details.component.scss'
 })
@@ -41,8 +46,54 @@ export class PackageDetailsComponent {
   invalidCoupn: boolean = false;
   validCoupon: boolean = false;
   invalidCoupnMessage: string = '';
+  showAddLocationDialog: boolean = false
 
-  paymentList: any;
+
+  paymentList = [
+    // {
+    //     "paymentId": 1,
+    //     "enName": "cash",
+    //     "arName": "كاش",
+    //     "enDescription": "<p>Payment in cash to the worker supervisor upon completion of the order on site</p>",
+    //     "arDescription": "<p>الدفع كاش لمشرف العمال عند الانتهاء من الطلب في الموقع </p>"
+    // },
+    // {
+    //     "paymentId": 2,
+    //     "enName": "stc pay",
+    //     "arName": "اس تي سي باي",
+    //     "enDescription": "<p>Payment is made by STC Pay in the program when ordering the package</p>",
+    //     "arDescription": "<p>الدفع بواسطة اس تي سي باي في البرنامج عند القيام بطلب الباقة </p>"
+    // },
+    {
+      "paymentId": 3,
+      "enName": "credit card",
+      "arName": "بطاقة بنكية ",
+      "enDescription": "<p>Payment by bank card while ordering the package in the program</p>",
+      "arDescription": "<p>الدفع بواسطة البطاقة البنكية اثناء طلب الباقة في البرنامج </p>",
+      finalPayment: `credit card - بطاقة بنكية `,
+    },
+    // {
+    //     "paymentId": 4,
+    //     "enName": "apple pay",
+    //     "arName": "ابل باي ",
+    //     "enDescription": "<p>Payment via Apple Pay when ordering the package in the program</p>",
+    //     "arDescription": "<p>الدفع بواسطة ابل باي عند طلب الباقة في البرنامج</p>"
+    // },
+    // {
+    //     "paymentId": 6,
+    //     "enName": "Bank transfer",
+    //     "arName": "تحويل بنكي ",
+    //     "enDescription": "<p>Payment is by bank transfer to the company&#39;s account</p>",
+    //     "arDescription": "<p>الدفع بواسطة تحويل بنكي على حساب الشركة</p>"
+    // },
+    // {
+    //     "paymentId": 7,
+    //     "enName": "wallet",
+    //     "arName": "محفظة ",
+    //     "enDescription": "<p>Payment using the wallet balance in the application</p>",
+    //     "arDescription": "<p>الدفع بواسطة رصيد المحفظة في التطبيق </p>"
+    // }
+  ]
   paymentSelect: any;
 
   workingHoursSelect: any;
@@ -55,26 +106,52 @@ export class PackageDetailsComponent {
 
   errorMessage: any;
 
-  noteValue: any;
-  uploadedFiles: any[] = [];
+  noteValue: string = '';
+
+
+  uploadedFiles: UploadedFile[] = [];
   discountType: any;
 
+  orderObject: any = {
+    clientId: 0,
+    paymentWayId: 0,
+    media: [{ src: '', mediaTypeEnum: 0 }],
+    notes: "",
+    packageId: 0,
+    coponeId: null,
+    locationId: 0,
+    vistTimeId: 0,
+    orderSubTotal: 0,
+    orderTotal: 0,
+    scheduleDates: []
+  }
+
+  contractName: any;
+  isoDates: any;
 
 
   ngOnInit(): void {
+    // this.getPaymentList();
     this.contractDetails = localStorage.getItem('contractDetails');
     this.userId = localStorage.getItem('userData');
     this.userId = JSON.parse(this.userId);
+    this.orderObject.clientId = +this.userId.id;
     this.getLocationByuserId(+this.userId.id);
-    this.getPaymentList();
     this.getWorkingHours();
     this.setCalendarLimits();
     this.contractDetails = JSON.parse(this.contractDetails);
+    console.log(this.contractDetails);
+    this.contractName = localStorage.getItem('contractName');
+    this.contractName = JSON.parse(this.contractName);
+
     this.getPackagesListById(this.packageId);
+    this.orderObject.packageId = this.packageId;
     this.selectedLang = this.languageService.translationService.currentLang;
     this.languageService.translationService.onLangChange.subscribe(() => {
       this.selectedLang = this.languageService.translationService.currentLang;
     });
+    console.log(this.orderObject);
+
   }
 
   getPackagesListById(packageId: string) {
@@ -83,6 +160,7 @@ export class PackageDetailsComponent {
       this.packageDetails = item.data;
       this.packageDetails.couponPrice = 0;
       this.packageDetails.couponDiscount = 0;
+      this.orderObject.orderTotal = item.data.price;
     });
     console.log(this.packageDetails);
 
@@ -100,11 +178,13 @@ export class PackageDetailsComponent {
 
   onLocationChange(data: any) {
     console.log(data);
+    this.orderObject.locationId = data.value.locationId;
+    console.log(this.orderObject);
   }
 
   checkCoupon() {
     if (this.coupon) {
-      this.ApiService.get(`Copone/Verfiy/${this.coupon}`).subscribe((loc: any) => {
+      this.ApiService.get(`Copone/Verfiy/${this.coupon}/${+this.userId.id}`).subscribe((loc: any) => {
         console.log(loc);
         this.invalidCoupn = false;
         this.validCoupon = true;
@@ -112,7 +192,7 @@ export class PackageDetailsComponent {
         this.discountType = loc.data.coponeType;
         this.packageDetails.couponPrice = 0;
         this.packageDetails.couponDiscount = 0;
-        if (loc.data.coponeType == 1) {
+        if (loc.data.offerType == 1) {
           this.packageDetails.couponDiscount = loc.data.amount;
           this.packageDetails.couponPrice = this.calculateSalePrice(this.packageDetails.price, loc.data.amount);
         } else {
@@ -134,18 +214,26 @@ export class PackageDetailsComponent {
     return originalPrice - (originalPrice * discountPercentage) / 100;
   }
 
-  getPaymentList() {
-    this.ApiService.get(`PaymentWay/GetAll`).subscribe((pay: any) => {
-      console.log(pay);
-      this.paymentList = pay.data.map((item: any) => ({
-        ...item,
-        finalPayment: `${item.enName}-${item.arName}`,
-      }));
-    })
-  }
+  // getPaymentList() {
+  //   // this.ApiService.get(`PaymentWay/GetAll`).subscribe((pay: any) => {
+  //   //   console.log(pay);
+  //   //   this.paymentList = pay.data.map((item: any) => ({
+  //   //     ...item,
+  //   //     finalPayment: `${item.enName}-${item.arName}`,
+  //   //   }));
+  //   // })
+  //   console.log( this.paymentList);
+
+  //  this.paymentList.map((item: any) => ({
+  //     finalPayment: `${item.enName}-${item.arName}`,
+  //   }));
+
+  //   console.log( this.paymentList);
+  // }
 
   onPaymentChange(e: any) {
-    console.log(e);
+    this.orderObject.paymentWayId = e.value.paymentId;
+    console.log(this.orderObject);
   }
 
   getWorkingHours() {
@@ -159,11 +247,14 @@ export class PackageDetailsComponent {
   }
 
   onWorkingHoursChange(e: any) {
-    console.log(e);
+    console.log(e.value.workTimeId);
+    this.orderObject.vistTimeId = e.value.workTimeId;
+    console.log(this.orderObject);
+
   }
 
   setCalendarLimits() {
-    if (this.contractDetails.contractTypeId == 28) {
+    if (this.contractDetails.packageType == 2) {
       this.minDate = new Date();
       this.minDate.setDate(this.minDate.getDate() + 1);
 
@@ -180,16 +271,23 @@ export class PackageDetailsComponent {
 
   validateMinDates() {
     let validationValue = 0;
-    console.log(this.contractDetails.contractTypeId);
-    if (this.contractDetails.contractTypeId == 28) {
-       validationValue =  Math.ceil(( this.packageDetails.visitNumber / 4 ) );
-       console.log(validationValue);
-       if (this.dates.length < validationValue) {
+    // packageType
+    console.log(this.packageDetails);
+
+    console.log(this.contractDetails);
+    if (this.contractDetails[0].packageType == 2) {
+      validationValue = Math.ceil((this.packageDetails.visitNumber / 4));
+      console.log(validationValue);
+      if (this.dates.length < validationValue) {
         this.errorMessage = `You must select at least ${validationValue} dates.`;
         this.isDateInvalid = true;
       } else {
         this.isDateInvalid = false;
         this.errorMessage = '';
+        this.isoDates = this.dates.map((date: any) => date.toISOString());
+        console.log(this.isoDates);
+        this.orderObject.scheduleDates = (this.isoDates);
+
       }
 
     } else {
@@ -207,28 +305,78 @@ export class PackageDetailsComponent {
   }
 
   onSelect(event: any): void {
-    const files = event.currentFiles; // Array of selected files
+    const files = event.currentFiles;
     console.log(files);
 
+    this.uploadedFiles.length = 0;
     const promises = files.map((file: File) => {
       return this.convertFileToBase64(file).then((base64String: string) => ({
         src: base64String,
         mediaTypeEnum: file.type.startsWith('image/') ? 1 : file.type.startsWith('video/') ? 2 : 0,
+        fileName: file.name
       }));
     });
 
     Promise.all(promises)
       .then((processedFiles) => {
-        console.log(processedFiles); // Final processed array
-        this.uploadedFiles.push(...processedFiles); // Add to `uploadedFiles`
+        console.log(processedFiles);
+
+        this.uploadedFiles = processedFiles.filter(file => file.src !== '');
+
+        this.orderObject.media = [...this.uploadedFiles];
+
       })
       .catch((error) => {
         console.error('Error processing files:', error);
       });
   }
 
+  onRemove(data: any) {
+    this.orderObject.media.length = 0;
+    this.uploadedFiles = this.uploadedFiles.filter((item: any) => item.fileName !== data.file.name);
+    this.orderObject.media = [...this.uploadedFiles];
+  }
+
+  onClear() {
+    this.orderObject.media.length = 0;
+  }
+
+
+
+
   clearMedia() {
     this.uploadedFiles.length = 0;
   }
+
+  API_addLocation(payload: any) {
+    this.ApiService
+      .post('Location/Create', payload)
+      .subscribe((res) => {
+        if (res) {
+          this.getLocationByuserId(+this.userId.id);
+        }
+      });
+  }
+
+  onAddLocation(formValue: any) {
+    this.API_addLocation(formValue)
+    this.showAddLocationDialog = false
+  }
+
+  addLocation() {
+    this.showAddLocationDialog = true
+  }
+
+
+  createOrder() {
+    this.orderObject.notes = this.noteValue;
+    console.log(this.orderObject);
+    this.ApiService.post('Order/Create' ,this.orderObject).subscribe((res: any) => {
+      console.log(res);
+      const orderId = res.data.orderId;
+          window.location.href = `https://aspng.matlop.com/payment/creditcardweb?orderid=${orderId}`;
+    })
+  }
+
 
 }
