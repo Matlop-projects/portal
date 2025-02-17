@@ -205,7 +205,22 @@
     "INSTRUCTION": "التعليمات",
     "CONTRACT_TYPE" : "نوع العقد",
     "DiscountAmount": "مبلغ الخصم",
-    "PriceAfterDiscount" : "السعر بعد الخصم"
+    "PriceAfterDiscount" : "السعر بعد الخصم",
+    "DETAILS": "تفاصيل الباقة",
+    "LOCATION": "الموقع",
+    "COUPON": "القسيمة",
+    "ADD_COUPON": "أضف قسيمة",
+    "PAYMENT_LIST": "قائمة الدفع",
+    "SELECT_PAYMENT": "اختيار وسيلة الدفع",
+    "VISIT_TIME": "وقت الزيارة",
+    "SELECT_VISIT_TIME": "اختيار وقت الزيارة",
+    "VISIT_DATE": "تاريخ الزيارة",
+    "NOTES": "ملاحظات",
+    "UPLOAD_MEDIA": "رفع الوسائط",
+    "DRAG_AND_DROP_FILES": "اسحب الملفات وأفلتها هنا للتحميل.",
+    "CREATE_ORDER": "إنشاء طلب",
+    "SELECT_LOCATION": "اختيار موقع"
+
   },
   "RESERVATION": {
     "BACK": "رجوع",

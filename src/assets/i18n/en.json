@@ -207,7 +207,21 @@
     "INSTRUCTION": "Instruction",
     "CONTRACT_TYPE" : "Contract Type",
     "DiscountAmount": "Discount Amount",
-    "PriceAfterDiscount" : "Price after Discount"
+    "PriceAfterDiscount" : "Price after Discount",
+    "DETAILS": "Package Details",
+    "COUPON": "Coupon",
+    "ADD_COUPON": "Add Coupon",
+    "PAYMENT_LIST": "Payment List",
+    "SELECT_PAYMENT": "Select a Payment",
+    "VISIT_TIME": "Visit Time",
+    "SELECT_VISIT_TIME": "Select a Visit time",
+    "VISIT_DATE": "Visit Date",
+    "NOTES": "Notes",
+    "UPLOAD_MEDIA": "Upload Media",
+    "DRAG_AND_DROP_FILES": "Drag and drop files here to upload.",
+    "CREATE_ORDER": "Create Order",
+    "SELECT_LOCATION": "Select a Location"
+
   },
   "RESERVATION": {
     "BACK": "Back",

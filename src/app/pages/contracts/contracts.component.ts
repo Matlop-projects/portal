@@ -42,7 +42,7 @@ export class ContractsComponent {
   goNext(contractId: string) {
     const contractDetails = this.contractList.find((contract: any) => contract.contractTypeId === contractId);
 
-    localStorage.setItem('contractDetails' , JSON.stringify(contractDetails));
-    this.contractSelected.emit(contractId); // Emit the event when a contract card is clicked
+    localStorage.setItem('contractName' , JSON.stringify(contractDetails));
+    this.contractSelected.emit(contractId);
   }
 }

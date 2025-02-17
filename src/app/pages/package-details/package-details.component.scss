@@ -181,7 +181,7 @@ form {
   }
 
   .location {
-    background-color: rgb(246 246 246);
+    // background-color: rgb(246 246 246);
     padding: 5px;
     border-radius: 5px;
 
@@ -234,4 +234,19 @@ form {
     width: 100% !important;
     margin: auto !important;
   }
+}
+
+
+.pay-btn {
+  margin-top: 50px;
+    margin-bottom: 20px;
+    color: white;
+    border: none;
+    background: #0c3ecc;
+    padding: 10px;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #3c6bed;
+    }
 }
