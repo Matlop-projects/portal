@@ -26,7 +26,6 @@ export class ApiService {
   }
 
   post<T>(APIName: string, body: any ,options:IOptions={showAlert:false,message:''}): Observable<T> {
-    console.log(body);
 
     return this.http
       .post(`${baseUrl}${APIName}`, body)

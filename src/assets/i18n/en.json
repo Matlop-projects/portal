@@ -220,7 +220,13 @@
     "UPLOAD_MEDIA": "Upload Media",
     "DRAG_AND_DROP_FILES": "Drag and drop files here to upload.",
     "CREATE_ORDER": "Create Order",
-    "SELECT_LOCATION": "Select a Location"
+    "SELECT_LOCATION": "Select a Location",
+    "VALIDATION": {
+      "SHCEDULE": "Please select schedule dates.",
+      "PAYMENT": "Please select a payment method.",
+      "LOCATION": "Please select a location.",
+      "VISTI_TIME": "Please select a visit time."
+    }
 
   },
   "RESERVATION": {

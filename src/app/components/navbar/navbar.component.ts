@@ -26,7 +26,7 @@ isMenuOpen = false;
   toaster = inject(ToasterService);
 
   menuItems = [
-    { path: '/home', label: 'menuItems.home' }, 
+    { path: '/home', label: 'menuItems.home' },
     { path:'/services/list',label:'menuItems.services'},
     // { path: '/about', label: 'menuItems.aboutUs' },
     // { path: '/contact', label: 'menuItems.contactUs' }
@@ -37,7 +37,7 @@ isMenuOpen = false;
   ngOnInit(): void {
     this.primeng.ripple.set(true);
     this.initAppTranslation();
-    console.log('----this.profileImg---',this.profileImg)
+    // console.log('----this.profileImg---',this.profileImg)
   }
 
   public initAppTranslation() {
