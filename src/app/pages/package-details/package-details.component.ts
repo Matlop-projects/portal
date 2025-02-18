@@ -114,13 +114,13 @@ export class PackageDetailsComponent {
 
   orderObject: any = {
     clientId: 0,
-    paymentWayId: 0,
+    paymentWayId: null,
     media: [{ src: '', mediaTypeEnum: 0 }],
     notes: "",
     packageId: 0,
     coponeId: null,
-    locationId: 0,
-    vistTimeId: 0,
+    locationId: null,
+    vistTimeId: null,
     orderSubTotal: 0,
     orderTotal: 0,
     scheduleDates: []
@@ -150,8 +150,6 @@ export class PackageDetailsComponent {
     this.languageService.translationService.onLangChange.subscribe(() => {
       this.selectedLang = this.languageService.translationService.currentLang;
     });
-    console.log(this.orderObject);
-
   }
 
   getPackagesListById(packageId: string) {
@@ -162,13 +160,10 @@ export class PackageDetailsComponent {
       this.packageDetails.couponDiscount = 0;
       this.orderObject.orderTotal = item.data.price;
     });
-    console.log(this.packageDetails);
-
   }
 
   getLocationByuserId(userId: number) {
     this.ApiService.get(`Location/GetByuserId/${userId}`).subscribe((loc: any) => {
-      console.log(loc);
       this.locationList = loc.data.map((item: any) => ({
         ...item,
         finalLocation: `${item.countryName}-${item.cityName}-${item.districtName}`,
@@ -177,15 +172,12 @@ export class PackageDetailsComponent {
   }
 
   onLocationChange(data: any) {
-    console.log(data);
     this.orderObject.locationId = data.value.locationId;
-    console.log(this.orderObject);
   }
 
   checkCoupon() {
     if (this.coupon) {
       this.ApiService.get(`Copone/Verfiy/${this.coupon}/${+this.userId.id}`).subscribe((loc: any) => {
-        console.log(loc);
         this.invalidCoupn = false;
         this.validCoupon = true;
         this.toaster.successToaster('Coupon Addedd Successfully');
@@ -233,12 +225,10 @@ export class PackageDetailsComponent {
 
   onPaymentChange(e: any) {
     this.orderObject.paymentWayId = e.value.paymentId;
-    console.log(this.orderObject);
   }
 
   getWorkingHours() {
     this.ApiService.get(`WorkingTime/GetAll`).subscribe((hours: any) => {
-      console.log(hours);
       this.workingHoursList = hours.data.map((item: any) => ({
         ...item,
         finalWorking: `${new Date(item.startDate).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} - ${new Date(item.endDate).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`
@@ -247,10 +237,7 @@ export class PackageDetailsComponent {
   }
 
   onWorkingHoursChange(e: any) {
-    console.log(e.value.workTimeId);
     this.orderObject.vistTimeId = e.value.workTimeId;
-    console.log(this.orderObject);
-
   }
 
   setCalendarLimits() {
@@ -285,13 +272,15 @@ export class PackageDetailsComponent {
         this.isDateInvalid = false;
         this.errorMessage = '';
         this.isoDates = this.dates.map((date: any) => date.toISOString());
-        console.log(this.isoDates);
         this.orderObject.scheduleDates = (this.isoDates);
 
       }
 
     } else {
-
+      this.isDateInvalid = false;
+      this.errorMessage = '';
+      this.isoDates = this.dates.map((date: any) => date.toISOString());
+      this.orderObject.scheduleDates = (this.isoDates);
     }
   }
 
@@ -367,15 +356,24 @@ export class PackageDetailsComponent {
     this.showAddLocationDialog = true
   }
 
-
   createOrder() {
-    this.orderObject.notes = this.noteValue;
-    console.log(this.orderObject);
-    this.ApiService.post('Order/Create' ,this.orderObject).subscribe((res: any) => {
-      console.log(res);
-      const orderId = res.data.orderId;
-          window.location.href = `https://aspng.matlop.com/payment/creditcardweb?orderid=${orderId}`;
-    })
+    if (this.orderObject.locationId == null) {
+      this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.LOCATION'));
+    } else if (this.orderObject.paymentWayId == null) {
+      this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.PAYMENT'));
+    } else if(this.orderObject.vistTimeId == null) {
+      this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.VISTI_TIME'));
+    } else  if(this.orderObject.scheduleDates.length == 0) {
+      this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.SHCEDULE'));
+    }  else {
+      this.orderObject.notes = this.noteValue;
+      console.log(this.orderObject);
+      this.ApiService.post('Order/Create' ,this.orderObject).subscribe((res: any) => {
+        console.log(res);
+        const orderId = res.data.orderId;
+            window.location.href = `https://aspng.matlop.com/payment/creditcardweb?orderid=${orderId}`;
+      })
+    }
   }
 
 

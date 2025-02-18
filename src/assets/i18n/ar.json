@@ -219,7 +219,13 @@
     "UPLOAD_MEDIA": "رفع الوسائط",
     "DRAG_AND_DROP_FILES": "اسحب الملفات وأفلتها هنا للتحميل.",
     "CREATE_ORDER": "إنشاء طلب",
-    "SELECT_LOCATION": "اختيار موقع"
+    "SELECT_LOCATION": "اختيار موقع",
+    "VALIDATION": {
+      "SHCEDULE": "يرجى تحديد تاريخ الزيارة.",
+      "PAYMENT": "يرجى تحديد طريقة الدفع.",
+      "LOCATION": "يرجى تحديد الموقع.",
+      "VISTI_TIME": "يرجى تحديد وقت الزيارة."
+    }
 
   },
   "RESERVATION": {

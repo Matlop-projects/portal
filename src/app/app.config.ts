@@ -7,7 +7,7 @@ import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common
 import { authInterceptor } from './core/basic-auth.interceptor';
 import { errorInterceptor } from './core/error.interceptor';
 import { spinnerInterceptor } from './core/spinner.interceptor';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ToasterService } from './services/toaster.service';
@@ -47,7 +47,7 @@ export const appConfig: ApplicationConfig = {
         },
       }
     }),
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
     importProvidersFrom([
       TranslateModule.forRoot({
         loader: {
