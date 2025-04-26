@@ -3,6 +3,49 @@
     .content {
       margin-block: 30px;
 
+      .equipments-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .equipment-card {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        i {
+          font-size: 12px;
+          color: black;
+        }
+
+        p {
+          color: black !important;
+        }
+
+        &.selected {
+          background-color: #10b981;
+          color: white;
+          border-color: #10b981;
+
+          i {
+            font-size: 12px;
+            color: white;
+          }
+
+          p {
+            color: white !important;
+          }
+        }
+      }
+
       .red-mark {
         color: red;
       }

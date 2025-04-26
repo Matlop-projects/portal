@@ -220,6 +220,7 @@
     "DRAG_AND_DROP_FILES": "اسحب الملفات وأفلتها هنا للتحميل.",
     "CREATE_ORDER": "إنشاء طلب",
     "SELECT_LOCATION": "اختيار موقع",
+    "equipments": "المعدات",
     "VALIDATION": {
       "SHCEDULE": "يرجى تحديد تاريخ الزيارة.",
       "PAYMENT": "يرجى تحديد طريقة الدفع.",

@@ -23,7 +23,7 @@ interface UploadedFile {
 @Component({
   selector: 'app-package-details',
   standalone: true,
-  imports: [TranslatePipe, NgIf, Dialog, AddLocationComponent, Select, FileUpload, TextareaModule, FormsModule, DatePicker, InputTextModule, NgClass],
+  imports: [TranslatePipe, NgIf, NgFor, Dialog, AddLocationComponent, Select, FileUpload, TextareaModule, FormsModule, DatePicker, InputTextModule, NgClass],
   templateUrl: './package-details.component.html',
   styleUrl: './package-details.component.scss'
 })
@@ -123,11 +123,13 @@ export class PackageDetailsComponent {
     vistTimeId: null,
     orderSubTotal: 0,
     orderTotal: 0,
-    scheduleDates: []
+    scheduleDates: [],
+    orderEquipments: []
   }
 
   contractName: any;
   isoDates: any;
+  equipments: any[] = [];
 
 
   ngOnInit(): void {
@@ -137,6 +139,8 @@ export class PackageDetailsComponent {
     this.userId = JSON.parse(this.userId);
     this.orderObject.clientId = +this.userId.id;
     this.getLocationByuserId(+this.userId.id);
+
+    this.getEquipmentsList(this.packageId);
     this.getWorkingHours();
     this.setCalendarLimits();
     this.contractDetails = JSON.parse(this.contractDetails);
@@ -361,19 +365,53 @@ export class PackageDetailsComponent {
       this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.LOCATION'));
     } else if (this.orderObject.paymentWayId == null) {
       this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.PAYMENT'));
-    } else if(this.orderObject.vistTimeId == null) {
+    } else if (this.orderObject.vistTimeId == null) {
       this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.VISTI_TIME'));
-    } else  if(this.orderObject.scheduleDates.length == 0) {
+    } else if (this.orderObject.scheduleDates.length == 0) {
       this.toaster.errorToaster(this.languageService.translate('PACKAGE_DETAILS.VALIDATION.SHCEDULE'));
-    }  else {
+    } else {
       this.orderObject.notes = this.noteValue;
       console.log(this.orderObject);
-      this.ApiService.post('Order/Create' ,this.orderObject).subscribe((res: any) => {
+      this.ApiService.post('Order/Create', this.orderObject).subscribe((res: any) => {
         console.log(res);
         const orderId = res.data.orderId;
-            window.location.href = `https://aspng.matlop.com/payment/creditcardweb?orderid=${orderId}`;
+        window.location.href = `https://aspng.matlop.com/payment/creditcardweb?orderid=${orderId}`;
       })
     }
+  }
+
+
+  getEquipmentsList(packageId: any) {
+    this.ApiService.get(`Equipment/GetByPackageId/${packageId}`).subscribe((res: any) => {
+      console.log(res);
+
+      this.equipments = res.data.map((item: any) => ({
+        ...item,
+        status: false  // ✅ Add status property
+      }));
+
+      console.log(this.equipments); // Now it will have status: false
+    });
+  }
+
+  selectedEquipments: { equipmentId: number }[] = []; // declare at top of your TS file
+
+  toggleStatus(equipment: any) {
+    equipment.status = !equipment.status;
+
+    // After toggling, regenerate the selectedEquipments array
+    this.selectedEquipments = this.equipments
+      .filter((item: any) => item.status)
+      .map((item: any) => ({
+        equipmentId: item.equipmentId,
+        orderEquipmentId: 0,
+        orderId: 0,
+      }));
+
+    console.log(this.selectedEquipments); // check in console
+    this.orderObject.orderEquipments = this.selectedEquipments;
+    console.log(this.orderObject);
+
   }
 
 

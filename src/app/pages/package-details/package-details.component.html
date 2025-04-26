@@ -86,6 +86,26 @@
 
       <div class="section-one-content-details mt-3">
         <div class="">
+          <p><i class="pi pi-sort-down-fill"></i>   {{ 'PACKAGE_DETAILS.equipments' | translate }}</p>
+
+          <div class="desc mt-2">
+            <div class="equipments-container">
+              <div
+                *ngFor="let equipment of equipments"
+                class="equipment-card"
+                [ngClass]="{ 'selected': equipment.status }"
+                (click)="toggleStatus(equipment)"
+              >
+              <i class="pi pi-plus"></i>
+              <p>  {{ selectedLang === 'ar' ? equipment.arName : equipment.enName }}</p>
+              </div>
+            </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="section-one-content-details mt-3">
+        <div class="">
           <p><i class="pi pi-sort-down-fill"></i> {{ 'PACKAGE_DETAILS.DESCRIPTION' | translate }}</p>
 
           <div class="desc mt-2">
@@ -114,7 +134,8 @@
               <label>{{ 'PACKAGE_DETAILS.LOCATION' | translate }} <span class="red-mark">*</span></label>
               <div class="location-select">
                 <p-select [options]="locationList" [(ngModel)]="locationSelect" (onChange)="onLocationChange($event)"
-                  optionLabel="finalLocation" placeholder="{{ 'PACKAGE_DETAILS.SELECT_LOCATION' | translate }}" class="w-full md:w-56" />
+                  optionLabel="finalLocation" placeholder="{{ 'PACKAGE_DETAILS.SELECT_LOCATION' | translate }}"
+                  class="w-full md:w-56" />
                 <button (click)="addLocation()">+</button>
               </div>
             </div>
@@ -134,13 +155,14 @@
           <div class="col-lg-6 col-md-6 col-sm-12">
             <label>{{ 'PACKAGE_DETAILS.PAYMENT_LIST' | translate }} <span class="red-mark">*</span></label>
             <p-select [options]="paymentList" [(ngModel)]="paymentSelect" (onChange)="onPaymentChange($event)"
-              optionLabel="finalPayment" placeholder="{{ 'PACKAGE_DETAILS.SELECT_PAYMENT' | translate }}" class="w-full md:w-56" />
+              optionLabel="finalPayment" placeholder="{{ 'PACKAGE_DETAILS.SELECT_PAYMENT' | translate }}"
+              class="w-full md:w-56" />
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
             <label>{{ 'PACKAGE_DETAILS.VISIT_TIME' | translate }} <span class="red-mark">*</span></label>
             <p-select [options]="workingHoursList" [(ngModel)]="workingHoursSelect"
-              (onChange)="onWorkingHoursChange($event)" optionLabel="finalWorking" placeholder="{{ 'PACKAGE_DETAILS.SELECT_VISIT_TIME' | translate }}"
-              class="w-full md:w-56" />
+              (onChange)="onWorkingHoursChange($event)" optionLabel="finalWorking"
+              placeholder="{{ 'PACKAGE_DETAILS.SELECT_VISIT_TIME' | translate }}" class="w-full md:w-56" />
           </div>
         </div>
         <div class="row mt-4">
@@ -163,8 +185,8 @@
         <div class="row mt-4">
           <div class="col-lg-12 date-picker">
             <label>{{ 'PACKAGE_DETAILS.UPLOAD_MEDIA' | translate }}</label>
-            <p-fileupload (onSelect)="onSelect($event)" (onClear)="onClear()" (onRemove)="onRemove($event)" (onClear)="clearMedia()" [multiple]="true"
-              accept="image/*,video/*" maxFileSize="3000000" mode="advanced">
+            <p-fileupload (onSelect)="onSelect($event)" (onClear)="onClear()" (onRemove)="onRemove($event)"
+              (onClear)="clearMedia()" [multiple]="true" accept="image/*,video/*" maxFileSize="3000000" mode="advanced">
               <ng-template #empty>
                 <div>{{ 'PACKAGE_DETAILS.DRAG_AND_DROP_FILES' | translate }}</div>
               </ng-template>
@@ -182,6 +204,7 @@
     </div>
   </div>
 </div>
-<p-dialog header="{{'location.add_location'|translate}}" [modal]="true" [(visible)]="showAddLocationDialog" [style]="{ width: '25rem' }">
+<p-dialog header="{{'location.add_location'|translate}}" [modal]="true" [(visible)]="showAddLocationDialog"
+  [style]="{ width: '25rem' }">
   <app-add-location (value)="onAddLocation($event)"></app-add-location>
 </p-dialog>

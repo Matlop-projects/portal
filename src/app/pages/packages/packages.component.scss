@@ -2,6 +2,14 @@
   .packages-container {
     padding-bottom: 25px;
 
+    .search-input {
+      display: flex;
+      justify-content: center;
+      p-select {
+        width: 50%;
+      }
+    }
+
     .content {
       max-height: 500px;
       overflow: auto;

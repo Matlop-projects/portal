@@ -221,6 +221,7 @@
     "DRAG_AND_DROP_FILES": "Drag and drop files here to upload.",
     "CREATE_ORDER": "Create Order",
     "SELECT_LOCATION": "Select a Location",
+    "equipments": "Equipments",
     "VALIDATION": {
       "SHCEDULE": "Please select schedule dates.",
       "PAYMENT": "Please select a payment method.",
